@@ -8,7 +8,7 @@ This is just under development.
 英語が怪しいので日本語も使えるようにする予定です。  
 [CYF 0.6.5](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases)で動かしてください。他verでは未確認です。  
 
-# Credits
+# Credits (honorifics omitted/敬称略)
 [UNDERTALE](https://undertale.jp/) by Toby Fox  
 [Underfell](https://underfell.tumblr.com/) by Vic and AU Community  
 [Storyshift](https://ut-storyshift.tumblr.com/) by voltrathelively  
