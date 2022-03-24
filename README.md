@@ -1,16 +1,22 @@
 # A.N.G.E.L.O.V.A.N.I.A
 This is a CYF 0.6.5 mod and you can fight against Storyfell-Chara.  
 Please note dialogues may be wrong because I'm Japanese and I'm not good at English.  
-This mod requires CYF 0.6.5.  
-This is under development.  
+This mod requires [CYF 0.6.5](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases).  
+This is just under development.  
+  
+作りかけのStoryfellのChara戦Modです。  
+英語が怪しいので日本語も使えるようにする予定です。  
+[CYF 0.6.5](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases)で動かしてください。他verでは未確認です。  
 
 # Credits
-UNDERTALE by Toby Fox  
-Underfell by Vic and AU Community  
-Storyshift by voltrathelively  
-Facing Demons/DEVILOVANIA by Vladimir Ignitio  
-Storyfell by AlexProxy12 and AU Community  
+[UNDERTALE](https://undertale.jp/) by Toby Fox  
+[Underfell](https://underfell.tumblr.com/) by Vic and AU Community  
+[Storyshift](https://ut-storyshift.tumblr.com/) by voltrathelively  
+[Facing Demons/DEVILOVANIA](https://gamejolt.com/games/igb_dv/343813) by Vladimir Ignitio  
+[Storyfell](https://storyfell-alternate-universe.tumblr.com/) by AlexProxy12 and AU Community  
 
-BGM:A.U.T.O.P.H.O.B.I.A by LanoR  
-&emsp;&emsp;A.N.G.E.L.O.V.A.N.I.A by Valor Genesect   
-&emsp;&emsp;Azimuth by 夢開拓 (version 2)  
+[Create Your Frisk](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases) by RhenaudTheLukark
+
+BGM:[A.U.T.O.P.H.O.B.I.A](https://soundcloud.com/l4n0r/fellshift-autophobia) by LanoR  
+&emsp;&emsp;[A.N.G.E.L.O.V.A.N.I.A](https://youtu.be/RBGBV7Ash8c) by Valor Genesect   
+&emsp;&emsp;[Azimuth](https://youtu.be/RN0CvYlXoDo) by 夢開拓 (version 2)  
