@@ -29,6 +29,10 @@ deathtext = {
 Inventory.AddCustomItems({"Lasagna","Tea","SnowPiece","L. Hero","Steak"},{0,0,0,0,0})
 Inventory.SetInventory({"Lasagna","SnowPiece","SnowPiece","SnowPiece","Tea","Steak","L. Hero","L. Hero"})
 
+if windows then
+  Misc.WindowName = "A.N.G.E.L.O.V.A.N.I.A -Unofficial Storyfell Chara Fight"
+end
+
 function EncounterStarting()
   Audio.Stop()
   State("ENEMYDIALOGUE")

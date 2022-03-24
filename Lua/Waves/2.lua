@@ -43,6 +43,11 @@ end
 
 function RandomShot(frame)
   if offset == 0 then
+    for i=1,#knives do
+      if knives[i].isactive then
+        knives[i].Remove()
+      end
+    end
     index = {}
     knives = {}
     emers = {isactive = false}
