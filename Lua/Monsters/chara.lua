@@ -36,7 +36,7 @@ currentdialogue = {
   "Well, it's a\nterrible day outside.",
   "Birds are dying, \nflowers are withering, \ndusts are scattering...",
   "On days like these, \nANGELS like us...",
-  "Have a GREAT TIME.",
+  "have a GREAT TIME.",
   "[color:ff0000][effect:rotate][noskip][voice:v_floweymad]THEN, LET'S GO, \nANOTHER KILLER!",
   "[func:State,DEFENDING][noskip]",
 }
@@ -54,7 +54,7 @@ function HandleAttack(damage)
     turn = turn + 1
     --turnの値によってメッセージを変える
     if turn == 1 then
-      Encounter.SetVar("nextwaves",{"opening"})
+      Encounter.SetVar("nextwaves",{"1"})
       currentdialogue = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'} --何かしたとき吹き出しに特別に表示されるテキスト
       -- currentdialogue = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'} --何かしたとき吹き出しに特別に表示されるテキスト
     end
