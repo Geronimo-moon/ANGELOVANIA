@@ -23,25 +23,25 @@ prayed = 0 --回復回数の計測
 
 randomdialogue = {"[next]"}
 
-currentdialogue = {
-  "Howdy.",
-  "So, finally, \nyou accepted \nour motto.",
-  "Why did you choose \nthat way now?",
-  "Many other timelines,\nyou showed us \nawesome endings,\nwithout killing.",
-  "That's true \nwe believed \nthe motto that \n'It's kill or be killed'.",
-  "But...\nonce see that \npeaceful ending...",
-  "*sigh*",
-  "Yes, Rei...\nthey're angel.",
-  "The angel \ngiving us a DEATH...",
-  "Well, it's a\nterrible day outside.",
-  "Birds are dying, \nflowers are withering, \ndusts are scattering...",
-  "On days like these, \nANGELS like us...",
-  "have a GREAT TIME.",
-  "[color:ff0000][effect:rotate][noskip][voice:v_floweymad]THEN, LET'S GO, \nANOTHER KILLER!",
-  "[func:State,DEFENDING][noskip]",
-}
+-- currentdialogue = {
+--   "Howdy.",
+--   "So, finally, \nyou accepted \nour motto.",
+--   "Why did you choose \nthat way now?",
+--   "Many other timelines,\nyou showed us \nawesome endings,\nwithout killing.",
+--   "That's true \nwe believed \nthe motto that \n'It's kill or be killed'.",
+--   "But...\nonce see that \npeaceful ending...",
+--   "*sigh*",
+--   "Yes, Rei...\nthey're angel.",
+--   "The angel \ngiving us a DEATH...",
+--   "Well, it's a\nterrible day outside.",
+--   "Birds are dying, \nflowers are withering, \ndusts are scattering...",
+--   "On days like these, \nANGELS like us...",
+--   "have a GREAT TIME.",
+--   "[color:ff0000][effect:rotate][noskip][voice:v_floweymad]THEN, LET'S GO, \nANOTHER KILLER!",
+--   "[func:State,DEFENDING][noskip]",
+-- }
 
--- currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
+currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
 
 function HandleAttack(damage)
 -- プレイヤーが攻撃したとき
@@ -55,6 +55,10 @@ function HandleAttack(damage)
     --turnの値によってメッセージを変える
     if turn == 1 then
       Encounter.SetVar("nextwaves",{"1"})
+      currentdialogue = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'} --何かしたとき吹き出しに特別に表示されるテキスト
+      -- currentdialogue = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'} --何かしたとき吹き出しに特別に表示されるテキスト
+    elseif turn == 2 then
+      Encounter.SetVar("nextwaves",{"2"})
       currentdialogue = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'} --何かしたとき吹き出しに特別に表示されるテキスト
       -- currentdialogue = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'} --何かしたとき吹き出しに特別に表示されるテキスト
     end
