@@ -15,7 +15,7 @@ This is just under development.
 [Facing Demons/DEVILOVANIA](https://gamejolt.com/games/igb_dv/343813) by Vladimir Ignitio  
 [Storyfell](https://storyfell-alternate-universe.tumblr.com/) by AlexProxy12 and AU Community  
 
-[Create Your Frisk](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases) by RhenaudTheLukark
+[Create Your Frisk](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases) by RhenaudTheLukark  
 [Unitale日本語化パッケージ](http://www.mediafire.com/file/4854os5xvz0kihd/unitale_Japanese.zip/file) by Wtoro([explain](https://youtu.be/4LRU2k3iCJA) by プルトゥpultoo3s)
 
 BGM:[A.U.T.O.P.H.O.B.I.A](https://soundcloud.com/l4n0r/fellshift-autophobia) by LanoR  
