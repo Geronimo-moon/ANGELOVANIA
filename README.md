@@ -1,3 +1,10 @@
+# A.N.G.E.L.O.V.A.N.I.A
+This is a CYF 0.6.5 mod and you can fight against Storyfell-Chara.  
+Please note dialogues may be wrong because I'm Japanese and I'm not good at English.  
+This mod requires CYF 0.6.5.  
+This is under development.  
+
+# Credits
 UNDERTALE by Toby Fox
 Underfell by Vic and AU Community
 Storyshift by voltrathelively
