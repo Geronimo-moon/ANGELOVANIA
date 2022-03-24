@@ -12,5 +12,5 @@ Facing Demons/DEVILOVANIA by Vladimir Ignitio
 Storyfell by AlexProxy12 and AU Community  
 
 BGM:A.U.T.O.P.H.O.B.I.A by LanoR  
-&emsp;&emsp;&emsp;&emsp;A.N.G.E.L.O.V.A.N.I.A by Valor Genesect   
-&emsp;&emsp;&emsp;&emsp; Azimuth by 夢開拓 (version 2)  
+&emsp;&emsp;A.N.G.E.L.O.V.A.N.I.A by Valor Genesect   
+&emsp;&emsp;Azimuth by 夢開拓 (version 2)  
