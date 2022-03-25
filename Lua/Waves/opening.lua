@@ -432,7 +432,8 @@ function Update()
   if frame == 500 and not died then
     EndWave()
     local enm = Encounter.GetVar("enemies")
-    enm[1].SetVar("currentdialogue",{"I'm glad that \nyou're still alive.","[color:ff0000][effect:rotate][noskip][voice:v_floweymad]I CAN MAKE YOU \nSUFFER AS HARD\nAS YOU CAN!","[func:Autophobia][func:State,ACTIONSELECT][noskip]"})
+    enm[1].SetVar("currentdialogue",{"I'm glad that \nyou're still alive.","[color:ff0000][effect:rotate][noskip][voice:v_floweymad]I CAN MAKE YOU \nSUFFER AS HARD\nAS I CAN!","[func:State,ACTIONSELECT][noskip]"})
+    -- enm[1].SetVar("currentdialogue",{"[font:det_jp_mini]いきのこったようで\nなによりだ.","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]これでもっと\nきみを\nくるしめられる!","[func:State,ACTIONSELECT][noskip]"})
     State("ENEMYDIALOGUE")
   end
 end
@@ -446,8 +447,4 @@ function OnHit(bullet)
     screen999 = list[1]
     deathtime = list[2]
   end
-end
-
-function Autophobia()
-  Audio.LoadFile('mus_aph')
 end

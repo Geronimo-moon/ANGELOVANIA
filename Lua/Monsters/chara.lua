@@ -23,25 +23,43 @@ prayed = 0 --回復回数の計測
 
 randomdialogue = {"[next]"}
 
-currentdialogue = {
-  "Howdy.",
-  "So, finally, \nyou accepted \nour motto.",
-  "Why did you choose \nthat way now?",
-  "Many other timelines,\nyou showed us \nawesome endings,\nwithout killing.",
-  "That's true \nwe believed \nthe motto that \n'It's kill or be killed'.",
-  "But...\nonce see that \npeaceful ending...",
-  "*sigh*",
-  "Yes, Rei...\nthey're angel.",
-  "The angel \ngiving us a DEATH...",
-  "Well, it's a\nterrible day outside.",
-  "Birds are dying, \nflowers are withering, \ndusts are scattering...",
-  "On days like these, \nANGELS like us...",
-  "have a GREAT TIME.",
-  "[color:ff0000][effect:rotate][noskip][voice:v_floweymad]THEN, LET'S GO, \nANOTHER KILLER!",
-  "[func:State,DEFENDING][noskip]",
-}
+-- currentdialogue = {
+--   "Howdy.",
+--   "So, finally, \nyou accepted \nour rule.",
+--   "Why did you choose \nthat way now?",
+--   "Many other timelines,\nyou showed us \nawesome endings,\nwithout killing.",
+--   "That's true \nwe believed \nthe motto that \n'It's kill or be killed'.",
+--   "But...\nonce see that \npeaceful ending...",
+--   "*sigh*",
+--   "Yes, Rei...\nthey're angel.",
+--   "The angel \ngiving us a DEATH...",
+--   "By the way, it's a\nterrible day outside.",
+--   "Birds are dying, \nflowers are withering, \ndusts are scattering...",
+--   "On days like these, \nhumans like us...",
+--   "have a GREAT TIME.",
+--   "[color:ff0000][effect:rotate][noskip][voice:v_floweymad]THEN, SHALL WE PLAY, \nANOTHER KILLER?",
+--   "[func:State,DEFENDING][func:Autophobia][noskip]",
+-- }
 
--- currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
+-- currentdialogue = {
+--   "[font:det_jp_mini]ハロー.",
+--   "[font:det_jp_mini]けっきょく,\nボクらのルールに\nしたがうことに\nしたんだね.",
+--   "[font:det_jp_mini]いまさら,\nどうしてだい?",
+--   "[font:det_jp_mini]たくさんのじかんじくで,\nだれもころさずに\nさいこうの\nエンディングに\nたどりついたのに.",
+--   "[font:det_jp_mini]'ころすか、ころされるか.'\nたしかにそう\nいいつづけてきたさ.",
+--   "[font:det_jp_mini]でも...\nあんなエンディングを\nしってしまったら...\nねぇ.",
+--   "[font:det_jp_mini](ためいき)",
+--   "[font:det_jp_mini]そうだね,アズ.\nこのニンゲンが\n'てんし'だったんだ.",
+--   "[font:det_jp_mini]てんしは\nてんしでも\n'し'をもたらす\n'てんし'だったけど.",
+--   "[font:det_jp_mini]まぁいいか.\nところで,\nきょうは\nサイアクなひじゃないか?",
+--   "[font:det_jp_mini]とりはしんで,\nはながかれていき,\nまうのはちりばかり.",
+--   "[font:det_jp_mini]こんなひには,\nボクらのような\nにんげんは...",
+--   "[font:det_jp_mini]せいぜい\nたのしもうじゃないか",
+--   "[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]はじめようか,\nもうひとりの\nさつじんきさん?",
+--   "[func:State,DEFENDING][func:Autophobia][noskip]",
+-- }
+
+currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
 
 function HandleAttack(damage)
 -- プレイヤーが攻撃したとき
@@ -61,6 +79,10 @@ function HandleAttack(damage)
       Encounter.SetVar("nextwaves",{"2"})
       currentdialogue = {'Always wondered \nwhy you can keep on\nbeing merciful \n for everyone.'} --何かしたとき吹き出しに特別に表示されるテキスト
       -- currentdialogue = {'[font:det_jp_mini]いつもおもってたんだ.\nなんできみは\nみんなにやさしく\nありつづけられるのかって.'} --何かしたとき吹き出しに特別に表示されるテキスト
+    elseif turn == 3 then
+      Encounter.SetVar("nextwaves",{"3"})
+      currentdialogue = {"I never met humans\nlike you, so \nI couldn't understand.","Well, finally\nyou're same as them,\nthough."}
+      -- currentdialogue = {'[font:det_jp_mini]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini]まあ,きみも\nおなじだった\nみたいだけど.'} --何かしたとき吹き出しに特別に表示されるテキスト
     end
   end
 end
@@ -73,10 +95,10 @@ end
 function HandleCustomCommand(command)
 -- ACTのコマンドの動作
   Encounter.SetVar("nextwaves",{"default"})
-  if command == "CHECK" then
+  if command == "CHECK" or command == "[FONT:DET_JP]ぶんせき" then
     BattleDialog({"Chara Dreemurr  LV ?","She lived thanks to \rDreemurr family.\n[color:ff0000]Now, No one would protect her."})
     -- BattleDialog({"[font:det_jp]キャラ ドリーマー  LV ?","[font:det_jp]ドリーマーけのおかげで\rいきのびた しにぞこない.\n[color:ff0000]すでに,まもってくれる\rモンスターはいない."})
-  elseif command == "PRAY" then
+  elseif command == "PRAY" or command == "[FONT:DET_JP]いのる" then
     if prayed == 0 then
       Player.Heal(20)
       BattleDialog({'You prayed. You recovered 20 HP.'})
