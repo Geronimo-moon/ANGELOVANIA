@@ -432,8 +432,13 @@ function Update()
   if frame == 500 and not died then
     EndWave()
     local enm = Encounter.GetVar("enemies")
-    enm[1].SetVar("currentdialogue",{"I'm glad that \nyou're still alive.","[color:ff0000][effect:rotate][noskip][voice:v_floweymad]I CAN MAKE YOU \nSUFFER AS HARD\nAS I CAN!","[func:State,ACTIONSELECT][noskip]"})
-    -- enm[1].SetVar("currentdialogue",{"[font:det_jp_mini]いきのこったようで\nなによりだ.","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]これでもっと\nきみを\nくるしめられる!","[func:State,ACTIONSELECT][noskip]"})
+    if Encounter.GetVar('japanese') then
+      enm[1].SetVar("currentdialogue",{"[font:det_jp_mini]いきのこったようで\nなによりだ.","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]これでもっと\nきみを\nくるしめられる!","[func:State,ACTIONSELECT][noskip]"})
+    else
+      enm[1].SetVar("currentdialogue",{"I'm glad that \nyou're still alive.","[color:ff0000][effect:rotate][noskip][voice:v_floweymad]I CAN MAKE YOU \nSUFFER AS HARD\nAS I CAN!","[func:State,ACTIONSELECT][noskip]"})
+    end
+    
+    -- 
     State("ENEMYDIALOGUE")
   end
 end

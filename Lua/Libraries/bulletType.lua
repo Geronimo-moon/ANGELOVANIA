@@ -76,6 +76,11 @@ end
 
 -- 被弾時の処理 出力…即死か否か
 function Hit(bullet)
+
+  if Encounter.GetVar('debugging') then
+    return
+  end
+
   local color = bullet.GetVar("color")
 -- 青攻撃・オレンジ攻撃の判定
   if color == "blue" then

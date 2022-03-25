@@ -1,17 +1,75 @@
 ---@diagnostic disable: undefined-global, lowercase-global
-comments = {"Chara laughed looking you're dodgeing.", "Chara doesn't looks tired."} --コメントのリスト
--- comments = {"[font:det_jp]キャラはあなたがよけるのをみてわらった.", "[font:det_jp]キャラはつかれたようにみえない."} --コメントのリスト
 
-commands = {"Check","Pray"} --ACT時のコマンド
--- commands = {"[font:det_jp]ぶんせき","[font:det_jp]いのる"} --ACT時のコマンド
+messages = {}
+
+if Encounter.GetVar("japanese") == true then
+  messages = {
+    comments = {"[font:det_jp]キャラはあなたがよけるのをみてわらった.", "[font:det_jp]キャラはつかれたようにみえない."},
+    commands = {"[font:det_jp]ぶんせき","[font:det_jp]いのる"},
+    name = "[font:det_jp]キャラ ドリーマー",
+    check = {"[font:det_jp]キャラ ドリーマー  LV ?\nドリーマーけのおかげで\rいきのびた しにぞこない.","[font:det_jp][color:ff0000]すでに,まもってくれる\rモンスターはいない."},
+    currentdialogue = {
+      "[font:det_jp_mini]ハロー.",
+      "[font:det_jp_mini]けっきょく,\nボクらのルールに\nしたがうことに\nしたんだね.",
+      "[font:det_jp_mini]いまさら,\nどうしてだい?",
+      "[font:det_jp_mini]たくさんのじかんじくで,\nだれもころさずに\nさいこうの\nエンディングに\nたどりついたのに.",
+      "[font:det_jp_mini]'ころすか、ころされるか.'\nたしかにそう\nいいつづけてきたさ.",
+      "[font:det_jp_mini]でも...\nあんなエンディングを\nしってしまったら...\nねぇ.",
+      "[font:det_jp_mini](ためいき)",
+      "[font:det_jp_mini]そうだね,アズ.\nこのニンゲンが\n'てんし'だったんだ.",
+      "[font:det_jp_mini]てんしは\nてんしでも\n'し'をもたらす\n'てんし'だったけど.",
+      "[font:det_jp_mini]まぁいいか.\nところで,\nきょうは\nサイアクなひじゃないか?",
+      "[font:det_jp_mini]とりはしんで,\nはながかれていき,\nまうのはちりばかり.",
+      "[font:det_jp_mini]こんなひには,\nボクらのような\nにんげんは...",
+      "[font:det_jp_mini]せいぜい\nたのしもうじゃないか",
+      "[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]はじめようか,\nもうひとりの\nさつじんきさん?",
+      "[func:State,DEFENDING][func:Autophobia][noskip]",
+    },
+    c0 = {"[font:det_jp_mini]なにをしているんだ?\n[font:det_jp_mini]あてられるか,\nためしてみなよ."},
+    c1 = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'},
+    c2 = {'[font:det_jp_mini]いつもおもってたんだ.\nなんできみは\nみんなにやさしく\nありつづけられるのかって.'},
+    c3 = {'[font:det_jp_mini]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini]まあ,きみも\nおなじだった\nみたいだけど.'},
+  }
+else
+  messages = {
+    comments = {"Chara laughed looking you're dodgeing.", "Chara doesn't looks tired."},
+    commands = {"Check","Pray"},
+    name = "Chara Dreemurr",
+    check = {"Chara Dreemurr  LV ?\nShe survived this world\r thanks to Dreemurr family.","[color:ff0000]Now, No one would protect her."},
+    currentdialogue = {
+      "Howdy.",
+      "So, finally, \nyou accepted \nour rule.",
+      "Why did you choose \nthat way now?",
+      "Many other timelines,\nyou showed us \nawesome endings,\nwithout killing.",
+      "That's true \nwe believed \nthe motto that \n'It's kill or be killed'.",
+      "But...\nonce see that \npeaceful ending...",
+      "*sigh*",
+      "Yes, Rei...\nthey're angel.",
+      "The angel \ngiving us a DEATH...",
+      "By the way, it's a\nterrible day outside.",
+      "Birds are dying, \nflowers are withering, \ndusts are scattering...",
+      "On days like these, \nhumans like us...",
+      "have a GREAT TIME.",
+      "[color:ff0000][effect:rotate][noskip][voice:v_floweymad]THEN, SHALL WE PLAY, \nANOTHER KILLER?",
+      "[func:State,DEFENDING][func:Autophobia][noskip]",
+    },
+    c0 = {"Hey, \nwhat are you doing?\nHit me \nif you're able."},
+    c1 = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'},
+    c2 = {'Always wondered \nwhy you can keep on\nbeing merciful \n for everyone.'},
+    c3 = {"I never met humans\nlike you, so \nI couldn't understand.","Well, finally\nyou're same as them,\nthough."},
+  }
+end
+
+comments = messages.comments --コメントのリスト
+
+commands = messages.commands --ACT時のコマンド
 
 cancheck = false --falseの時デフォルトのCHECKを削除する
 
 sprite = "chara_default" --スプライトの画像　
 dialogbubble = "rightwide" --吹き出しの形
 dialogueprefix = "" -- モンスターのテキストの初めに挿入
-name = "Chara Dreemurr" --モンスターの名前
--- name = "[font:det_jp]キャラ ドリーマー"
+name = messages.name --モンスターの名前
 hp = 2000
 atk = 1
 def = 99
@@ -23,66 +81,29 @@ prayed = 0 --回復回数の計測
 
 randomdialogue = {"[next]"}
 
--- currentdialogue = {
---   "Howdy.",
---   "So, finally, \nyou accepted \nour rule.",
---   "Why did you choose \nthat way now?",
---   "Many other timelines,\nyou showed us \nawesome endings,\nwithout killing.",
---   "That's true \nwe believed \nthe motto that \n'It's kill or be killed'.",
---   "But...\nonce see that \npeaceful ending...",
---   "*sigh*",
---   "Yes, Rei...\nthey're angel.",
---   "The angel \ngiving us a DEATH...",
---   "By the way, it's a\nterrible day outside.",
---   "Birds are dying, \nflowers are withering, \ndusts are scattering...",
---   "On days like these, \nhumans like us...",
---   "have a GREAT TIME.",
---   "[color:ff0000][effect:rotate][noskip][voice:v_floweymad]THEN, SHALL WE PLAY, \nANOTHER KILLER?",
---   "[func:State,DEFENDING][func:Autophobia][noskip]",
--- }
-
--- currentdialogue = {
---   "[font:det_jp_mini]ハロー.",
---   "[font:det_jp_mini]けっきょく,\nボクらのルールに\nしたがうことに\nしたんだね.",
---   "[font:det_jp_mini]いまさら,\nどうしてだい?",
---   "[font:det_jp_mini]たくさんのじかんじくで,\nだれもころさずに\nさいこうの\nエンディングに\nたどりついたのに.",
---   "[font:det_jp_mini]'ころすか、ころされるか.'\nたしかにそう\nいいつづけてきたさ.",
---   "[font:det_jp_mini]でも...\nあんなエンディングを\nしってしまったら...\nねぇ.",
---   "[font:det_jp_mini](ためいき)",
---   "[font:det_jp_mini]そうだね,アズ.\nこのニンゲンが\n'てんし'だったんだ.",
---   "[font:det_jp_mini]てんしは\nてんしでも\n'し'をもたらす\n'てんし'だったけど.",
---   "[font:det_jp_mini]まぁいいか.\nところで,\nきょうは\nサイアクなひじゃないか?",
---   "[font:det_jp_mini]とりはしんで,\nはながかれていき,\nまうのはちりばかり.",
---   "[font:det_jp_mini]こんなひには,\nボクらのような\nにんげんは...",
---   "[font:det_jp_mini]せいぜい\nたのしもうじゃないか",
---   "[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]はじめようか,\nもうひとりの\nさつじんきさん?",
---   "[func:State,DEFENDING][func:Autophobia][noskip]",
--- }
-
-currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
+if Encounter.GetVar('debugging') then
+  currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
+else
+  currentdialogue = messages.currentdialogue
+end
 
 function HandleAttack(damage)
 -- プレイヤーが攻撃したとき
-
   if damage == -1 then
     Encounter.SetVar("nextwaves",{"default"})
-    currentdialogue = {"Hey, \nwhat are you doing?\nHit me \nif you're able."}
-    -- currentdialogue = {"[font:det_jp_mini]なにをしているんだ?\n[font:det_jp_mini]あてられるか,\nためしてみなよ."}
+    currentdialogue = messages.c0
   else
     turn = turn + 1
     --turnの値によってメッセージを変える
     if turn == 1 then
       Encounter.SetVar("nextwaves",{"1"})
-      currentdialogue = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'} --何かしたとき吹き出しに特別に表示されるテキスト
-      -- currentdialogue = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'} --何かしたとき吹き出しに特別に表示されるテキスト
+      currentdialogue = messages.c1 --何かしたとき吹き出しに特別に表示されるテキスト
     elseif turn == 2 then
       Encounter.SetVar("nextwaves",{"2"})
-      currentdialogue = {'Always wondered \nwhy you can keep on\nbeing merciful \n for everyone.'} --何かしたとき吹き出しに特別に表示されるテキスト
-      -- currentdialogue = {'[font:det_jp_mini]いつもおもってたんだ.\nなんできみは\nみんなにやさしく\nありつづけられるのかって.'} --何かしたとき吹き出しに特別に表示されるテキスト
+      currentdialogue = messages.c2 --何かしたとき吹き出しに特別に表示されるテキスト
     elseif turn == 3 then
       Encounter.SetVar("nextwaves",{"3"})
-      currentdialogue = {"I never met humans\nlike you, so \nI couldn't understand.","Well, finally\nyou're same as them,\nthough."}
-      -- currentdialogue = {'[font:det_jp_mini]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini]まあ,きみも\nおなじだった\nみたいだけど.'} --何かしたとき吹き出しに特別に表示されるテキスト
+      currentdialogue = messages.c3
     end
   end
 end
@@ -96,8 +117,7 @@ function HandleCustomCommand(command)
 -- ACTのコマンドの動作
   Encounter.SetVar("nextwaves",{"default"})
   if command == "CHECK" or command == "[FONT:DET_JP]ぶんせき" then
-    BattleDialog({"Chara Dreemurr  LV ?","She lived thanks to \rDreemurr family.\n[color:ff0000]Now, No one would protect her."})
-    -- BattleDialog({"[font:det_jp]キャラ ドリーマー  LV ?","[font:det_jp]ドリーマーけのおかげで\rいきのびた しにぞこない.\n[color:ff0000]すでに,まもってくれる\rモンスターはいない."})
+    BattleDialog(messages.check)
   elseif command == "PRAY" or command == "[FONT:DET_JP]いのる" then
     if prayed == 0 then
       Player.Heal(20)

@@ -1,13 +1,13 @@
 require 'Libraries.bulletType'
 
-Arena.Resize(300,300)
+Arena.Resize(250,250)
 frame = 0
 knives = {}
 
 function Update()
   frame = frame + 1
 
-  if frame % 16 == 3 then
+  if frame % 14 == 3 then
     local spawn = math.random(-Arena.height/2,Arena.height/2)
     for i=1,10 do
       local knife = SetNotime("knifer",Arena.width,spawn)
@@ -18,7 +18,7 @@ function Update()
     end
   end
 
-  if frame % 16 == 11 then
+  if frame % 14 == 10 then
     local spawn = math.random(-Arena.height/2,Arena.height/2)
     for i=1,10 do
       local knife = SetNotime("knifer",-Arena.width,spawn)

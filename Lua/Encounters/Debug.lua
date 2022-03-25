@@ -1,12 +1,13 @@
 ---@diagnostic disable: undefined-global, lowercase-global, undefined-field
 music = "mus_aph" --デフォルトのBGMをA.U.T.O.P.H.B.I.Aにする
 
-encountertext = "Another ANGEL blocked your way!" --ナレーション「もう一人の「天使」が行く手を阻んだ！」
--- encountertext = "[font:det_jp]もうひとりのてんしが\rゆくてをはばんだ!"
-
+encountertext = "Another ANGEL blocked your way!" --ナレーション
 nextwaves = {"opening"} --次の攻撃（カスタムも可）
 wavetimer = 30.0 --攻撃時間
 arenasize = {155, 130} --攻撃枠のサイズ
+
+japanese = false
+debugging = true
 
 enemies = { "chara" } --敵のファイル名
 enemypositions = { --画面上の敵の位置(x,y)
@@ -17,7 +18,7 @@ flee = false --Freeオプションを表示しない
 
 --Playerのステータス
 Player.lv = 19
-Player.name = 'Shifty'
+Player.name = 'DEBUG'
 Player.maxhp = 92
 Player.hp = Player.maxhp
 
