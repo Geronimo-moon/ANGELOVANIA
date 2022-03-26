@@ -2,11 +2,11 @@
 music = "mus_aph" --デフォルトのBGMをA.U.T.O.P.H.B.I.Aにする
 
 encountertext = "Another ANGEL blocked your way!" --ナレーション
-nextwaves = {"3"} --次の攻撃（カスタムも可）
+nextwaves = {"opening"} --次の攻撃（カスタムも可）
 wavetimer = 30.0 --攻撃時間
 arenasize = {155, 130} --攻撃枠のサイズ
 
-japanese = true
+japanese = false
 debugging = true
 
 enemies = { "chara" } --敵のファイル名

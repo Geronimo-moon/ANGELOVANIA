@@ -29,6 +29,7 @@ if Encounter.GetVar("japanese") == true then
     c1 = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'},
     c2 = {'[font:det_jp_mini]いつもおもってたんだ.\nなんできみは\nみんなにやさしく\nありつづけられるのかって.'},
     c3 = {'[font:det_jp_mini]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini]ま,けっきょくきみも\nかれらとおなじだった\nみたいだけど.'},
+    c4 = {'[font:det_jp_mini]でも,かんがえてみれば\nとうぜんか.','[font:det_jp_mini]ほんとうに\nやさしいひとは,\nリセットなんて\nしないだろうし.'}
   }
 else
   messages = {
@@ -57,6 +58,7 @@ else
     c1 = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'},
     c2 = {'Always wondered \nwhy you can keep on\nbeing merciful \n for everyone.'},
     c3 = {"I never met humans\nlike you, so \nI couldn't understand.","Well, finally\nyou're same as them,\nthough."},
+    c4 = {"Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nI think."}
   }
 end
 
@@ -83,6 +85,7 @@ randomdialogue = {"[next]"}
 
 if Encounter.GetVar('debugging') then
   currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
+  -- currentdialogue = messages.c4
 else
   currentdialogue = messages.currentdialogue
 end
@@ -104,6 +107,9 @@ function HandleAttack(damage)
     elseif turn == 3 then
       Encounter.SetVar("nextwaves",{"3"})
       currentdialogue = messages.c3
+    elseif turn == 4 then
+      Encounter.SetVar("nextwaves",{"4"})
+      currentdialogue = messages.c4
     end
   end
 end
