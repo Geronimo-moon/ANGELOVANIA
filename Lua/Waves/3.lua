@@ -32,7 +32,7 @@ function Update()
       knife.ppcollision = true
       knife.SetVar('theta',math.pi*i/4)
       knife.SetVar("to",{xTo,yTo})
-      knife.SetVar("dir",0)
+      knife.SetVar("dir",1)
       knife.sprite.rotation = 45*i
       table.insert(knives,knife)
     end
