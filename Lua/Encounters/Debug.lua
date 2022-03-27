@@ -39,6 +39,10 @@ function EncounterStarting()
   State("ENEMYDIALOGUE")
 end
 
+function DefenseEnding()
+    encountertext = RandomEncounterText()
+end
+
 function HandleItem(id,position)
   nextwaves = {"default"}
   -- アイテムの挙動
@@ -84,4 +88,9 @@ function HandleItem(id,position)
   -- ハードモードはアイテム禁止
   -- BattleDialog({"[color:ff0000]This isn't deserve to use for you.\nOur wounds wouldn't be good with underground's food.","You try to use".. name .. "\r but you suddenly throw it."})
   -- BattleDialog({"[font:det_jp][color:ff0000]これはつかうにあたいしない.\nぼくたちのきずは ちかのものじゃ\rなおせないだろうさ.","[font:det_jp]あなたは".. name .."[font:det_jp]をつかおうとした.\nが、とつぜん　\rあなたはそれをほうりなげた。"})
+end
+
+function HandleSpare()
+	State("ENEMYDIALOGUE")
+  nextwaves = {"default"}
 end

@@ -39,6 +39,32 @@ function EncounterStarting()
   State("ENEMYDIALOGUE")
 end
 
+function Update()
+  if Input.GetKey('S')~=0 and Input.GetKey('U')~=0 and Input.GetKey('D')~=0 and Input.GetKey('O')~=0 then
+    debugging = true
+    Player.name = "DEBUG"
+  end
+
+  if Input.GetKey('Delete')~=0 and debugging then
+    debugging = false
+    Player.name = "Shifty"
+  end
+
+  if debugging and GetCurrentState() == "DEFENDING" and Input.GetKey('J')~=0 then
+    State("ACTIONSELECT")
+  end
+
+  if debugging and GetCurrentState() == "ENEMYDIALOGUE" and Input.GetKey('K')~=0 then
+    State("DEFENDING")
+  end
+end
+
+function DefenseEnding()
+  if enemies[1].GetVar('turn') >= 1 then
+    encountertext = RandomEncounterText()
+  end
+end
+
 function HandleItem(id,position)
   nextwaves = {"default"}
   -- アイテムの挙動
@@ -83,4 +109,9 @@ function HandleItem(id,position)
   -- ハードモードはアイテム禁止
   -- BattleDialog({"[color:ff0000]This isn't deserve to use for you.\nOur wounds wouldn't be good with underground's food.","You try to use".. name .. "\r but you suddenly throw it."})
   -- BattleDialog({"[font:det_jp][color:ff0000]これはつかうにあたいしない.\nぼくたちのきずは ちかのものじゃ\rなおせないだろうさ.","[font:det_jp]あなたは".. name .."[font:det_jp]をつかおうとした.\nが、とつぜん　\rあなたはそれをほうりなげた。"})
+end
+
+function HandleSpare()
+	State("ENEMYDIALOGUE")
+  nextwaves = {"default"}
 end

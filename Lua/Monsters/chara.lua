@@ -4,7 +4,7 @@ messages = {}
 
 if Encounter.GetVar("japanese") == true then
   messages = {
-    comments = {"[font:det_jp]キャラはあなたがよけるのをみてわらった.", "[font:det_jp]キャラはつかれたようにみえない."},
+    comments = {"[font:det_jp]キャラは\nあなたがよけるのをみてわらった.", "[font:det_jp]キャラは\nつかれたようにみえない.", "[font:det_jp][color:ff0000]なにかがかのじょに\rちからをかしているようだ."},
     commands = {"[font:det_jp]ぶんせき","[font:det_jp]いのる"},
     name = "[font:det_jp]キャラ ドリーマー",
     check = {"[font:det_jp]キャラ ドリーマー  LV ?\nドリーマーけのおかげで\rいきのびた しにぞこない.","[font:det_jp][color:ff0000]すでに,まもってくれる\rモンスターはいない."},
@@ -35,7 +35,7 @@ if Encounter.GetVar("japanese") == true then
   }
 else
   messages = {
-    comments = {"Chara laughed looking you're dodgeing.", "Chara doesn't looks tired."},
+    comments = {"Chara laughed looking you're dodgeing.", "Chara doesn't looks tired.","[color:ff0000]It seems something is helping her."},
     commands = {"Check","Pray"},
     name = "Chara Dreemurr",
     check = {"Chara Dreemurr  LV ?\nShe survived this world\r thanks to Dreemurr family.","[color:ff0000]Now, No one would protect her."},
