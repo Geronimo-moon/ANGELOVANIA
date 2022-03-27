@@ -68,11 +68,10 @@ function HandleItem(id,position)
     end
   elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]レジェンドヒーロー' then
     Player.Heal(40)
-    Audio.PlaySound("LegHero")
     if Player.hp < Player.maxhp then 
-      BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","こうげきが4あがった! \n40HP かいふくした."})
+      BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","[font:det_jp]こうげきが4あがった! \n40HP かいふくした."})
     else
-      BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","こうげきが4あがった! \nHPがぜんかいふくした."})
+      BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","[font:det_jp]こうげきが4あがった! \nHPがぜんかいふくした."})
     end
   elseif id == "[FONT:DET_JP_MINI][COLOR:FFFFFF]フェイスステーキ" then
     Player.Heal(60)

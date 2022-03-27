@@ -29,7 +29,9 @@ if Encounter.GetVar("japanese") == true then
     c1 = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'},
     c2 = {'[font:det_jp_mini]いつもおもってたんだ.\nなんできみは\nみんなにやさしく\nありつづけられるのかって.'},
     c3 = {'[font:det_jp_mini]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini]ま,けっきょくきみも\nかれらとおなじだった\nみたいだけど.'},
-    c4 = {'[font:det_jp_mini]でも,かんがえてみれば\nとうぜんか.','[font:det_jp_mini]ほんとうに\nやさしいひとは,\nリセットなんて\nしないだろうし.'}
+    c4 = {'[font:det_jp_mini]でも,かんがえてみれば\nとうぜんか.','[font:det_jp_mini]ほんとうに\nやさしいひとは,\nリセットなんて\nしないだろうし.'},
+    c5 = {'[font:det_jp_mini]そう,リセットだ.\nボクがしらないとでも\nおもったのかい?','[font:det_jp_mini]きみがじかんじくを\nすきかってに\nいじっていたこと.'},
+    c6 = {'[font:det_jp_mini]きみがなんにんめかは\nしらないけど.\nでも,なんどころしても\nきみはやってくる.','[font:det_jp_mini]きみがいるかぎり,\nボクらに\nほんとうのへいわは\nおとずれないんだ.'}
   }
 else
   messages = {
@@ -56,9 +58,11 @@ else
     },
     c0 = {"Hey, \nwhat are you doing?\nHit me \nif you're able."},
     c1 = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'},
-    c2 = {'Always wondered \nwhy you can keep on\nbeing merciful \n for everyone.'},
+    c2 = {'Always wondered \nwhy you can keep on\nbeing merciful \nfor everyone.'},
     c3 = {"I never met humans\nlike you, so \nI couldn't understand.","Well, finally\nyou're same as them,\nthough."},
-    c4 = {"Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nI think."}
+    c4 = {"Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nI think."},
+    c5 = {"Yes, RESET.\nYou think \nI don't know that?","That you abused\ntimelines."},
+    c6 = {"I don' know \nwhat number you are, \nbut I know you'll back \neven if I kill you.","With YOU,\nwe can't be \nhappy anymore."}
   }
 end
 
@@ -85,7 +89,7 @@ randomdialogue = {"[next]"}
 
 if Encounter.GetVar('debugging') then
   currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
-  -- currentdialogue = messages.c4
+  -- currentdialogue = messages.c6
 else
   currentdialogue = messages.currentdialogue
 end
@@ -110,6 +114,12 @@ function HandleAttack(damage)
     elseif turn == 4 then
       Encounter.SetVar("nextwaves",{"4"})
       currentdialogue = messages.c4
+    elseif turn == 5 then
+      Encounter.SetVar("nextwaves",{"5"})
+      currentdialogue = messages.c5
+    elseif turn == 6 then
+      Encounter.SetVar("nextwaves",{"6"})
+      currentdialogue = messages.c6
     end
   end
 end

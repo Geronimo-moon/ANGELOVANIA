@@ -66,7 +66,6 @@ function HandleItem(id,position)
     end
   elseif id == 'L. HERO' then
     Player.Heal(40)
-    Audio.PlaySound("LegHero")
     if Player.hp < Player.maxhp then 
       BattleDialog({"You ate the Legendary Hero. \nYour ATTACK increased by 4! \nYou recovered 40 HP!"})
     else

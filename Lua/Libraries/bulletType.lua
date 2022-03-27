@@ -101,7 +101,7 @@ function Hit(bullet)
   elseif type == 'default' then
     Player.Hurt(10,1)
   elseif type == 'beam' then
-    Player.Hurt(5,0.001)
+    Player.Hurt(3,0.001)
   end
 
   return false
