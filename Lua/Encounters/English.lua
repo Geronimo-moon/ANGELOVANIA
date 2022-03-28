@@ -62,11 +62,10 @@ function Update()
 
   -- noobモードの設定
   if not debugging and Input.GetKey('N')~=0 then
-    if noob then
-      noob = false
-    else
-      noob = true
-    end
+    noob = true
+  end
+  if noob and Input.GetKey('M')~=0 then
+    noob = false
   end
 
 end
