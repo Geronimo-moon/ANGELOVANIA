@@ -11,7 +11,27 @@ CAUTION:If you're using Retrocompatibility Mode, this may not work as expected.
 [CYF 0.6.5](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases)で動かしてください。他verでは未確認です。  
 注意：OptionからRetrocompatibility ModeをONにしていると、正常に動作しない場合があります。
 
-# Credits (honorifics omitted/敬称略)
+## Controls/操作方法
+Arrow Keys/W,A,S,D Keys...Move/Guard(when your soul is green)  
+Arrow Up/W Key...Jump(when your soul is blue)  
+Z Key...Confirm/Shoot(when your soul is yellow)
+X Key...Back  
+N Key...Turn on/off noob mode(decrease bullet damage)  
+S,U,D,O Keys(pushing simultaneously)...Turn on debug mode(no damage)  
+Delete Key...Turn off debug mode  
+Esc...Exit to Mod selection screen  
+  
+矢印キー・WASD…移動・防御（緑ソウル）  
+上・Wキー…ジャンプ（青ソウル）  
+Z…選択・弾発射（黄ソウル）  
+X…戻る  
+N…noobモードの切り替え（ダメージ軽減）  
+S,U,D,O同時押し…デバッグモード（ダメージなし）  
+Delete…デバッグモードオフ  
+Esc…mod選択画面へ  
+
+
+## Credits (honorifics omitted/敬称略)
 [UNDERTALE](https://undertale.jp/) by Toby Fox  
 [Underfell](https://underfell.tumblr.com/) by Vic and AU Community  
 [Storyshift](https://ut-storyshift.tumblr.com/) by voltrathelively  

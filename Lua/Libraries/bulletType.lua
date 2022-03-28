@@ -94,15 +94,26 @@ function Hit(bullet)
   end
 -- 攻撃タイプに応じたダメージ
   local type = bullet.GetVar("type")
-  if type == 'force' then
-    return true
-  elseif type == 'notime' then
-    Player.Hurt(1,0.001)
-  elseif type == 'default' then
-    Player.Hurt(10,1)
-  elseif type == 'beam' then
-    Player.Hurt(3,0.001)
+  if Encounter.GetVar('noob') then
+    if type == 'force' then
+      return true
+    elseif type == 'notime' then
+      Player.Hurt(1,0.1)
+    elseif type == 'default' then
+      Player.Hurt(5,1)
+    elseif type == 'beam' then
+      Player.Hurt(1,0.001)
+    end
+  else
+    if type == 'force' then
+      return true
+    elseif type == 'notime' then
+      Player.Hurt(1,0.001)
+    elseif type == 'default' then
+      Player.Hurt(10,1)
+    elseif type == 'beam' then
+      Player.Hurt(3,0.001)
+    end
   end
-
   return false
 end

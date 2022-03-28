@@ -4,7 +4,7 @@ messages = {}
 
 if Encounter.GetVar("japanese") == true then
   messages = {
-    comments = {"[font:det_jp]キャラは\nあなたがよけるのをみてわらった.", "[font:det_jp]キャラは\nつかれたようにみえない.", "[font:det_jp][color:ff0000]なにかがかのじょに\rちからをかしているようだ."},
+    comments = {"[font:det_jp]キャラは\rあなたがよけるのをみてわらった.", "[font:det_jp]キャラは\rつかれたようにみえない.", "[font:det_jp][color:ff0000]なにかがかのじょに\rちからをかしているようだ."},
     commands = {"[font:det_jp]ぶんせき","[font:det_jp]いのる"},
     name = "[font:det_jp]キャラ ドリーマー",
     check = {"[font:det_jp]キャラ ドリーマー  LV ?\nドリーマーけのおかげで\rいきのびた しにぞこない.","[font:det_jp][color:ff0000]すでに,まもってくれる\rモンスターはいない."},

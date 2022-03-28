@@ -14,6 +14,6 @@ function KillCount(frame,dead,screen)
     screen.Move(dx, 0)
   end
   if (frame-dead) >= 60 then 
-    Player.Hurt(9999,0.001,false,false)
+    Player.Hurt(Player.maxhp,0.001,false,false)
   end
 end

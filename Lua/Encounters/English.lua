@@ -8,6 +8,7 @@ arenasize = {155, 130} --攻撃枠のサイズ
 
 japanese = false
 debugging = false
+noob = false
 
 enemies = { "chara" } --敵のファイル名
 enemypositions = { --画面上の敵の位置(x,y)
@@ -40,23 +41,34 @@ function EncounterStarting()
 end
 
 function Update()
+  -- デバッグモードの設定
   if Input.GetKey('S')~=0 and Input.GetKey('U')~=0 and Input.GetKey('D')~=0 and Input.GetKey('O')~=0 then
     debugging = true
     Player.name = "DEBUG"
   end
 
-  if Input.GetKey('Delete')~=0 and debugging then
-    debugging = false
-    Player.name = "Shifty"
+  if debugging then
+    if Input.GetKey('Delete')~=0 then
+      debugging = false
+      Player.name = "Shifty"
+    end
+    if GetCurrentState() == "DEFENDING" and Input.GetKey('J')~=0 then
+      State("ACTIONSELECT")
+    end
+    if GetCurrentState() == "ENEMYDIALOGUE" and Input.GetKey('K')~=0 then
+      State("DEFENDING")
+    end
   end
 
-  if debugging and GetCurrentState() == "DEFENDING" and Input.GetKey('J')~=0 then
-    State("ACTIONSELECT")
+  -- noobモードの設定
+  if not debugging and Input.GetKey('N')~=0 then
+    if noob then
+      noob = false
+    else
+      noob = true
+    end
   end
 
-  if debugging and GetCurrentState() == "ENEMYDIALOGUE" and Input.GetKey('K')~=0 then
-    State("DEFENDING")
-  end
 end
 
 function DefenseEnding()
