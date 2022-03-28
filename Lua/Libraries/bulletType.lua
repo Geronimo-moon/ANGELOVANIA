@@ -98,11 +98,11 @@ function Hit(bullet)
     if type == 'force' then
       return true
     elseif type == 'notime' then
-      Player.Hurt(3,0.1)
+      Player.Hurt(1,0.033)
     elseif type == 'default' then
       Player.Hurt(5,1)
     elseif type == 'beam' then
-      Player.Hurt(1,0.001)
+      Player.Hurt(2,0.001)
     end
   else
     if type == 'force' then
@@ -112,7 +112,7 @@ function Hit(bullet)
     elseif type == 'default' then
       Player.Hurt(10,1)
     elseif type == 'beam' then
-      Player.Hurt(3,0.001)
+      Player.Hurt(4,0.001)
     end
   end
   return false

@@ -45,7 +45,7 @@ end
 
 function Update()
   -- デバッグモードの設定
-  if Input.GetKey('S')~=0 and Input.GetKey('U')~=0 and Input.GetKey('D')~=0 and Input.GetKey('O')~=0 then
+  if not noob and Input.GetKey('S')~=0 and Input.GetKey('U')~=0 and Input.GetKey('D')~=0 and Input.GetKey('O')~=0 then
     debugging = true
     Player.name = "DEBUG"
   end
