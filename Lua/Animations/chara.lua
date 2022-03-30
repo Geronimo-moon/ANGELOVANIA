@@ -45,7 +45,7 @@ function Dodging()
 end
 
 function Backing()
-  local move = 100
+  local move = 101.2
   SetGlobal('charaback',move)
 end
 
@@ -60,11 +60,13 @@ function CharaAnime()
     local move = -dodge/8
     leg.Move(move,0)
     SetGlobal('charadodge',dodge - 5)
+    head.Set('chara/winkedhead')
   end
   if back > 0 then
     local move = back/16
     leg.Move(move,0)
     SetGlobal('charaback',back - 5/2)
+    head.Set('chara/head')
   end
   leg.Scale(1, 1+0.01*math.sin(Time.time*2))
   body.MoveTo(-22,-3 + 0.1*math.sin(Time.time*2))

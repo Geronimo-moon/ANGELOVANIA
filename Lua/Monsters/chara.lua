@@ -34,7 +34,8 @@ if Encounter.GetVar("japanese") == true then
     c3 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini][func:CharaHead,chara/doubthead]ま,けっきょくきみも\nやつらとおなじだった\nみたいだけど.'},
     c4 = {'[font:det_jp_mini][func:CharaHead,chara/head]でも,かんがえてみれば\nとうぜんか.','[font:det_jp_mini]ほんとうに\nやさしいひとは,\nリセットなんて\nしないだろうし.'},
     c5 = {'[font:det_jp_mini]そう,リセットだ.\nボクがしらないとでも\nおもったのかい?','[font:det_jp_mini]きみがじかんじくを\nすきかってに\nいじっていたこと.'},
-    c6 = {'[font:det_jp_mini]きみがなんにんめかは\nしらないけど.\nでも,なんどころしても\nきみはやってくる.','[font:det_jp_mini][func:CharaHead,chara/madhead]きみがいるかぎり,\nボクらに\nほんとうのへいわは\nおとずれないんだ.'}
+    c6 = {'[font:det_jp_mini]きみがなんにんめかは\nしらないけど.\nでも,なんどころしても\nきみはやってくる.','[font:det_jp_mini][func:CharaHead,chara/madhead]きみがいるかぎり,\nボクらに\nほんとうのへいわは\nおとずれないんだ.'},
+    c7 = {'[font:det_jp_mini]きみにわかるかな?\n王のきょうふが\nきえさった よろこび.','[font:det_jp_mini][func:CharaHead,chara/closedhead]そして...','[font:det_jp_mini][func:CharaHead,chara/madhead]すべてが\nなかったことになった\nあの ぜつぼう.'}
   }
 else
   messages = {
@@ -67,7 +68,8 @@ else
     c3 = {"[func:CharaHead,chara/closedhead]I never met humans\nlike you, so \nI couldn't understand.","[func:CharaHead,chara/doubthead]Well, finally\nyou're same as them,\nthough."},
     c4 = {"[func:CharaHead,chara/head]Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nwould they?"},
     c5 = {"Yes, RESET.\nYou think \nI don't know that?","That you abused\ntimelines."},
-    c6 = {"I don' know \nwhat number you are, \nbut I know you'll back \neven if I kill you.","[func:CharaHead,chara/madhead]With YOU,\nwe can't be \nhappy anymore."}
+    c6 = {"I don' know \nwhat number you are, \nbut I know you'll back \neven if I kill you.","[func:CharaHead,chara/madhead]With YOU,\nwe can't be \nhappy anymore."},
+    c7 = {"You can't understand\nthese feelings.","[func:CharaHead,chara/closedhead]Hapiness when fear \nof king disappeared.\nand...","[func:CharaHead,chara/madhead]Despair when I \nsuddenly understand\nall of them were\nLOST."}
   }
 end
 
@@ -97,6 +99,7 @@ if Encounter.GetVar('debugging') then
   -- currentdialogue = messages.c6
 else
   currentdialogue = messages.currentdialogue
+  -- currentdialogue = messages.c7
 end
 
 function HandleAttack(damage)
@@ -126,6 +129,9 @@ function HandleAttack(damage)
     elseif turn == 6 then
       Encounter.SetVar("nextwaves",{"6"})
       currentdialogue = messages.c6
+    elseif turn == 7 then
+      Encounter.SetVar("nextwaves",{"7"})
+      currentdialogue = messages.c7
     end
   end
 end
