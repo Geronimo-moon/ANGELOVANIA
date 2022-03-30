@@ -1,4 +1,7 @@
 ---@diagnostic disable: undefined-global, lowercase-global, undefined-field
+require 'Animations.chara'
+require 'Animations.mode'
+
 music = "mus_aph" --デフォルトのBGMをA.U.T.O.P.H.B.I.Aにする
 
 encountertext = "Another ANGEL blocked your way!" --ナレーション
@@ -38,6 +41,7 @@ end
 function EncounterStarting()
   Audio.Stop()
   State("ENEMYDIALOGUE")
+  InitChara()
 end
 
 function Update()
@@ -45,12 +49,14 @@ function Update()
   if not noob and Input.GetKey('S')~=0 and Input.GetKey('U')~=0 and Input.GetKey('D')~=0 and Input.GetKey('O')~=0 then
     debugging = true
     Player.name = "DEBUG"
+    SetMode('debug')
   end
 
   if debugging then
     if Input.GetKey('Delete')~=0 then
       debugging = false
       Player.name = "Shifty"
+      SetMode('none')
     end
     if GetCurrentState() == "DEFENDING" and Input.GetKey('J')~=0 then
       State("ACTIONSELECT")
@@ -63,11 +69,15 @@ function Update()
   -- noobモードの設定
   if not debugging and Input.GetKey('N')~=0 then
     noob = true
+    SetMode('noob')
   end
   if noob and Input.GetKey('M')~=0 then
     noob = false
+    SetMode('none')
   end
 
+  CharaAnime()
+  ModeAnime()
 end
 
 function DefenseEnding()

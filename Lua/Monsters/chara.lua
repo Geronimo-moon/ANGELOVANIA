@@ -1,4 +1,5 @@
 ---@diagnostic disable: undefined-global, lowercase-global
+require "Animations.chara"
 
 messages = {}
 
@@ -15,23 +16,25 @@ if Encounter.GetVar("japanese") == true then
       "[font:det_jp_mini]たくさんのじかんじくで,\nだれもころさずに\nさいこうの\nエンディングに\nたどりついたのに.",
       "[font:det_jp_mini]'ころすか、ころされるか.'\nたしかにそう\nいいつづけてきたさ.",
       "[font:det_jp_mini]でも...\nあんなエンディングを\nしってしまったら...\nねぇ.",
+      "[func:CharaHead,chara/closedhead][noskip]",
       "[font:det_jp_mini](ためいき)",
       "[font:det_jp_mini]そうだね,アズ.\nこのニンゲンが\n'てんし'だったんだ.",
       "[font:det_jp_mini]てんしは\nてんしでも\n'し'をもたらす\n'てんし'だったけど.",
+      "[func:CharaHead,chara/head][noskip]",
       "[font:det_jp_mini]まぁいいか.\nところで,\nきょうは\nサイアクなひじゃないか?",
       "[font:det_jp_mini]とりはしんで,\nはながかれていき,\nまうのはちりばかり.",
       "[font:det_jp_mini]こんなひには,\nボクらのような\nにんげんは...",
       "[font:det_jp_mini]せいぜい\nたのしもうじゃないか",
-      "[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]はじめようか,\nもうひとりの\nさつじんきさん?",
-      "[func:State,DEFENDING][func:Autophobia][noskip]",
+      "[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad][func:CharaHead,chara/madhead][func:CharaBody,chara/body]はじめようか,\nもうひとりの\nさつじんきさん?",
+      "[func:State,DEFENDING][func:Autophobia][noskip][func:CharaHead,chara/head]",
     },
     c0 = {"[font:det_jp_mini]なにをしているんだ?\n[font:det_jp_mini]あてられるか,\nためしてみなよ."},
     c1 = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'},
     c2 = {'[font:det_jp_mini]いつもおもってたんだ.\nなんできみは\nみんなにやさしく\nありつづけられるのかって.'},
-    c3 = {'[font:det_jp_mini]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini]ま,けっきょくきみも\nかれらとおなじだった\nみたいだけど.'},
-    c4 = {'[font:det_jp_mini]でも,かんがえてみれば\nとうぜんか.','[font:det_jp_mini]ほんとうに\nやさしいひとは,\nリセットなんて\nしないだろうし.'},
+    c3 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini][func:CharaHead,chara/doubthead]ま,けっきょくきみも\nやつらとおなじだった\nみたいだけど.'},
+    c4 = {'[font:det_jp_mini][func:CharaHead,chara/head]でも,かんがえてみれば\nとうぜんか.','[font:det_jp_mini]ほんとうに\nやさしいひとは,\nリセットなんて\nしないだろうし.'},
     c5 = {'[font:det_jp_mini]そう,リセットだ.\nボクがしらないとでも\nおもったのかい?','[font:det_jp_mini]きみがじかんじくを\nすきかってに\nいじっていたこと.'},
-    c6 = {'[font:det_jp_mini]きみがなんにんめかは\nしらないけど.\nでも,なんどころしても\nきみはやってくる.','[font:det_jp_mini]きみがいるかぎり,\nボクらに\nほんとうのへいわは\nおとずれないんだ.'}
+    c6 = {'[font:det_jp_mini]きみがなんにんめかは\nしらないけど.\nでも,なんどころしても\nきみはやってくる.','[font:det_jp_mini][func:CharaHead,chara/madhead]きみがいるかぎり,\nボクらに\nほんとうのへいわは\nおとずれないんだ.'}
   }
 else
   messages = {
@@ -46,23 +49,25 @@ else
       "Many other timelines,\nyou showed us \nawesome endings,\nwithout killing.",
       "That's true \nwe believed \nthe motto that \n'It's kill or be killed'.",
       "But...\nonce see that \npeaceful ending...",
+      "[func:CharaHead,chara/closedhead][noskip]",
       "*sigh*",
       "Yes, Rei...\nthey're angel.",
       "The angel \ngiving us a DEATH...",
+      "[func:CharaHead,chara/head][noskip]",
       "By the way, it's a\nterrible day outside.",
       "Birds are dying, \nflowers are withering, \ndusts are scattering...",
       "On days like these, \nhumans like us...",
       "have a GREAT TIME.",
-      "[color:ff0000][effect:rotate][noskip][voice:v_floweymad]THEN, SHALL WE PLAY, \nANOTHER KILLER?",
-      "[func:State,DEFENDING][func:Autophobia][noskip]",
+      "[color:ff0000][effect:rotate][noskip][voice:v_floweymad][func:CharaHead,chara/madhead][func:CharaBody,chara/body]THEN, SHALL WE PLAY, \nANOTHER KILLER?",
+      "[func:State,DEFENDING][func:Autophobia][noskip][func:CharaHead,chara/head]",
     },
     c0 = {"Hey, \nwhat are you doing?\nHit me \nif you're able."},
     c1 = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'},
     c2 = {'Always wondered \nwhy you can keep on\nbeing merciful \nfor everyone.'},
-    c3 = {"I never met humans\nlike you, so \nI couldn't understand.","Well, finally\nyou're same as them,\nthough."},
-    c4 = {"Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nI think."},
+    c3 = {"[func:CharaHead,chara/closedhead]I never met humans\nlike you, so \nI couldn't understand.","[func:CharaHead,chara/doubthead]Well, finally\nyou're same as them,\nthough."},
+    c4 = {"[func:CharaHead,chara/head]Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nwould they?"},
     c5 = {"Yes, RESET.\nYou think \nI don't know that?","That you abused\ntimelines."},
-    c6 = {"I don' know \nwhat number you are, \nbut I know you'll back \neven if I kill you.","With YOU,\nwe can't be \nhappy anymore."}
+    c6 = {"I don' know \nwhat number you are, \nbut I know you'll back \neven if I kill you.","[func:CharaHead,chara/madhead]With YOU,\nwe can't be \nhappy anymore."}
   }
 end
 
@@ -72,7 +77,7 @@ commands = messages.commands --ACT時のコマンド
 
 cancheck = false --falseの時デフォルトのCHECKを削除する
 
-sprite = "chara_default" --スプライトの画像　
+sprite = "null" --スプライトの画像　
 dialogbubble = "rightwide" --吹き出しの形
 dialogueprefix = "" -- モンスターのテキストの初めに挿入
 name = messages.name --モンスターの名前
@@ -190,4 +195,12 @@ end
 
 function Azimuth()
   Audio.LoadFile('mus_azi')
+end
+
+function CharaHead(text)
+  SetHead(text)
+end
+
+function CharaBody(text)
+  SetBody(text)
 end
