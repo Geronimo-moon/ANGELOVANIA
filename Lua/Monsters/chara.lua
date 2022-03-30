@@ -106,6 +106,7 @@ function HandleAttack(damage)
     currentdialogue = messages.c0
   else
     turn = turn + 1
+    Backing()
     --turnの値によってメッセージを変える
     if turn == 1 then
       Encounter.SetVar("nextwaves",{"1"})
@@ -132,6 +133,7 @@ end
 function BeforeDamageCalculation()
   -- ダメージ計算の前にダメージを0にする
   SetDamage(0)
+  Dodging()
 end
 
 function HandleCustomCommand(command)

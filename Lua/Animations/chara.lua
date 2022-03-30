@@ -24,6 +24,8 @@ function InitChara()
   SetGlobal('charahead',head)
   SetGlobal('charabody',body)
   SetGlobal('charaleg',leg)
+  SetGlobal('charadodge',0)
+  SetGlobal('charaback',0)
 end
 
 
@@ -37,10 +39,33 @@ function SetBody(text)
   body.Set(text)
 end
 
+function Dodging()
+  local move = 100
+  SetGlobal('charadodge',move)
+end
+
+function Backing()
+  local move = 100
+  SetGlobal('charaback',move)
+end
+
 function CharaAnime()
   local head = GetGlobal('charahead')
   local body = GetGlobal('charabody')
   local leg = GetGlobal('charaleg')
+  local dodge = GetGlobal('charadodge')
+  local back = GetGlobal('charaback')
+
+  if dodge > 0 then
+    local move = -dodge/8
+    leg.Move(move,0)
+    SetGlobal('charadodge',dodge - 5)
+  end
+  if back > 0 then
+    local move = back/16
+    leg.Move(move,0)
+    SetGlobal('charaback',back - 5/2)
+  end
   leg.Scale(1, 1+0.01*math.sin(Time.time*2))
   body.MoveTo(-22,-3 + 0.1*math.sin(Time.time*2))
   head.MoveTo(20,-40 + 0.1*math.sin(Time.time*2))
