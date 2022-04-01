@@ -6,7 +6,7 @@ messages = {}
 if Encounter.GetVar("japanese") == true then
   messages = {
     comments = {"[font:det_jp]キャラは\rあなたがよけるのをみてわらった.", "[font:det_jp]キャラは\rつかれたようにみえない.", "[font:det_jp][color:ff0000]なにかがかのじょに\rちからをかしているようだ."},
-    commands = {"[font:det_jp]ぶんせき","[font:det_jp]いのる"},
+    commands = {"[font:det_jp]ぶんせき","[font:det_jp]いのる","[font:det_jp]セーブ","[font:det_jp]リセット"},
     name = "[font:det_jp]キャラ ドリーマー",
     check = {"[font:det_jp]キャラ ドリーマー  LV ?\nドリーマーけのおかげで\rいきのびた しにぞこない.","[font:det_jp][color:ff0000]すでに,まもってくれる\rモンスターはいない."},
     currentdialogue = {
@@ -39,8 +39,8 @@ if Encounter.GetVar("japanese") == true then
   }
 else
   messages = {
-    comments = {"Chara laughed looking you're dodgeing.", "Chara doesn't looks tired.","[color:ff0000]It seems something is helping her."},
-    commands = {"Check","Pray"},
+    comments = {"Chara laughed looking you're dodging.", "Chara doesn't looks tired.","[color:ff0000]It seems something is helping her."},
+    commands = {"Check","Pray","Save","Reset"},
     name = "Chara Dreemurr",
     check = {"Chara Dreemurr  LV ?\nShe survived this world\r thanks to Dreemurr family.","[color:ff0000]Now, No one would protect her."},
     currentdialogue = {
@@ -150,45 +150,77 @@ function HandleCustomCommand(command)
   elseif command == "PRAY" or command == "[FONT:DET_JP]いのる" then
     if prayed == 0 then
       Player.Heal(20)
-      BattleDialog({'You prayed. You recovered 20 HP.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 20HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \n20HP かいふくした.'})
+      else
+        BattleDialog({'You prayed. You recovered 20 HP.'})
+      end
     elseif prayed == 1 then
       Player.Heal(20)
-      BattleDialog({'You prayed. You recovered 20 HP.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 20HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \n20HP かいふくした.'})
+      else
+        BattleDialog({'You prayed. You recovered 20 HP.'})
+      end
     elseif prayed == 2 then
       Player.Heal(40)
-      BattleDialog({'You prayed. You recovered 40 HP.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 40HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \n40HP かいふくした.'})
+      else
+        BattleDialog({'You prayed. You recovered 40 HP.'})
+      end
     elseif prayed == 3 then
       Player.Heal(40)
-      BattleDialog({'You prayed. You recovered 40 HP.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 40HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \n40HP かいふくした.'})
+      else
+        BattleDialog({'You prayed. You recovered 40 HP.'})
+      end
     elseif prayed == 4 then
       Player.Heal(60)
-      BattleDialog({'You prayed. You recovered 60 HP.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 60HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \n60HP かいふくした.'})
+      else
+        BattleDialog({'You prayed. You recovered 60 HP.'})
+      end
     elseif prayed == 5 then
       Player.Heal(60)
-      BattleDialog({'You prayed. You recovered 60 HP.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 60HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \n60HP かいふくした.'})
+      else
+        BattleDialog({'You prayed. You recovered 60 HP.'})
+      end
     elseif prayed == 6 then
       Player.Heal(80)
-      BattleDialog({'You prayed. You recovered 80 HP.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 80HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \n80HP かいふくした.'})
+      else
+        BattleDialog({'You prayed. You recovered 80 HP.'})
+      end
     elseif prayed == 7 then
       Player.Heal(80)
-      BattleDialog({'You prayed. You recovered 80 HP.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 80HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \n80HP かいふくした.'})
+      else
+        BattleDialog({'You prayed. You recovered 80 HP.'})
+      end
     elseif prayed == 8 then
       Player.Heal(99)
-      BattleDialog({'You prayed. Your HP maxed out.'})
-      -- BattleDialog({'[font:det_jp]あなたはいのった. 99HP かいふくした.'})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp]あなたはいのった. \nHPが ぜんかいふくした.'})
+      else
+        BattleDialog({'You prayed. Your HP maxed out.'})
+      end
     elseif prayed >= 9 then
-      BattleDialog({"[color:ff0000]That's enough! Prayed too much!","You tried to pray.\nBut no prayers left."})
-      -- BattleDialog({'[font:det_jp][color:ff0000]たくさんだ!　\nもう　じゅうぶんいのっただろ!'},{"あなたはいのろうとした.\nが、すでにいのりはつきていた。"})
+      if Encounter.GetVar("japanese") == true then
+        BattleDialog({'[font:det_jp][color:ff0000]たくさんだ!　\nもう　じゅうぶんいのっただろ!'},{"あなたはいのろうとした.\nが、すでにいのりはつきていた。"})
+      else
+        BattleDialog({"[color:ff0000]That's enough! Prayed too much!","You tried to pray.\nBut no prayers left."})
+      end
     end
     prayed = prayed + 1
+  elseif command == "SAVE" or command == "[FONT:DET_JP]セーブ" then
+  elseif command == "RESET" or command == "[FONT:DET_JP]リセット" then
   end
 end
 
