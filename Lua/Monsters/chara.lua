@@ -249,6 +249,7 @@ function HandleCustomCommand(command)
       local save = Misc.OpenFile('User/savedata','w')
       save.Delete()
     end
+    Misc.DestroyWindow() 
   end
 end
 
