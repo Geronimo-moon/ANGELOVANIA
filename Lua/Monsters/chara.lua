@@ -35,11 +35,12 @@ if Encounter.GetVar("japanese") == true then
     c4 = {'[font:det_jp_mini][func:CharaHead,chara/head]でも,かんがえてみれば\nとうぜんか.','[font:det_jp_mini]ほんとうに\nやさしいひとは,\nリセットなんて\nしないだろうし.'},
     c5 = {'[font:det_jp_mini]そう,リセットだ.\nボクがしらないとでも\nおもったのかい?','[font:det_jp_mini]きみがじかんじくを\nすきかってに\nいじっていたこと.'},
     c6 = {'[font:det_jp_mini]きみがなんにんめかは\nしらないけど.\nでも,なんどころしても\nきみはやってくる.','[font:det_jp_mini][func:CharaHead,chara/madhead]きみがいるかぎり,\nボクらに\nほんとうのへいわは\nおとずれないんだ.'},
-    c7 = {'[font:det_jp_mini]きみにわかるかな?\n王のきょうふが\nきえさった よろこび.','[font:det_jp_mini][func:CharaHead,chara/closedhead]そして...','[font:det_jp_mini][func:CharaHead,chara/madhead]すべてが\nなかったことになった\nあの ぜつぼう.'}
+    c7 = {'[font:det_jp_mini]きみにわかるかな?\n王のきょうふが\nきえさった よろこび.','[font:det_jp_mini][func:CharaHead,chara/closedhead]そして...','[font:det_jp_mini][func:CharaHead,chara/downhead]すべてが\nなかったことになった\nあの ぜつぼう.'},
+    c8 = {'[font:det_jp_mini][func:CharaHead,chara/downhead]ボクのケツイではリセット\nすることはできない.\nただ,きえていく\nじかんじくのきおくが\nのこされるだけ.','[font:det_jp_mini]もちろんこんなこと,\nだれにもいえない.','[font:det_jp_mini][func:CharaHead,chara/head]ボクがいったい,\nどれほど\nくるしんだとおもう?'}
   }
 else
   messages = {
-    comments = {"Chara laughed looking you're dodging.", "Chara doesn't looks tired.","[color:ff0000]It seems something is helping her."},
+    comments = {"Chara laughed \rlooking you're dodging.", "Chara doesn't looks tired.","[color:ff0000]It seems \rsomething is helping her."},
     commands = {"Check","Pray","Save","Reset"},
     name = "Chara Dreemurr",
     check = {"Chara Dreemurr  LV ?\nShe survived this world\r thanks to Dreemurr family.","[color:ff0000]Now, No one would protect her."},
@@ -69,7 +70,8 @@ else
     c4 = {"[func:CharaHead,chara/head]Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nwould they?"},
     c5 = {"Yes, RESET.\nYou think \nI don't know that?","That you abused\ntimelines."},
     c6 = {"I don' know \nwhat number you are, \nbut I know you'll back \neven if I kill you.","[func:CharaHead,chara/madhead]With YOU,\nwe can't be \nhappy anymore."},
-    c7 = {"You can't understand\nthese feelings.","[func:CharaHead,chara/closedhead]Hapiness when fear \nof king disappeared.\nand...","[func:CharaHead,chara/madhead]Despair when I \nsuddenly understand\nall of them were\nLOST."}
+    c7 = {"You can't understand\nthese feelings.","[func:CharaHead,chara/closedhead]Hapiness when fear \nof king disappeared.\nand...","[func:CharaHead,chara/madhead]Despair when I \nsuddenly understand\nall of them were\nLOST."},
+    c8 = {"[func:CharaHead,chara/downhead]My determination is\nnot enough to RESET.\nOnly can keep \nmemories about \ndisappearing timelines.","Of course,\nI can't rely on \nanyone.","[func:CharaHead,chara/head]Can you see\nhow much I struggled?"}
   }
 end
 
@@ -102,6 +104,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
+  -- currentdialogue = messages.c8
 end
 
 function HandleAttack(damage)
@@ -134,6 +137,9 @@ function HandleAttack(damage)
     elseif turn == 7 then
       Encounter.SetVar("nextwaves",{"7"})
       currentdialogue = messages.c7
+    elseif turn == 8 then
+      Encounter.SetVar("nextwaves",{"8"})
+      currentdialogue = messages.c8
     end
   end
 end

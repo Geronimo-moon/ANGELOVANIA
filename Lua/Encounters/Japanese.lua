@@ -65,13 +65,13 @@ if windows then
 end
 
 function EncounterStarting()
+  InitChara()
   if not Misc.FileExists('User/savedata') then
     Audio.Stop()
     State("ENEMYDIALOGUE")
   else
     encountertext = RandomEncounterText()
   end
-  InitChara()
 end
 
 function Update()

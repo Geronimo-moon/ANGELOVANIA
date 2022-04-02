@@ -4,8 +4,8 @@ require 'Libraries.hsvToRgb'
 Arena.Resize(280,300)
 
 frame = 0
-uknives = {SetBeam("rknifeu",50,298),SetBeam("rknifeu",50,208),SetBeam("rknifeu",50,118),SetBeam("rknifeu",50,28),SetBeam("rknifeu",50,-62),SetBeam("rknifeu",50,-152),SetBeam("rknifeu",50,-242)}
-dknives = {SetBeam("rknifeu",-50,388),SetBeam("rknifeu",-50,298),SetBeam("rknifeu",-50,208),SetBeam("rknifeu",-50,118),SetBeam("rknifeu",-50,28),SetBeam("rknifeu",-50,-62),SetBeam("rknifeu",-50,-152)}
+uknives = {SetBeam("rknifeu",50,358),SetBeam("rknifeu",50,258),SetBeam("rknifeu",50,158),SetBeam("rknifeu",50,58),SetBeam("rknifeu",50,-42),SetBeam("rknifeu",50,-142),SetBeam("rknifeu",50,-242)}
+dknives = {SetBeam("rknifeu",-50,388),SetBeam("rknifeu",-50,288),SetBeam("rknifeu",-50,188),SetBeam("rknifeu",-50,88),SetBeam("rknifeu",-50,-12),SetBeam("rknifeu",-50,-112),SetBeam("rknifeu",-50,-212)}
 warning = {}
 knives = {}
 place = 0
