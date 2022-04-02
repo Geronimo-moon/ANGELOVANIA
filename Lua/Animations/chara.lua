@@ -3,6 +3,10 @@ function InitChara()
   local body = CreateSprite('chara/noknifebody')
   local leg = CreateSprite('chara/leg')
 
+  if Misc.FileExists('User/savedata') then
+    body.Set('body')
+  end
+
   body.SetParent(leg)
   head.SetParent(body)
 

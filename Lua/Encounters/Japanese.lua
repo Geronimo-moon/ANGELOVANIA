@@ -32,17 +32,45 @@ deathtext = {
 } --死亡時のテキスト
 
 Inventory.AddCustomItems({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]フェイスステーキ"},{0,0,0,0,0})
-Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
 
+if Misc.FileExists('User/savedata') then
+  local save = Misc.OpenFile('User/savedata','r')
+  Player.hp = tonumber(save.ReadLine(2))
+  local items = tonumber(save.ReadLine(4))
+  local itemlist = {}
+  for i=1,items do
+    local item = save.ReadLine(4+i)
+    if item == "Lasagna" then
+      item = "[font:det_jp_mini][color:ffffff]ラザニア"
+    elseif item == "Tea" then
+      item = "[font:det_jp_mini][color:ffffff]ちゃば"
+    elseif item == "SnowPiece" then
+      item = "[font:det_jp_mini][color:ffffff]ゆきだるまのかけら"
+    elseif item == "L. Hero" then
+      item = "[font:det_jp_mini][color:ffffff]レジェンドヒーロー"
+    elseif item == "Steak" then
+      item = "[font:det_jp_mini][color:ffffff]フェイスステーキ"
+    end
+    table.insert(itemlist,item)
+  end
+  noob = "true" == save.ReadLine(5+items)
 
+  Inventory.SetInventory(itemlist)
+else
+  Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
+end
 
 if windows then
   Misc.WindowName = "A.N.G.E.L.O.V.A.N.I.A -Unofficial Storyfell Chara fight"
 end
 
 function EncounterStarting()
-  Audio.Stop()
-  State("ENEMYDIALOGUE")
+  if not Misc.FileExists('User/savedata') then
+    Audio.Stop()
+    State("ENEMYDIALOGUE")
+  else
+    encountertext = RandomEncounterText()
+  end
   InitChara()
 end
 
@@ -92,44 +120,44 @@ function HandleItem(id,position)
   nextwaves = {"default"}
   -- アイテムの挙動
   local name = Inventory.GetItem(position)
-
-  if id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ラザニア' then
-    Player.Heal(99)
-    BattleDialog({"[font:det_jp]パピルスのラザニアをたべた.\nHPがぜんかいふくした."})
-    enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]ラザニア...\nパピルスの\nとくいりょうりだった.","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれにたいして\nなにも\nおもわないのか?"})
-  elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ちゃば' then
-    Player.Heal(90)
-    enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]そのちゃば...\nアズゴアのラボに\nあったものだな?","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれをころした\nそのあとでも,\nおいしく\nかんじるかい?[font:monster]=)"})
-    if Player.hp < Player.maxhp then
-      BattleDialog({"[font:det_jp]そのままたべたほうがおいしい. \n90HP かいふくした."})
-    else
-      BattleDialog({"[font:det_jp]そのままたべたほうがおいしい. \nHPがぜんかいふくした."})
+  if noob then
+    if id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ラザニア' then
+      Player.Heal(99)
+      BattleDialog({"[font:det_jp]パピルスのラザニアをたべた.\nHPがぜんかいふくした."})
+      enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]ラザニア...\nパピルスの\nとくいりょうりだった.","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれにたいして\nなにも\nおもわないのか?"})
+    elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ちゃば' then
+      Player.Heal(90)
+      enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]そのちゃば...\nアズゴアのラボに\nあったものだな?","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれをころした\nそのあとでも,\nおいしく\nかんじるかい?[font:monster]=)"})
+      if Player.hp < Player.maxhp then
+        BattleDialog({"[font:det_jp]そのままたべたほうがおいしい. \n90HP かいふくした."})
+      else
+        BattleDialog({"[font:det_jp]そのままたべたほうがおいしい. \nHPがぜんかいふくした."})
+      end
+    elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ゆきだるまのかけら' then
+      Player.Heal(45)
+      if Player.hp < Player.maxhp then 
+        BattleDialog({"[font:det_jp]ゆきだるまのかけらをたべた. \n45HP かいふくした."})
+      else
+        BattleDialog({"[font:det_jp]ゆきだるまのかけらをたべた. \nHPがぜんかいふくした."})
+      end
+    elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]レジェンドヒーロー' then
+      Player.Heal(40)
+      if Player.hp < Player.maxhp then 
+        BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","[font:det_jp]こうげきが4あがった! \n40HP かいふくした."})
+      else
+        BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","[font:det_jp]こうげきが4あがった! \nHPがぜんかいふくした."})
+      end
+    elseif id == "[FONT:DET_JP_MINI][COLOR:FFFFFF]フェイスステーキ" then
+      Player.Heal(60)
+      if Player.hp < Player.maxhp then 
+        BattleDialog({"[font:det_jp]フェイスステーキをたべた. \n60HP かいふくした."})
+      else
+        BattleDialog({"[font:det_jp]フェイスステーキをたべた. \nHPがぜんかいふくした."})
+      end
     end
-  elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ゆきだるまのかけら' then
-    Player.Heal(45)
-    if Player.hp < Player.maxhp then 
-      BattleDialog({"[font:det_jp]ゆきだるまのかけらをたべた. \n45HP かいふくした."})
-    else
-      BattleDialog({"[font:det_jp]ゆきだるまのかけらをたべた. \nHPがぜんかいふくした."})
-    end
-  elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]レジェンドヒーロー' then
-    Player.Heal(40)
-    if Player.hp < Player.maxhp then 
-      BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","[font:det_jp]こうげきが4あがった! \n40HP かいふくした."})
-    else
-      BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","[font:det_jp]こうげきが4あがった! \nHPがぜんかいふくした."})
-    end
-  elseif id == "[FONT:DET_JP_MINI][COLOR:FFFFFF]フェイスステーキ" then
-    Player.Heal(60)
-    if Player.hp < Player.maxhp then 
-      BattleDialog({"[font:det_jp]フェイスステーキをたべた. \n60HP かいふくした."})
-    else
-      BattleDialog({"[font:det_jp]フェイスステーキをたべた. \nHPがぜんかいふくした."})
-    end
+  else
+    BattleDialog({"[font:det_jp][color:ff0000]これはつかうにあたいしない.\nぼくたちのきずは ちかのものじゃ\rなおせないだろうさ.","[font:det_jp]あなたは".. name .."[font:det_jp]をつかおうとした.\nが、とつぜん\rあなたはそれをほうりなげた。"})
   end
-
-  -- ハードモードはアイテム禁止
-  -- BattleDialog({"[font:det_jp][color:ff0000]これはつかうにあたいしない.\nぼくたちのきずは ちかのものじゃ\rなおせないだろうさ.","[font:det_jp]あなたは".. name .."[font:det_jp]をつかおうとした.\nが、とつぜん　\rあなたはそれをほうりなげた。"})
 end
 
 function HandleSpare()

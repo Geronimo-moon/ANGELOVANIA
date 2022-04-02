@@ -16,7 +16,7 @@ Arrow Keys/W,A,S,D Keys...Move/Guard(when your soul is green)
 Arrow Up/W Key...Jump(when your soul is blue)  
 Z Key...Confirm/Shoot(when your soul is yellow)
 X Key...Back  
-N Key...Turn on noob mode(decrease bullet damage)  
+N Key...Turn on noob mode(decrease bullet damage,can use items)  
 M Key...Turn off noob mode  
 S,U,D,O Keys(pushing simultaneously)...Turn on debug mode(no damage)  
 Delete Key...Turn off debug mode  
@@ -26,7 +26,7 @@ Esc...Exit to Mod selection screen
 上・Wキー…ジャンプ（青ソウル）  
 Z…選択・弾発射（黄ソウル）  
 X…戻る  
-N…noobモード（ダメージ軽減）  
+N…noobモード（ダメージ軽減,アイテム使用可能）  
 M…noobモード解除  
 S,U,D,O同時押し…デバッグモード（ダメージなし）  
 Delete…デバッグモードオフ  

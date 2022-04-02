@@ -92,6 +92,12 @@ gold = 0
 turn = 0 --攻撃された回数でターンを管理
 prayed = 0 --回復回数の計測
 
+if Misc.FileExists('User/savedata') then
+  local save = Misc.OpenFile('User/savedata','r')
+  turn = tonumber(save.ReadLine(1))
+  prayed = tonumber(save.ReadLine(3))
+end
+
 randomdialogue = {"[next]"}
 
 if Encounter.GetVar('debugging') then
@@ -220,7 +226,27 @@ function HandleCustomCommand(command)
     end
     prayed = prayed + 1
   elseif command == "SAVE" or command == "[FONT:DET_JP]セーブ" then
+    if not Misc.DirExists('User') then
+      Misc.CreateDir('User')
+    end
+    local save = Misc.OpenFile('User/savedata','w')
+    if not Misc.FileExists('User/savedata') then
+      save.Write('\n\n\n\n\n\n\n\n\n\n\n\n')
+    end
+    save.ReplaceLine(1,tostring(turn)) --savefileの一行目をターンにする
+    save.ReplaceLine(2,tostring(Player.hp)) --savefileの二行目をHPにする
+    save.ReplaceLine(3,tostring(prayed)) --savefileの三行目を回復回数にする
+    local items = Inventory.ItemCount -- アイテムの数を記録し名前を続ける
+    save.ReplaceLine(4,tostring(items))
+    for i=1,items do
+      save.ReplaceLine(4+i,tostring(Inventory.GetItem(i)))
+    end
+    save.ReplaceLine(13,tostring(Encounter.GetVar('noob')))
   elseif command == "RESET" or command == "[FONT:DET_JP]リセット" then
+    if Misc.FileExists('User/savedata') then
+      local save = Misc.OpenFile('User/savedata','w')
+      save.Delete()
+    end
   end
 end
 
