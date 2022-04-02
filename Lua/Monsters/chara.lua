@@ -238,6 +238,12 @@ function HandleCustomCommand(command)
       save.ReplaceLine(4+i,tostring(Inventory.GetItem(i)))
     end
     save.ReplaceLine(13,tostring(Encounter.GetVar('noob')))
+
+    if Encounter.GetVar("japanese") == true then
+      BattleDialog({'[font:det_jp][color:ff0000]ひとり のこっている.\n[color:ffffff]ケツイが みなぎった.'})
+    else
+      BattleDialog({"[color:ff0000]One left.\n[color:ffffff]You filled with DETERMINATION."})
+    end
   elseif command == "RESET" or command == "[FONT:DET_JP]リセット" then
     if Misc.FileExists('User/savedata') then
       local save = Misc.OpenFile('User/savedata','w')
