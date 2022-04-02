@@ -4,7 +4,7 @@ function InitChara()
   local leg = CreateSprite('chara/leg')
 
   if Misc.FileExists('User/savedata') then
-    body.Set('body')
+    body.Set('chara/body')
   end
 
   body.SetParent(leg)
