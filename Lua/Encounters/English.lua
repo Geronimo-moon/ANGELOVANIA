@@ -53,7 +53,7 @@ if Misc.FileExists('User/savedata') then
     end
     table.insert(itemlist,item)
   end
-  noob = "true" == save.ReadLine(5+items)
+  noob = ("true" == save.ReadLine(13))
   Inventory.SetInventory(itemlist)
 else
   Inventory.SetInventory({"Lasagna","SnowPiece","SnowPiece","SnowPiece","Tea","Steak","L. Hero","L. Hero"})

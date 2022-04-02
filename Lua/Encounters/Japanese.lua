@@ -53,7 +53,7 @@ if Misc.FileExists('User/savedata') then
     end
     table.insert(itemlist,item)
   end
-  noob = "true" == save.ReadLine(5+items)
+  noob = ("true" == save.ReadLine(13))
 
   Inventory.SetInventory(itemlist)
 else
@@ -97,7 +97,7 @@ function Update()
   end
 
   -- noobモードの設定
-  if not debugging and Input.GetKey('N')~=0 then
+  if (not debugging and Input.GetKey('N')~=0) or noob then
     noob = true
     SetMode('noob')
   end

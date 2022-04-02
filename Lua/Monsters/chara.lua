@@ -100,12 +100,8 @@ end
 
 randomdialogue = {"[next]"}
 
-if Encounter.GetVar('debugging') then
-  currentdialogue = {"Debugging.","[func:State,DEFENDING][func:Autophobia][noskip]"}
-  -- currentdialogue = messages.c6
-else
+if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  -- currentdialogue = messages.c7
 end
 
 function HandleAttack(damage)
