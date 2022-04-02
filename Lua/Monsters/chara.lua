@@ -36,7 +36,9 @@ if Encounter.GetVar("japanese") == true then
     c5 = {'[font:det_jp_mini]そう,リセットだ.\nボクがしらないとでも\nおもったのかい?','[font:det_jp_mini]きみがじかんじくを\nすきかってに\nいじっていたこと.'},
     c6 = {'[font:det_jp_mini]きみがなんにんめかは\nしらないけど.\nでも,なんどころしても\nきみはやってくる.','[font:det_jp_mini][func:CharaHead,chara/madhead]きみがいるかぎり,\nボクらに\nほんとうのへいわは\nおとずれないんだ.'},
     c7 = {'[font:det_jp_mini]きみにわかるかな?\n王のきょうふが\nきえさった よろこび.','[font:det_jp_mini][func:CharaHead,chara/closedhead]そして...','[font:det_jp_mini][func:CharaHead,chara/downhead]すべてが\nなかったことになった\nあの ぜつぼう.'},
-    c8 = {'[font:det_jp_mini][func:CharaHead,chara/downhead]ボクのケツイではリセット\nすることはできない.\nただ,きえていく\nじかんじくのきおくが\nのこされるだけ.','[font:det_jp_mini]もちろんこんなこと,\nだれにもいえない.','[font:det_jp_mini][func:CharaHead,chara/head]ボクがいったい,\nどれほど\nくるしんだとおもう?'}
+    c8 = {'[font:det_jp_mini][func:CharaHead,chara/downhead]ボクのケツイではリセット\nすることはできない.\nただ,きえていく\nじかんじくのきおくが\nのこされるだけ.','[font:det_jp_mini]もちろんこんなこと,\nだれにもいえない.','[font:det_jp_mini][func:CharaHead,chara/head]ボクがいったい,\nどれほど\nくるしんだとおもう?'},
+    c9 = {'[font:det_jp_mini][func:CharaHead,chara/downhead]それでも...','[font:det_jp_mini]それでも,きみが\nみんなにやさしく\nしていたから,\nめをつむろうとおもった.','[font:det_jp_mini][func:CharaHead,chara/truemadhead]そのけっかが,\nこのザマだ.','[font:det_jp_mini][color:ff0000]まんぞくか?\nぼくらをもてあそんで.'},
+    c10 = {'[font:det_jp_mini]まあ,きみのかんがえは\nどうでもいいんだ.\nどうせ,きいてもりかい\nできないだろうし.','[font:det_jp_mini]だいじなのは,\nきみがなんども\nみんなのしあわせを\nうばってるってことだ.','[func:CharaHead,chara/closedhead]','[func:CharaHead,chara/head][font:det_jp_mini]...ひとつ,\nおもしろいはなしをしよう.','[font:det_jp_mini]スノーフルの\nとびらのはなし...\nいや,これはまえに\nはなしたか.','[font:det_jp_mini]でも...\n"これ"はしらないだろ?'}
   }
 else
   messages = {
@@ -70,8 +72,10 @@ else
     c4 = {"[func:CharaHead,chara/head]Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nwould they?"},
     c5 = {"Yes, RESET.\nYou think \nI don't know that?","That you abused\ntimelines."},
     c6 = {"I don' know \nwhat number you are, \nbut I know you'll back \neven if I kill you.","[func:CharaHead,chara/madhead]With YOU,\nwe can't be \nhappy anymore."},
-    c7 = {"You can't understand\nthese feelings.","[func:CharaHead,chara/closedhead]Hapiness when fear \nof king disappeared.\nand...","[func:CharaHead,chara/madhead]Despair when I \nsuddenly understand\nall of them were\nLOST."},
-    c8 = {"[func:CharaHead,chara/downhead]My determination is\nnot enough to RESET.\nOnly can keep \nmemories about \ndisappearing timelines.","Of course,\nI can't rely on \nanyone.","[func:CharaHead,chara/head]Can you see\nhow much I struggled?"}
+    c7 = {"You can't understand\nthese feelings.","[func:CharaHead,chara/closedhead]Happiness when fear \nof king disappeared.\nand...","[func:CharaHead,chara/madhead]Despair when I \nsuddenly understand\nall of them were\nLOST."},
+    c8 = {"[func:CharaHead,chara/downhead]My determination is\nnot enough to RESET.\nOnly can keep \nmemories about \ndisappearing timelines.","Of course,\nI can't rely on \nanyone.","[func:CharaHead,chara/head]Can you see\nhow much I struggled?"},
+    c9 = {'[func:CharaHead,chara/downhead]Nevertheless...','Nevertheless, as you\nkeep being kind,\nI decided to\noverlook your fault.',"[func:CharaHead,chara/truemadhead]And...\nyou know the result.","[color:ff0000]You satisfied\nfooling with us?"},
+    c10 = {"Well, your thought is \nnot important.\nEven if I heard it,\nI shouldn't be able to\nunderstand it.","What's important is...\nyou're destroying\ntheir happiness\nfor a long time.","[func:CharaHead,chara/closedhead]","[func:CharaHead,chara/head]...By the way,\nhere's a \ninteresting story.","Door in Snowdin...\nno, I told you it \nbefore.","But...you don't\nknow 'THIS'."}
   }
 end
 
@@ -104,7 +108,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  -- currentdialogue = messages.c8
+  -- currentdialogue = messages.c9
 end
 
 function HandleAttack(damage)
@@ -140,6 +144,9 @@ function HandleAttack(damage)
     elseif turn == 8 then
       Encounter.SetVar("nextwaves",{"8"})
       currentdialogue = messages.c8
+    elseif turn == 9 then
+      Encounter.SetVar("nextwaves",{"9"})
+      currentdialogue = messages.c9
     end
   end
 end
