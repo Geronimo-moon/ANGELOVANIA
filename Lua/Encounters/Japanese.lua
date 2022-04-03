@@ -1,12 +1,14 @@
 ---@diagnostic disable: undefined-global, lowercase-global, undefined-field
 require 'Animations.chara'
 require 'Animations.mode'
-music = "mus_aph" --デフォルトのBGMをA.U.T.O.P.H.B.I.Aにする
+music = "mus_first"
+
+playerskipdocommand = true
 
 encountertext = "[font:det_jp]もうひとりのてんしが\rゆくてをはばんだ!"
 
 nextwaves = {"opening"} --次の攻撃（カスタムも可）
-wavetimer = 30.0 --攻撃時間
+wavetimer = 300.0 --攻撃時間
 arenasize = {155, 130} --攻撃枠のサイズ
 
 japanese = true
@@ -65,12 +67,18 @@ if windows then
 end
 
 function EncounterStarting()
+  Audio.LoadFile('mus_aph')
+  Audio.LoadFile('mus_ang')
+  Audio.LoadFile('mus_azi')
+  Audio.Stop()
+  Audio.LoadFile('mus_first')
   InitChara()
   if not Misc.FileExists('User/savedata') then
-    Audio.Stop()
+    Audio.Pitch(0.2)
     State("ENEMYDIALOGUE")
   else
     encountertext = RandomEncounterText()
+    Audio.LoadFile("mus_aph")
   end
 end
 

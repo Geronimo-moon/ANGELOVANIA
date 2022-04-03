@@ -147,6 +147,9 @@ function HandleAttack(damage)
     elseif turn == 9 then
       Encounter.SetVar("nextwaves",{"9"})
       currentdialogue = messages.c9
+    elseif turn == 10 then
+      Encounter.SetVar("nextwaves",{"10"})
+      currentdialogue = messages.c10
     end
   end
 end
@@ -268,14 +271,17 @@ end
 
 -- テキストコマンド用
 function Autophobia()
+  Audio.Pitch(1)
   Audio.LoadFile('mus_aph')
 end
 
 function Angelovania()
+  Audio.Pitch(1)
   Audio.LoadFile('mus_ang')
 end
 
 function Azimuth()
+  Audio.Pitch(1)
   Audio.LoadFile('mus_azi')
 end
 
