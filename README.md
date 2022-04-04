@@ -42,7 +42,10 @@ Esc…mod選択画面へ
 
 [Create Your Frisk](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases) by RhenaudTheLukark  
 [Unitale日本語化パッケージ](http://www.mediafire.com/file/4854os5xvz0kihd/unitale_Japanese.zip/file) by Wtoro([explain](https://youtu.be/4LRU2k3iCJA) by プルトゥpultoo3s)  
-[Blue Soul](https://www.reddit.com/r/Unitale/comments/b6ruh5/unitale_cyf_blue_soul_library_supports_4way/) by WD200019   
+[Blue Soul](https://www.reddit.com/r/Unitale/comments/b6ruh5/unitale_cyf_blue_soul_library_supports_4way/) by WD200019  
+[Green Soul](https://www.youtube.com/watch?v=YClhSMdktIk&ab_channel=TheWoodlandEngineer) by Kikori kaihatsu Shaneru  
+[Yellow Soul](https://www.reddit.com/r/Unitale/comments/7bfmv6/ive_done_a_yellow_soul_library/) by Cipsenas  
+[Purple Soul](https://www.reddit.com/r/Unitale/comments/46shck/purple_soul_library_w_muffet_attacks/) by Joms  
 
 BGM:[A.U.T.O.P.H.O.B.I.A](https://soundcloud.com/l4n0r/fellshift-autophobia) by LanoR  
 &emsp;&emsp;[A.N.G.E.L.O.V.A.N.I.A](https://youtu.be/RBGBV7Ash8c) by Valor Genesect   

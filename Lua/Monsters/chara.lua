@@ -38,7 +38,8 @@ if Encounter.GetVar("japanese") == true then
     c7 = {'[font:det_jp_mini]きみにわかるかな?\n王のきょうふが\nきえさった よろこび.','[font:det_jp_mini][func:CharaHead,chara/closedhead]そして...','[font:det_jp_mini][func:CharaHead,chara/downhead]すべてが\nなかったことになった\nあの ぜつぼう.'},
     c8 = {'[font:det_jp_mini][func:CharaHead,chara/downhead]ボクのケツイではリセット\nすることはできない.\nただ,きえていく\nじかんじくのきおくが\nのこされるだけ.','[font:det_jp_mini]もちろんこんなこと,\nだれにもいえない.','[font:det_jp_mini][func:CharaHead,chara/head]ボクがいったい,\nどれほど\nくるしんだとおもう?'},
     c9 = {'[font:det_jp_mini][func:CharaHead,chara/downhead]それでも...','[font:det_jp_mini]それでも,きみが\nみんなにやさしく\nしていたから,\nめをつむろうとおもった.','[font:det_jp_mini][func:CharaHead,chara/truemadhead]そのけっかが,\nこのザマだ.','[font:det_jp_mini][color:ff0000]まんぞくか?\nぼくらをもてあそんで.'},
-    c10 = {'[font:det_jp_mini]まあ,きみのかんがえは\nどうでもいいんだ.\nどうせ,きいてもりかい\nできないだろうし.','[font:det_jp_mini]だいじなのは,\nきみがなんども\nみんなのしあわせを\nうばってるってことだ.','[func:CharaHead,chara/closedhead]','[func:CharaHead,chara/head][font:det_jp_mini]...ひとつ,\nおもしろいはなしをしよう.','[font:det_jp_mini]スノーフルの\nとびらのはなし...\nいや,これはまえに\nはなしたか.','[font:det_jp_mini]でも...\n"これ"はしらないだろ?'}
+    c10 = {'[font:det_jp_mini]まあ,きみのかんがえは\nどうでもいいんだ.\nどうせ,きいてもりかい\nできないだろうし.','[font:det_jp_mini]だいじなのは,\nきみがなんども\nみんなのしあわせを\nうばってるってことだ.','[func:CharaHead,chara/closedhead]','[func:CharaHead,chara/head][font:det_jp_mini]...ひとつ,\nおもしろいはなしをしよう.','[font:det_jp_mini]スノーフルの\nとびらのはなし...\nいや,これはまえに\nはなしたか.','[font:det_jp_mini]でも...\n"これ"はしらないだろ?'},
+    c11 = {'[font:det_jp_mini]おどろいてくれたかな?\nいせきにいたころ,\nパピルスにおそわったんだ.','[font:det_jp_mini]もっとも,\nかれはこのちからを\nきみをまもるために\nつかってほしかった\nみたいだけど.','[font:det_jp_mini][func:CharaHead,chara/winkedhead]どうせ,やくそくは\nなんどもやぶってる.\nこんかいばかりは,\nえんりょしないよ...'},
   }
 else
   messages = {
@@ -75,7 +76,8 @@ else
     c7 = {"You can't understand\nthese feelings.","[func:CharaHead,chara/closedhead]Happiness when fear \nof king disappeared.\nand...","[func:CharaHead,chara/madhead]Despair when I \nsuddenly understand\nall of them were\nLOST."},
     c8 = {"[func:CharaHead,chara/downhead]My determination is\nnot enough to RESET.\nOnly can keep \nmemories about \ndisappearing timelines.","Of course,\nI can't rely on \nanyone.","[func:CharaHead,chara/head]Can you see\nhow much I struggled?"},
     c9 = {'[func:CharaHead,chara/downhead]Nevertheless...','Nevertheless, as you\nkeep being kind,\nI decided to\noverlook your fault.',"[func:CharaHead,chara/truemadhead]And...\nyou know the result.","[color:ff0000]You satisfied\nfooling with us?"},
-    c10 = {"Well, your thought is \nnot important.\nEven if I heard it,\nI shouldn't be able to\nunderstand it.","What's important is...\nyou're destroying\ntheir happiness\nfor a long time.","[func:CharaHead,chara/closedhead]","[func:CharaHead,chara/head]...By the way,\nhere's a \ninteresting story.","Door in Snowdin...\nno, I told you it \nbefore.","But...you don't\nknow 'THIS'."}
+    c10 = {"Well, your thought is \nnot important.\nEven if I heard it,\nI shouldn't be able to\nunderstand it.","What's important is...\nyou're destroying\ntheir happiness\nfor a long time.","[func:CharaHead,chara/closedhead]","[func:CharaHead,chara/head]...By the way,\nhere's a \ninteresting story.","Door in Snowdin...\nno, I told you it \nbefore.","But...you don't\nknow 'THIS'."},
+    c11 = {"Surprised by this?\nwhen I lived in Ruins,\nPapyrus taught me \nthis.","Though, he wanted me\nto use this power for\nprotect you.","[func:CharaHead,chara/winkedhead]Anyway, I broke the \npromise many times...\nThis time, I won't\nbother myself to\nuse this power!"},
   }
 end
 
@@ -150,6 +152,9 @@ function HandleAttack(damage)
     elseif turn == 10 then
       Encounter.SetVar("nextwaves",{"10"})
       currentdialogue = messages.c10
+    elseif turn == 11 then
+      Encounter.SetVar("nextwaves",{"11"})
+      currentdialogue = messages.c11
     end
   end
 end
