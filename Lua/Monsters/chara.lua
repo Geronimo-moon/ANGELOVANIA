@@ -155,6 +155,9 @@ function HandleAttack(damage)
     elseif turn == 11 then
       Encounter.SetVar("nextwaves",{"11"})
       currentdialogue = messages.c11
+    elseif turn == 12 then
+      Encounter.SetVar("nextwaves",{"12"})
+      currentdialogue = messages.c12
     end
   end
 end
@@ -270,7 +273,7 @@ function HandleCustomCommand(command)
       local save = Misc.OpenFile('User/savedata','w')
       save.Delete()
     end
-    Misc.DestroyWindow() 
+    Misc.DestroyWindow()
   end
 end
 
