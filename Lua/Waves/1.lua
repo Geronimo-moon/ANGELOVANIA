@@ -12,8 +12,8 @@ function Update()
     for i=1,9 do
       local knife = SetNotime("knifer",Arena.width,spawn)
       knife.ppcollision = true
-      knife.SetVar("angle",(i-1)*36)
-      knife.sprite.rotation = (i-1)*36
+      knife.SetVar("angle",(i-1)*40)
+      knife.sprite.rotation = (i-1)*40
       table.insert(knives,knife)
     end
   end
@@ -23,8 +23,8 @@ function Update()
     for i=1,9 do
       local knife = SetNotime("knifer",-Arena.width,spawn)
       knife.ppcollision = true
-      knife.SetVar("angle",(i-1)*36)
-      knife.sprite.rotation = (i-1)*36
+      knife.SetVar("angle",(i-1)*40)
+      knife.sprite.rotation = (i-1)*40
       table.insert(knives,knife)
     end
   end
