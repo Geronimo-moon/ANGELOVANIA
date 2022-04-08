@@ -63,7 +63,7 @@ else
 end
 
 if windows then
-  Misc.WindowName = "A.N.G.E.L.O.V.A.N.I.A -Unofficial Storyfell Chara fight"
+  Misc.WindowName = "A.N.G.E.L.O.V.A.N.I.A -Unofficial Storyfell Chara Fight"
 end
 
 function EncounterStarting()

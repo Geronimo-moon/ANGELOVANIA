@@ -104,7 +104,7 @@ function Update()
   end
 
   -- noobモードの設定
-  if not debugging and Input.GetKey('N')~=0 then
+  if (not debugging and Input.GetKey('N')~=0) or noob then
     noob = true
     SetMode('noob')
   end

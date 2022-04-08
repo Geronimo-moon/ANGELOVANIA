@@ -40,7 +40,7 @@ if Encounter.GetVar("japanese") == true then
     c9 = {'[font:det_jp_mini][func:CharaHead,chara/downhead]それでも...','[font:det_jp_mini]それでも,きみが\nみんなにやさしく\nしていたから,\nめをつむろうとおもった.','[font:det_jp_mini][func:CharaHead,chara/truemadhead]そのけっかが,\nこのザマだ.','[font:det_jp_mini][color:ff0000]まんぞくか?\nぼくらをもてあそんで.'},
     c10 = {'[font:det_jp_mini]まあ,きみのかんがえは\nどうでもいいんだ.\nどうせ,きいてもりかい\nできないだろうし.','[font:det_jp_mini]だいじなのは,\nきみがなんども\nみんなのしあわせを\nうばってるってことだ.','[func:CharaHead,chara/closedhead]','[func:CharaHead,chara/head][font:det_jp_mini]...ひとつ,\nおもしろいはなしをしよう.','[font:det_jp_mini]スノーフルの\nとびらのはなし...\nいや,これはまえに\nはなしたか.','[font:det_jp_mini]でも...\n"これ"はしらないだろ?'},
     c11 = {'[font:det_jp_mini]おどろいてくれたかな?\nいせきにいたころ,\nパピルスにおそわったんだ.','[font:det_jp_mini]もっとも,\nかれはこのちからを\nきみをまもるために\nつかってほしかった\nみたいだけど.','[font:det_jp_mini][func:CharaHead,chara/winkedhead]どうせ,やくそくは\nなんどもやぶってる.\nこんかいばかりは,\nえんりょしないよ...'},
-    c12 = {'[font:det_jp_mini]いせきが\nなつかしいよ...\nみんなのこうげき\nひとつひとつ,\nいまでもおもいだせる.','[font:det_jp_mini]なかでも,かのじょは...\nアルフィーは\nひとすじなわでは\nいかなかった.','[font:det_jp_mini]'},
+    c12 = {'[font:det_jp_mini]いせきが\nなつかしいよ...\nみんなのこうげき\nひとつひとつ,\nいまでもおもいだせる.','[font:det_jp_mini]なかでも,かのじょは...\nアルフィーは\nひとすじなわでは\nいかなかった.','[font:det_jp_mini]もう\nたたかえないのが\nざんねんで\nしかたないな...'},
   }
 else
   messages = {
@@ -79,6 +79,7 @@ else
     c9 = {'[func:CharaHead,chara/downhead]Nevertheless...','Nevertheless, as you\nkeep being kind,\nI decided to\noverlook your fault.',"[func:CharaHead,chara/truemadhead]And...\nyou know the result.","[color:ff0000]You satisfied\nfooling with us?"},
     c10 = {"Well, your thought is \nnot important.\nEven if I heard it,\nI shouldn't be able to\nunderstand it.","What's important is...\nyou're destroying\ntheir happiness\nfor a long time.","[func:CharaHead,chara/closedhead]","[func:CharaHead,chara/head]...By the way,\nhere's a \ninteresting story.","Door in Snowdin...\nno, I told you it \nbefore.","But...you don't\nknow 'THIS'."},
     c11 = {"Surprised by this?\nwhen I lived in Ruins,\nPapyrus taught me \nthis.","Though, he wanted me\nto use this power for\nprotect you.","[func:CharaHead,chara/winkedhead]Anyway, I broke the \npromise many times...\nThis time, I won't\nbother myself to\nuse this power!"},
+    c12 = {"Oh, dear days \nin Ruins...\nI still remember\ntheir attack\none by one.","Above all, she...\nAlphys weren't dealt with\neasily.","I regret at\nthat I cannot \nfight against\nher anymore..."},
   }
 end
 
