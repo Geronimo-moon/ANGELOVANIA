@@ -9,7 +9,7 @@ function Update()
 
   if frame % 14 == 3 then
     local spawn = math.random(-Arena.height/2,Arena.height/2)
-    for i=1,10 do
+    for i=1,9 do
       local knife = SetNotime("knifer",Arena.width,spawn)
       knife.ppcollision = true
       knife.SetVar("angle",(i-1)*36)
@@ -20,7 +20,7 @@ function Update()
 
   if frame % 14 == 10 then
     local spawn = math.random(-Arena.height/2,Arena.height/2)
-    for i=1,10 do
+    for i=1,9 do
       local knife = SetNotime("knifer",-Arena.width,spawn)
       knife.ppcollision = true
       knife.SetVar("angle",(i-1)*36)

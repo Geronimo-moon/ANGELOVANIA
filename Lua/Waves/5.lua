@@ -7,7 +7,7 @@ knives = {}
 function Update()
   frame = frame + 1
 
-  if frame % 14 == 3 then
+  if frame % 16 == 3 then
     local spawn = math.random(-Arena.height/2,Arena.height/2)
     local angle = math.random(0,359)
     local color = "white"
@@ -32,7 +32,7 @@ function Update()
     end
   end
 
-  if frame % 14 == 10 then
+  if frame % 16 == 11 then
     local spawn = math.random(-Arena.height/2,Arena.height/2)
     local angle = math.random(0,359)
     local color = "white"

@@ -158,6 +158,8 @@ function Update()
   end
 
   if frame == 760 then
+    Player.SetControlOverride(false)
+    Player.sprite.color = {255,0,0}
     EndWave()
   end
 end
