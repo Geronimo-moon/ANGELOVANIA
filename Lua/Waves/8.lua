@@ -39,7 +39,7 @@ function Update()
 
   if frame >= 70 and frame <= 500 then
     speed = 2
-    if frame % 20 == 0 then
+    if frame % 25 == 0 then
       local rd = math.random(1,4)
       local path,dir,x,y
       if rd == 1 then

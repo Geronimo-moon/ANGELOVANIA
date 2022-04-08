@@ -29,7 +29,7 @@ function Update()
     end
   end
 
-  if frame%60 == 0 then
+  if frame%50 == 0 then
     local knifel = SetBeam("rknifel",320,Player.y)
     knifel.SetVar("dir",-1)
     knifel.SetVar('spawn',frame)

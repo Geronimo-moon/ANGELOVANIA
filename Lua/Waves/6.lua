@@ -5,7 +5,7 @@ Arena.Resize(280,300)
 
 frame = 0
 uknives = {SetBeam("rknifeu",50,358),SetBeam("rknifeu",50,258),SetBeam("rknifeu",50,158),SetBeam("rknifeu",50,58),SetBeam("rknifeu",50,-42),SetBeam("rknifeu",50,-142),SetBeam("rknifeu",50,-242)}
-dknives = {SetBeam("rknifeu",-50,388),SetBeam("rknifeu",-50,288),SetBeam("rknifeu",-50,188),SetBeam("rknifeu",-50,88),SetBeam("rknifeu",-50,-12),SetBeam("rknifeu",-50,-112),SetBeam("rknifeu",-50,-212)}
+dknives = {SetBeam("rknifed",-50,388),SetBeam("rknifed",-50,288),SetBeam("rknifed",-50,188),SetBeam("rknifed",-50,88),SetBeam("rknifed",-50,-12),SetBeam("rknifed",-50,-112),SetBeam("rknifed",-50,-212)}
 warning = {}
 knives = {}
 place = 0
@@ -16,6 +16,7 @@ function Update()
   for i=1,#uknives do
     if uknives[i].isactive then
       uknives[i].Move(0,2)
+      uknives[i].ppcollision = true
       if uknives[i].absy >= 544 then
         uknives[i].Remove()
       end
@@ -24,6 +25,7 @@ function Update()
 
   for i=1,#dknives do
     if dknives[i].isactive then
+      dknives[i].ppcollision = true
       dknives[i].Move(0,-2)
       if dknives[i].absy <= -64 then
         dknives[i].Remove()
@@ -31,10 +33,10 @@ function Update()
     end
   end
 
-  if frame%45 == 0 then
-    local uknife = SetBeam("rknifeu",50,-242)
+  if frame%50 == 45 then
+    local uknife = SetBeam("rknifeu",50,-342)
     table.insert(uknives,uknife)
-    local dknife = SetBeam("rknifeu",-50,298)
+    local dknife = SetBeam("rknifed",-50,318)
     table.insert(dknives,dknife)
   end
 
