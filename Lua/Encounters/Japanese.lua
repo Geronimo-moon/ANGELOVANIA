@@ -135,7 +135,7 @@ function HandleItem(id,position)
       enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]ラザニア...\nパピルスの\nとくいりょうりだった.","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれにたいして\nなにも\nおもわないのか?"})
     elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ちゃば' then
       Player.Heal(90)
-      enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]そのちゃば...\nアズゴアのラボに\nあったものだな?","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれをころした\nそのあとでも,\nおいしく\nかんじるかい?[font:monster]=)"})
+      enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]そのちゃば...\nアズゴアのラボに\nあったものだな?","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれをころした\nそのあとでも,\nおいしく\nかんじるかい?[font:monster][color:ff0000]=)"})
       if Player.hp < Player.maxhp then
         BattleDialog({"[font:det_jp]そのままたべたほうがおいしい. \n90HP かいふくした."})
       else
