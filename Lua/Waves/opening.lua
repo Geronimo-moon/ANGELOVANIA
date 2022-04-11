@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global, lowercase-global
 Arena.ResizeImmediate(155,130)
 require 'Libraries.deadForce'
 require 'Libraries.bulletType'

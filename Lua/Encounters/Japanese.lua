@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global, lowercase-global, undefined-field
 require 'Animations.chara'
 require 'Animations.mode'
 music = "mus_first"

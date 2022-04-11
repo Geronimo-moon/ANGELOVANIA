@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global, lowercase-global
 require "Animations.chara"
 
 messages = {}
