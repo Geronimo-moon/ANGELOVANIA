@@ -1,5 +1,5 @@
 require 'Libraries.bulletType'
-blue = require "Libraries/bluesoul"
+blue = require "Libraries.bluesoul"
 blue.Initialize()
 Audio.PlaySound("change")
 
