@@ -47,7 +47,7 @@ function Update()
   for i=1,#knives do
     if knives[i].isactive then
       local theta = knives[i].GetVar('theta')
-      knives[i].Move(8*math.cos(theta),8*math.sin(theta))
+      knives[i].Move(5*math.cos(theta),5*math.sin(theta))
 
       if knives[i].absx <= -64 or knives[i].absx >= 704 or knives[i].absy <= -64 or knives[i].absy >= 544 then
         knives[i].Remove()
