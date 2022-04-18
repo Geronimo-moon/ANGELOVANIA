@@ -100,7 +100,7 @@ function Hit(bullet)
     elseif type == 'notime' then
       Player.Hurt(1,0.033)
     elseif type == 'default' then
-      Player.Hurt(5,1)
+      Player.Hurt(math.random(7,10),1)
     elseif type == 'beam' then
       Player.Hurt(2,0.001)
     end
@@ -110,7 +110,7 @@ function Hit(bullet)
     elseif type == 'notime' then
       Player.Hurt(1,0.001)
     elseif type == 'default' then
-      Player.Hurt(10,1)
+      Player.Hurt(math.random(9,12),1)
     elseif type == 'beam' then
       Player.Hurt(4,0.001)
     end

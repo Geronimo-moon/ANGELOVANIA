@@ -6,7 +6,7 @@ playerskipdocommand = true
 
 encountertext = "[font:det_jp]もうひとりのてんしが\rゆくてをはばんだ!"
 
-nextwaves = {"14"} --次の攻撃（カスタムも可）
+nextwaves = {"opening"} --次の攻撃（カスタムも可）
 wavetimer = 300.0 --攻撃時間
 arenasize = {155, 130} --攻撃枠のサイズ
 

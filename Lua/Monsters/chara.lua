@@ -41,7 +41,7 @@ if Encounter.GetVar("japanese") == true then
     c11 = {'[font:det_jp_mini]おどろいてくれたかな?\nいせきにいたころ,\nパピルスにおそわったんだ.','[font:det_jp_mini]もっとも,\nかれはこのちからを\nきみをまもるために\nつかってほしかった\nみたいだけど.','[font:det_jp_mini][func:CharaHead,chara/winkedhead]どうせ,やくそくは\nなんどもやぶってる.\nこんかいばかりは,\nえんりょしないよ...'},
     c12 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]いせきが\nなつかしいよ...\nみんなのこうげき\nひとつひとつ,\nいまでもおもいだせる.','[font:det_jp_mini]なかでも,かのじょは...\nアルフィーは\nひとすじなわでは\nいかなかった.','[font:det_jp_mini]もう\nたたかえないのが\nざんねんで\nしかたないな...'},
     c13 = {'[font:det_jp_mini]あー,ごめん.\nおもいでにひたって\nきみのことを\nわすれるところだった.','[font:det_jp_mini]...\nなんてね,\nじょうだんだ.','[font:det_jp_mini][func:CharaHead,chara/madhead]みんなをきずつけた\nちょうほんにんを\nわすれるわけ\nないだろ?'},
-    c14 = {'[font:det_jp_mini]あー,ごめん.\nおもいでにひたって\nきみのことを\nわすれるところだった.','[font:det_jp_mini]...\nなんてね,\nじょうだんだ.','[font:det_jp_mini][func:CharaHead,chara/madhead]みんなをきずつけた\nちょうほんにんを\nわすれるわけ\nないだろ?'},
+    c14 = {'[font:det_jp_mini]もちろん, ボクいがい\nだれもおぼえてない.','[font:det_jp_mini][func:CharaHead,chara/downhead]だからこそ,\nボクはきみを\nゆるせないんだよ.','[font:det_jp_mini]アズがどれほど\nちじょうに\nいきたがってたか\nしってるか?','[font:det_jp_mini]ちじょうにでたとき,\nアズはいつも\nめをかがやかせて\n"あのまるいものは\nなんだ?!"ってきくんだ.','[font:det_jp_mini]そこでボクが,\n"あれがたいようだ"\nってかえすんだ.','[font:det_jp_mini]つぎのひには,\nかれはスノーフルの\nぼくのへやの\nとびらをたたいて\nこういうんだよ.','[font:det_jp_mini]"おきろ!\nつよくならねば\nちじょうには\nでられないぞ!"'},
   }
 else
   messages = {
@@ -82,6 +82,7 @@ else
     c11 = {"Surprised by this?\nwhen I lived in Ruins,\nPapyrus taught me \nthis.","Though, he wanted me\nto use this power for\nprotect you.","[func:CharaHead,chara/winkedhead]Anyway, I broke the \npromise many times...\nThis time, I won't\nbother myself to\nuse this power!"},
     c12 = {"Oh, dear days \nin Ruins...\nI still remember\ntheir attack\none by one.","Above all, she...\nAlphys weren't dealt with\neasily.","I regret at\nthat I cannot \nfight against\nher anymore..."},
     c13 = {"Ah, it wasn't good \nduring fight\nto indulge in\nmemories and \nforget about you.","...\nwell, it's joke.","[func:CharaHead,chara/madhead]Who will forget about\nYOU, who hurt\neveryone?"},
+    c14 = {"Of course, nobody\nremember except me.","[func:CharaHead,chara/downhead]That's why I can't\nforgive you.","Do you know\nhow eager Rei was\nto go to\nthe surface?","When we get to the\nsurface, he always \nsay:'What's that \nround thing?!' \nwith shining eye.","Then I answer,\n'That's the SUN.'","On the next day,\nknocking the door\nof my room \nat Snowdin,\nhe says...","'Get up!\nYou must be stronger\nto go to \nthe surface!'"},
   }
 end
 
@@ -114,7 +115,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  -- currentdialogue = messages.c9
+  -- currentdialogue = messages.c14
 end
 
 function HandleAttack(damage)
@@ -165,6 +166,9 @@ function HandleAttack(damage)
     elseif turn == 13 then
       Encounter.SetVar("nextwaves",{"13"})
       currentdialogue = messages.c13
+    elseif turn == 14 then
+      Encounter.SetVar("nextwaves",{"14"})
+      currentdialogue = messages.c14
     end
   end
 end
