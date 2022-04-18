@@ -49,7 +49,7 @@ function Update()
       knives[i].MoveTo(x,y)
       knives[i].SetVar('theta',theta+math.pi/90*dir)
       knives[i].sprite.rotation = knives[i].sprite.rotation + 2*dir
-      if diff <= 20 then
+      if diff <= 30 then
         knives[i].sprite.alpha = knives[i].sprite.alpha - 0.1
         if knives[i].sprite.alpha == 0 then
           knives[i].Remove()
