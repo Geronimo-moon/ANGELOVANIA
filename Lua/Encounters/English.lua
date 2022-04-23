@@ -7,7 +7,7 @@ playerskipdocommand = true
 encountertext = "Another ANGEL blocked your way!" --ナレーション
 
 nextwaves = {"opening"} --次の攻撃（カスタムも可）
-wavetimer = 300.0 --攻撃時間
+wavetimer = math.huge --攻撃時間
 arenasize = {155, 130} --攻撃枠のサイズ
 
 japanese = false

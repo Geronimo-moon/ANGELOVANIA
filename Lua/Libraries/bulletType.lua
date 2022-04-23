@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-global
 -- 即死攻撃
 function SetDieForce(path,x,y,layer,color)
   if layer == nil then

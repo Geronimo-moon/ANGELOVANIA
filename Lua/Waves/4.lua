@@ -14,8 +14,6 @@ function Update()
   if frame % 40 == 1 then
     local uknife = SetNotime("knifed",120*(-1)^(direction+1),30)
     local dknife = SetNotime("knifeu",-120*(-1)^(direction+1),-30)
-    uknife.ppcollision = true
-    dknife.ppcollision = true
     table.insert(uknives,uknife)
     table.insert(dknives,dknife)
   end
