@@ -79,13 +79,13 @@ function UpdateBlaster(blaster,frame,time)
 
     if spawn == 50 then
       blaster.sprite.Set('attack/'..name..'2')
-      local beam = SetBeam('slash/slashb',blaster.x,blaster.y)
+      local beam = SetBeam('slash/slashb',blaster.x+770*math.cos(math.pi*blaster.sprite.rotation/180),blaster.y+770*math.sin(math.pi*blaster.sprite.rotation/180))
       beam.sprite.Scale(1,blaster.sprite.yscale)
       beam.sprite.rotation = blaster.sprite.rotation
       beam.sprite.color = hsvToRgb((spawn-50)%255,255,200)
       beam.sprite.color[1] = 1
       beam.sprite.alpha = 0.5
-      local center = SetSprite('slash/slashb',blaster.x,blaster.y)
+      local center = SetSprite('slash/slashb',blaster.x+770*math.cos(math.pi*blaster.sprite.rotation/180),blaster.y+770*math.sin(math.pi*blaster.sprite.rotation/180))
       center.sprite.Scale(1,blaster.sprite.yscale/2)
       center.sprite.rotation = blaster.sprite.rotation
       center.sprite.color = hsvToRgb(0,175,255)
