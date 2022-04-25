@@ -34,8 +34,8 @@ end
 
 function ModeAnime()
   mode1.color = hsvToRgb(Time.time*101%255,255,200)
-  mode2.color = hsvToRgb(Time.time*101%255,255,200)
-  mode3.color = hsvToRgb(Time.time*101%255,255,200)
+  mode2.color = hsvToRgb(Time.time*101%255+85,255,200)
+  mode3.color = hsvToRgb(Time.time*101%255+170,255,200)
 
   local mode1x = 440 + 10*math.cos(math.pi*Time.time/3)
   local mode1y = 50 + 20*math.sin(math.pi*Time.time/3)

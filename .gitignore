@@ -1,4 +1,6 @@
 *.meta
 .vscode
 
+Lua/Encounters/debug.lua
+
 User/

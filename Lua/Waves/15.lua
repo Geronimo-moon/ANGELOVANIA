@@ -24,6 +24,11 @@ function Update()
       UpdateBlaster(blasters[i],frame,600)
     end
   end
+
+
+  if frame == 700 then
+    EndWave()
+  end
 end
 
 function OnHit(bullet)
