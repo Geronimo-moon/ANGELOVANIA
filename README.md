@@ -7,7 +7,7 @@ This is just under development.
 CAUTION:If you're using Retrocompatibility Mode, this may not work as expected.  
   
 作りかけのStoryfellのChara戦Modです。  
-英語が怪しいので日本語も使えるようにする予定です。開始画面の言語選択は意味ないです。  
+英語が怪しいので日本語も使えるようにする予定です。  
 [CYF 0.6.5](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases)で動かしてください。他verでは未確認です。  
 注意：OptionからRetrocompatibility ModeをONにしていると、正常に動作しない場合があります。
 

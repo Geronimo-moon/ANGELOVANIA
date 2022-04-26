@@ -8,12 +8,83 @@ japanese = false
 debugging = false
 noob = false
 
-if japanese then
-  encountertext = "[font:det_jp]もうひとりのてんしが\rゆくてをはばんだ!"
-else
-  encountertext = "Another ANGEL blocked your way!"
+function SetLang()
+  if japanese then
+    encountertext = "[font:det_jp]もうひとりのてんしが\rゆくてをはばんだ!"
+  else
+    encountertext = "Another ANGEL blocked your way!"
+  end
+
+  if japanese then
+    deathtext = {
+      "[voice:v_sans][waitall:2][font:det_jp_mini][color:ffffff]おい,ガキんちょ. \nあきらめるには　はやすぎるぜ?",
+      "[voice:v_sans][waitall:2][font:det_jp_mini][music:stop][color:ff0000]なんてったって まだ\nオマエのタマシイを もらってないからな!",
+      } --死亡時のテキスト
+  
+    Inventory.AddCustomItems({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]フェイスステーキ"},{0,0,0,0,0})
+  
+    if Misc.FileExists('User/savedata') then
+      local save = Misc.OpenFile('User/savedata','r')
+      Player.hp = tonumber(save.ReadLine(2))
+      local items = tonumber(save.ReadLine(4))
+      local itemlist = {}
+      for i=1,items do
+        local item = save.ReadLine(4+i)
+        if item == "Lasagna" then
+          item = "[font:det_jp_mini][color:ffffff]ラザニア"
+        elseif item == "Tea" then
+          item = "[font:det_jp_mini][color:ffffff]ちゃば"
+        elseif item == "SnowPiece" then
+          item = "[font:det_jp_mini][color:ffffff]ゆきだるまのかけら"
+        elseif item == "L. Hero" then
+          item = "[font:det_jp_mini][color:ffffff]レジェンドヒーロー"
+        elseif item == "Steak" then
+          item = "[font:det_jp_mini][color:ffffff]フェイスステーキ"
+        end
+        table.insert(itemlist,item)
+      end
+      noob = ("true" == save.ReadLine(13))
+      Inventory.SetInventory(itemlist)
+    else
+      Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
+    end
+  else
+    deathtext = {
+      "[voice:v_sans][waitall:2][font:sans][color:ffffff]hey, kid, you cannot \ngive up just yet.",
+      "[voice:v_sans][waitall:2][font:sans][music:stop][color:ff0000]'cuz i haven't get your soul yet!",
+      } --死亡時のテキスト
+  
+    Inventory.AddCustomItems({"Lasagna","Tea","SnowPiece","L. Hero","Steak"},{0,0,0,0,0})
+  
+    if Misc.FileExists('User/savedata') then
+      local save = Misc.OpenFile('User/savedata','r')
+      Player.hp = tonumber(save.ReadLine(2))
+      local items = tonumber(save.ReadLine(4))
+      local itemlist = {}
+      for i=1,items do
+        local item = save.ReadLine(4+i)
+        if item == "[font:det_jp_mini][color:ffffff]ラザニア" then
+          item = "Lasagna"
+        elseif item == "[font:det_jp_mini][color:ffffff]ちゃば" then
+          item = "Tea"
+        elseif item == "[font:det_jp_mini][color:ffffff]ゆきだるまのかけら" then
+          item = "SnowPiece"
+        elseif item == "[font:det_jp_mini][color:ffffff]レジェンドヒーロー" then
+          item = "L. Hero"
+        elseif item == "[font:det_jp_mini][color:ffffff]フェイスステーキ" then
+          item = "Steak"
+        end
+        table.insert(itemlist,item)
+      end
+      noob = ("true" == save.ReadLine(13))
+      Inventory.SetInventory(itemlist)
+    else
+      Inventory.SetInventory({"Lasagna","SnowPiece","SnowPiece","SnowPiece","Tea","Steak","L. Hero","L. Hero"})
+    end
+  end
 end
 
+SetLang()
 
 nextwaves = {"title"} --次の攻撃（カスタムも可）
 wavetimer = math.huge --攻撃時間
@@ -31,75 +102,6 @@ Player.lv = 19
 Player.name = 'Shifty'
 Player.maxhp = 92
 Player.hp = Player.maxhp
-
-
-if japanese then
-  deathtext = {
-    "[voice:v_sans][waitall:2][font:det_jp_mini][color:ffffff]おい,ガキんちょ. \nあきらめるには　はやすぎるぜ?",
-    "[voice:v_sans][waitall:2][font:det_jp_mini][music:stop][color:ff0000]なんてったって まだ\nオマエのタマシイを もらってないからな!",
-    } --死亡時のテキスト
-
-  Inventory.AddCustomItems({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]フェイスステーキ"},{0,0,0,0,0})
-
-  if Misc.FileExists('User/savedata') then
-    local save = Misc.OpenFile('User/savedata','r')
-    Player.hp = tonumber(save.ReadLine(2))
-    local items = tonumber(save.ReadLine(4))
-    local itemlist = {}
-    for i=1,items do
-      local item = save.ReadLine(4+i)
-      if item == "Lasagna" then
-        item = "[font:det_jp_mini][color:ffffff]ラザニア"
-      elseif item == "Tea" then
-        item = "[font:det_jp_mini][color:ffffff]ちゃば"
-      elseif item == "SnowPiece" then
-        item = "[font:det_jp_mini][color:ffffff]ゆきだるまのかけら"
-      elseif item == "L. Hero" then
-        item = "[font:det_jp_mini][color:ffffff]レジェンドヒーロー"
-      elseif item == "Steak" then
-        item = "[font:det_jp_mini][color:ffffff]フェイスステーキ"
-      end
-      table.insert(itemlist,item)
-    end
-    noob = ("true" == save.ReadLine(13))
-    Inventory.SetInventory(itemlist)
-  else
-    Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
-  end
-else
-  deathtext = {
-    "[voice:v_sans][waitall:2][font:sans][color:ffffff]hey, kid, you cannot \ngive up just yet.",
-    "[voice:v_sans][waitall:2][font:sans][music:stop][color:ff0000]'cuz i haven't get your soul yet!",
-    } --死亡時のテキスト
-
-  Inventory.AddCustomItems({"Lasagna","Tea","SnowPiece","L. Hero","Steak"},{0,0,0,0,0})
-
-  if Misc.FileExists('User/savedata') then
-    local save = Misc.OpenFile('User/savedata','r')
-    Player.hp = tonumber(save.ReadLine(2))
-    local items = tonumber(save.ReadLine(4))
-    local itemlist = {}
-    for i=1,items do
-      local item = save.ReadLine(4+i)
-      if item == "[font:det_jp_mini][color:ffffff]ラザニア" then
-        item = "Lasagna"
-      elseif item == "[font:det_jp_mini][color:ffffff]ちゃば" then
-        item = "Tea"
-      elseif item == "[font:det_jp_mini][color:ffffff]ゆきだるまのかけら" then
-        item = "SnowPiece"
-      elseif item == "[font:det_jp_mini][color:ffffff]レジェンドヒーロー" then
-        item = "L. Hero"
-      elseif item == "[font:det_jp_mini][color:ffffff]フェイスステーキ" then
-        item = "Steak"
-      end
-      table.insert(itemlist,item)
-    end
-    noob = ("true" == save.ReadLine(13))
-    Inventory.SetInventory(itemlist)
-  else
-    Inventory.SetInventory({"Lasagna","SnowPiece","SnowPiece","SnowPiece","Tea","Steak","L. Hero","L. Hero"})
-  end
-end
 
 if windows then
   Misc.WindowName = "A.N.G.E.L.O.V.A.N.I.A -Unofficial Storyfell Chara Fight"

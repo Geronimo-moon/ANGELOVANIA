@@ -53,34 +53,43 @@ function Update()
   if not press then
     if soul.GetVar('place') == 1 or soul.GetVar('place') == 2 then
       if Input.Left == 1 or Input.Right == 1 then
+        Audio.PlaySound('menumove')
         soul.SetVar('place',(soul.GetVar('place'))%2+1)
         soul.MoveToAbs(place[soul.GetVar('place')][1],place[soul.GetVar('place')][2])
       elseif Input.Down == 1 then
+        Audio.PlaySound('menumove')
         soul.SetVar('place',3)
         soul.MoveToAbs(place[3][1],place[3][2])
       end
 
       if Input.Confirm == 1 then
+        Audio.PlaySound('menuconfirm')
         if soul.GetVar('place') == 1 then
           eng.color = {255,255,0}
           engbox.color = {255,255,0}
           jpn.color = {255,0,0}
           jpnbox.color = {255,0,0}
           Encounter.SetVar('japanese',false)
+          Encounter.Call('SetLang')
+          Encounter["enemies"][1].Call('SetLang')
         else
           eng.color = {255,0,0}
           engbox.color = {255,0,0}
           jpn.color = {255,255,0}
           jpnbox.color = {255,255,0}
           Encounter.SetVar('japanese',true)
+          Encounter.Call('SetLang')
+          Encounter["enemies"][1].Call('SetLang')
         end
       end
 
     elseif soul.GetVar('place') == 3 then
       if Input.Up == 1 then
+        Audio.PlaySound('menumove')
         soul.SetVar('place',1)
         soul.MoveToAbs(place[1][1],place[1][2])
       elseif Input.Down == 1 then
+        Audio.PlaySound('menumove')
         soul.SetVar('place',4)
         soul.MoveToAbs(place[4][1],place[4][2])
         soul.Scale(2,2)
@@ -88,10 +97,12 @@ function Update()
       end
 
       if Input.Confirm == 1 then
+        Audio.PlaySound('menuconfirm')
         Encounter.SetVar('noob',true)
         nb.color = {255,255,0}
         nbbox.color = {255,255,0}
       elseif Input.Cancel == 1 then
+        Audio.PlaySound('menuconfirm')
         Encounter.SetVar('noob',false)
         nb.color = {255,0,0}
         nbbox.color = {255,0,0}
@@ -99,6 +110,7 @@ function Update()
 
     elseif soul.GetVar('place') == 4 then
       if Input.Up == 1 then
+        Audio.PlaySound('menumove')
         soul.SetVar('place',3)
         soul.MoveToAbs(place[3][1],place[3][2])
         soul.Scale(1,1)
@@ -106,6 +118,7 @@ function Update()
       end
 
       if Input.Confirm == 1 then
+        Audio.PlaySound('BeginBattle3')
         Encounter.SetVar('nextwaves',{'opening'})
         mask.Remove()
         logo.Remove()
