@@ -49,6 +49,5 @@ BGM:[A.U.T.O.P.H.O.B.I.A](https://soundcloud.com/l4n0r/fellshift-autophobia) by 
 &emsp;&emsp;[A.N.G.E.L.O.V.A.N.I.A](https://youtu.be/RBGBV7Ash8c) by Valor Genesect   
 &emsp;&emsp;[Azimuth](https://youtu.be/RN0CvYlXoDo) by 夢開拓 (version 2)  
 
-Sprite:[Last Corridor](https://www.spriters-resource.com/pc_computer/undertale/sheet/77634/)
-[Gaster Blaster](https://www.youtube.com/watch?v=aOSRyij7Law&ab_channel=Takka0923)
-[Chaos Blaster](https://www.youtube.com/watch?v=dGS4iBnhtjI&ab_channel=ALTERswap%E3%83%BB%E3%83%9D%E3%83%83%E3%82%AD%E3%83%BCAsgore)
+Sprite:[Gaster Blaster](https://www.youtube.com/watch?v=aOSRyij7Law&ab_channel=Takka0923)  
+[Chaos Blaster](https://www.youtube.com/watch?v=dGS4iBnhtjI&ab_channel=ALTERswap%E3%83%BB%E3%83%9D%E3%83%83%E3%82%AD%E3%83%BCAsgore)  
