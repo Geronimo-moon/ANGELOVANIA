@@ -7,7 +7,7 @@ This is just under development.
 CAUTION:If you're using Retrocompatibility Mode, this may not work as expected.  
   
 作りかけのStoryfellのChara戦Modです。  
-英語が怪しいので日本語も使えるようにする予定です。  
+英語が怪しいので日本語も使えるようにする予定です。開始画面の言語選択は意味ないです。  
 [CYF 0.6.5](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases)で動かしてください。他verでは未確認です。  
 注意：OptionからRetrocompatibility ModeをONにしていると、正常に動作しない場合があります。
 
@@ -26,8 +26,6 @@ Esc...Exit to Mod selection screen
 上・Wキー…ジャンプ（青ソウル）  
 Z…選択・弾発射（黄ソウル）  
 X…戻る  
-N…noobモード（ダメージ軽減,アイテム使用可能）  
-M…noobモード解除  
 S,U,D,O同時押し…デバッグモード（ダメージなし）  
 Delete…デバッグモードオフ  
 Esc…mod選択画面へ  

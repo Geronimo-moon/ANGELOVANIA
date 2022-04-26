@@ -45,7 +45,7 @@ if Encounter.GetVar("japanese") == true then
   }
 else
   messages = {
-    comments = {"Chara laughed \rlooking you're dodging.", "Chara doesn't looks tired.","[color:ff0000]It seems \rsomething is helping her.","The guilt is\ralready gone."},
+    comments = {"Chara laughed \rlooking you're dodging.", "Chara doesn't looks tired.","[color:ff0000]It seems \rsomething is helping her.","The guilt is already\rgone."},
     commands = {"Check","Pray","Save","Reset"},
     name = "Chara Dreemurr",
     check = {"Chara Dreemurr  LV ?\nShe survived this world\r thanks to Dreemurr family.","[color:ff0000]Now, No one would protect her."},
