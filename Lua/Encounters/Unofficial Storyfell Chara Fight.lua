@@ -4,7 +4,12 @@ music = "mus_menu"
 
 playerskipdocommand = true
 
-japanese = false
+if Misc.FileExists('User/savedata') then
+  japanese = ("true" == Misc.OpenFile('User/savedata','r').ReadLine(14))
+else
+  japanese = false
+end
+
 debugging = false
 noob = false
 
@@ -84,8 +89,6 @@ function SetLang()
   end
 end
 
-SetLang()
-
 nextwaves = {"title"} --次の攻撃（カスタムも可）
 wavetimer = math.huge --攻撃時間
 arenasize = {155, 130} --攻撃枠のサイズ
@@ -102,6 +105,8 @@ Player.lv = 19
 Player.name = 'Shifty'
 Player.maxhp = 92
 Player.hp = Player.maxhp
+
+SetLang()
 
 if windows then
   Misc.WindowName = "A.N.G.E.L.O.V.A.N.I.A -Unofficial Storyfell Chara Fight"
@@ -143,6 +148,10 @@ function Update()
     if GetCurrentState() == "ENEMYDIALOGUE" and Input.GetKey('K')~=0 then
       State("DEFENDING")
     end
+  end
+
+  if noob then
+    SetMode('noob')
   end
 
   CharaAnime()

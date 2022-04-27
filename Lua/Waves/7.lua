@@ -12,9 +12,14 @@ lknives = {}
 
 lastmoves = {0,0}
 
+local box = SetSprite("empty", 0,0,"BelowBullet")
+box.sprite.Mask("box")
+
 
 function Update()
   frame = frame + 1
+  box.sprite.Scale(Arena.width/box.sprite.width, Arena.height/box.sprite.height)
+  box.MoveTo(0,0)
   local speed = 2-math.ceil(frame/270)/2
 
   if frame <= 500 then
@@ -24,6 +29,10 @@ function Update()
         local dknife = SetNotime('knifeu',-Arena.width/2+20*i,-Arena.height/2+10)
         local rknife = SetNotime('knifel',Arena.width/2-10,-Arena.height/2+20*i)
         local lknife = SetNotime('knifer',-Arena.width/2+10,-Arena.height/2+20*i)
+        uknife.sprite.SetParent(box.sprite)
+        dknife.sprite.SetParent(box.sprite)
+        rknife.sprite.SetParent(box.sprite)
+        lknife.sprite.SetParent(box.sprite)
         table.insert(uknives,uknife)
         table.insert(dknives,dknife)
         table.insert(lknives,lknife)
@@ -35,8 +44,8 @@ function Update()
 
     if frame % 10 == 0 and frame > 0 then
       for i=1,#uknives do
-        uknives[i].Move(0,-2)
-        dknives[i].Move(0,0)
+        uknives[i].Move(0,-1)
+        dknives[i].Move(0,1)
         rknives[i].Move(-1,0)
         lknives[i].Move(1,0)
       end
@@ -62,13 +71,6 @@ function Update()
         moves[2] = -1
       end
     end
-
-    for i=1,#uknives do
-      uknives[i].Move(speed*moves[1],speed*moves[2])
-      dknives[i].Move(speed*moves[1],speed*moves[2])
-      rknives[i].Move(speed*moves[1],speed*moves[2])
-      lknives[i].Move(speed*moves[1],speed*moves[2])
-    end
   end
 
   if frame == 550 then
@@ -88,7 +90,7 @@ function Update()
     for i=1,#uknives do
       if uknives[i].isactive then
         uknives[i].Move(0,-5)
-        if uknives[i].y <= -240 then
+        if uknives[i].absy <= 0 then
           uknives[i].Remove()
         end
       end
@@ -136,7 +138,7 @@ function Update()
     for i=1,#rknives do
       if rknives[i].isactive then
         rknives[i].Move(-5,0)
-        if rknives[i].x <= -320 then
+        if rknives[i].absx <= 0 then
           rknives[i].Remove()
         end
       end
