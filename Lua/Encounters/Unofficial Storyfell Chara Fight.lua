@@ -25,9 +25,9 @@ function SetLang()
       "[voice:v_sans][waitall:2][font:det_jp_mini][color:ffffff]おい,ガキんちょ. \nあきらめるには　はやすぎるぜ?",
       "[voice:v_sans][waitall:2][font:det_jp_mini][music:stop][color:ff0000]なんてったって まだ\nオマエのタマシイを もらってないからな!",
       } --死亡時のテキスト
-  
+
     Inventory.AddCustomItems({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]フェイスステーキ"},{0,0,0,0,0})
-  
+
     if Misc.FileExists('User/savedata') then
       local save = Misc.OpenFile('User/savedata','r')
       Player.hp = tonumber(save.ReadLine(2))
@@ -58,9 +58,9 @@ function SetLang()
       "[voice:v_sans][waitall:2][font:sans][color:ffffff]hey, kid, you cannot \ngive up just yet.",
       "[voice:v_sans][waitall:2][font:sans][music:stop][color:ff0000]'cuz i haven't get your soul yet!",
       } --死亡時のテキスト
-  
+
     Inventory.AddCustomItems({"Lasagna","Tea","SnowPiece","L. Hero","Steak"},{0,0,0,0,0})
-  
+
     if Misc.FileExists('User/savedata') then
       local save = Misc.OpenFile('User/savedata','r')
       Player.hp = tonumber(save.ReadLine(2))
@@ -115,6 +115,7 @@ end
 function EncounterStarting()
   Audio.LoadFile('mus_aph')
   Audio.LoadFile('mus_ang')
+  Audio.LoadFile('mus_aty')
   Audio.LoadFile('mus_azi')
   Audio.LoadFile('mus_first')
   Audio.Stop()

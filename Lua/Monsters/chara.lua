@@ -46,6 +46,7 @@ function SetLang()
       c15 = {'[font:det_jp_mini]ホント,\nむなしくなるよ.\nこんなことばっか\nおこってるんだから\nたまったもんじゃない.','[font:det_jp_mini]そのうえ,\nこんかいのけつまつは\nこれときた.\nまいっちゃうのも\nむりないだろ?','[font:det_jp_mini]...ところで,\nアズを,\nボクのおとうとを\nころしたのは\nせいとうぼうえいか?','[font:det_jp_mini]たしかにイカレたこさ.\nでも,どうじにピュアで\nほんとにひとを\nころすなんてむりだ.','[font:det_jp_mini][func:CharaHead,chara/madhead]いまさら,うそなんて\nつかなくていい.[color:ff0000]\nじひもなく\nむぞうさにころした.\nちがうか?'},
       c16 = {'[font:det_jp_mini]きみのもくてきは\nなんなんだ?\nなんどくりかえしても\nかわらないボクらに\nあいそがつきた?','[font:det_jp_mini]それとも,ただ\nじぶんのちからを\nこじしたい\nだけなのか?','[font:det_jp_mini][func:CharaHead,chara/doubthead]...いや,ちがうな.\nたんなるこうきしん.\nそれがきみの\nケツイのもとだ.\nちがうか?'},
       c17 = {'[font:det_jp_mini]ならきみがボクの\nともだちをころした\nってのは, もう\nもんだいじゃない.','[font:det_jp_mini]きみがここで\nたのしみつづける\nかぎり, どうせみんな\nよみがえるんだ.','[font:det_jp_mini][func:CharaHead,chara/closedhead]だからいま,\nボクがしなきゃ\nいけないのは...','[font:det_jp_mini][func:CharaHead,chara/head]きみがにどと\nここにきたいと\nおもえないように\nすることさ!'},
+      c18 = {'[font:det_jp_mini]そういういみでは,\nママは\nおしいところまで\nいってたろうな.','[font:det_jp_mini]なんど\nあきらめたくなった?\nトリエルの\nほんきのまえに.','[font:det_jp_mini]もういちど\nあくむを\nよみがえらせて\nあげようか?'},
     }
   else
     messages = {
@@ -90,6 +91,7 @@ function SetLang()
       c15 = {"It makes me really \nvoid. When this \nkind of thing \nhappens all the time,\nI can't stand it.","Not only that, this \ntime you reached\nthe ending like this.\nIt's not strange\nI got exhaused,right?","...By the way,\nwas it a \nself-defendence\nyou killed Rei,\nmy sweet brother?","You know he's crazy...\nbut also pure \nso that he couldn't \nkill humans.","[func:CharaHead,chara/madhead]Now you needn't lie.\n[color:ff0000]YOU killed him \nwith NO MERCY.\nDIDN'T YOU?"},
       c16 = {"What's your purpose?\nDisgusted to us \nafter we didn't \nchange in \nevery timeline?",'Or, you just\nwanna show off \nyour power?',"[func:CharaHead,chara/doubthead]...No,it's not. Just for \nyour curiosity. \nThat's the root of \nyour determination. \nIsn't it?"},
       c17 = {"In that case,\nit dosen't matter \nanymore\nyou killed my friends.","As long as \nyou have fun with\nthis world, they can\ncome back anyway.",'[func:CharaHead,chara/closedhead]So, what I have to\ndo now is...',"[func:CharaHead,chara/head]Make you never \nwant to come back\nhere again!"},
+      c18 = {"In that sense,\nMom was close enough \nto that purpose.","How many times \ndid you wanna\ngive up\nfacing Toriel's power?",'Would you like to\nget stuck on\nthat nightmare again?'},
     }
   end
 
@@ -125,7 +127,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   -- currentdialogue = messages.currentdialogue
-  currentdialogue = messages.c17
+  currentdialogue = messages.c18
 end
 
 function HandleAttack(damage)
@@ -188,6 +190,9 @@ function HandleAttack(damage)
     elseif turn == 17 then
       Encounter.SetVar("nextwaves",{"17"})
       currentdialogue = messages.c17
+    elseif turn == 18 then
+      Encounter.SetVar("nextwaves",{"18"})
+      currentdialogue = messages.c18
     end
   end
 end
@@ -318,6 +323,11 @@ end
 function Angelovania()
   Audio.Pitch(1)
   Audio.LoadFile('mus_ang')
+end
+
+function Atychiphobia()
+  Audio.Pitch(1)
+  Audio.LoadFile('mus_aty')
 end
 
 function Azimuth()

@@ -54,7 +54,7 @@ function Update()
       end
 
       if frame % 3 == 0 then
-        local shadow = SetNotime('knifel',knives[i].x,knives[i].y)
+        local shadow = SetNotime('knifer',knives[i].x,knives[i].y)
         shadow.sprite.rotation = knives[i].sprite.rotation
 
         shadow.SetVar('spawn',frame)
