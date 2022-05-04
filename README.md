@@ -30,12 +30,14 @@ Esc…mod選択画面へ
 
 
 ## Credits (honorifics omitted/敬称略)
+### Original
 [UNDERTALE](https://undertale.jp/) by Toby Fox  
 [Underfell](https://underfell.tumblr.com/) by Vic and AU Community  
 [Storyshift](https://ut-storyshift.tumblr.com/) by voltrathelively  
 [Facing Demons/DEVILOVANIA](https://gamejolt.com/games/igb_dv/343813) by Vladimir Ignitio  
 [Storyfell](https://storyfell-alternate-universe.tumblr.com/) by AlexProxy12 and AU Community  
 
+# Tools
 [Create Your Frisk](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases) by RhenaudTheLukark  
 [Unitale日本語化パッケージ](http://www.mediafire.com/file/4854os5xvz0kihd/unitale_Japanese.zip/file) by Wtoro([explain](https://youtu.be/4LRU2k3iCJA) by プルトゥpultoo3s)  
 [Blue Soul](https://www.reddit.com/r/Unitale/comments/b6ruh5/unitale_cyf_blue_soul_library_supports_4way/) by WD200019  
@@ -43,9 +45,12 @@ Esc…mod選択画面へ
 [Yellow Soul](https://www.reddit.com/r/Unitale/comments/7bfmv6/ive_done_a_yellow_soul_library/) by Cipsenas  
 [Purple Soul](https://www.reddit.com/r/Unitale/comments/46shck/purple_soul_library_w_muffet_attacks/) by Joms  
 
-BGM:[A.U.T.O.P.H.O.B.I.A](https://soundcloud.com/l4n0r/fellshift-autophobia) by LanoR  
-&emsp;&emsp;[A.N.G.E.L.O.V.A.N.I.A](https://youtu.be/RBGBV7Ash8c) by Valor Genesect   
-&emsp;&emsp;[Azimuth](https://youtu.be/RN0CvYlXoDo) by 夢開拓 (version 2)  
+# BGM 
+[A.U.T.O.P.H.O.B.I.A](https://soundcloud.com/l4n0r/fellshift-autophobia) by LanoR  
+[A.N.G.E.L.O.V.A.N.I.A](https://youtu.be/RBGBV7Ash8c) by Valor Genesect   
+[Azimuth](https://youtu.be/RN0CvYlXoDo) by 夢開拓 (version 2)  
+[Atychiphobia](https://soundcloud.com/midnightstriked/storyfell-amethyst-atychiphobia) by Midnight​Striked  
 
-Sprite:[Gaster Blaster](https://www.youtube.com/watch?v=aOSRyij7Law&ab_channel=Takka0923)  
+# Sprite 
+[Gaster Blaster](https://www.youtube.com/watch?v=aOSRyij7Law&ab_channel=Takka0923)  
 [Chaos Blaster](https://www.youtube.com/watch?v=dGS4iBnhtjI&ab_channel=ALTERswap%E3%83%BB%E3%83%9D%E3%83%83%E3%82%AD%E3%83%BCAsgore)  
