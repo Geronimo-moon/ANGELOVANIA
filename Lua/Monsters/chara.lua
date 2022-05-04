@@ -126,8 +126,8 @@ end
 randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
-  -- currentdialogue = messages.currentdialogue
-  currentdialogue = messages.c18
+  currentdialogue = messages.currentdialogue
+  -- currentdialogue = messages.c18
 end
 
 function HandleAttack(damage)
