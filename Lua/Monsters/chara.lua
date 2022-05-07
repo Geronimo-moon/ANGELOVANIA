@@ -16,21 +16,19 @@ function SetLang()
         "[font:det_jp_mini]たくさんのじかんじくで,\nだれもころさずに\nさいこうの\nエンディングに\nたどりついたのに.",
         "[font:det_jp_mini]'ころすか、ころされるか.'\nたしかにそう\nいいつづけてきたさ.",
         "[font:det_jp_mini]でも...\nあんなエンディングを\nしってしまったら...\nねぇ.",
-        "[func:CharaHead,chara/closedhead][noskip]",
-        "[font:det_jp_mini](ためいき)",
+        "[func:CharaHead,chara/closedhead][font:det_jp_mini](ためいき)",
         "[font:det_jp_mini]そうだね,アズ.\nこのニンゲンが\n'てんし'だったんだ.",
         "[font:det_jp_mini]てんしは\nてんしでも\n'し'をもたらす\n'てんし'だったけど.",
-        "[func:CharaHead,chara/head][noskip]",
-        "[font:det_jp_mini]まぁいいか.\nところで,\nきょうは\nサイアクなひじゃないか?",
+        "[func:CharaHead,chara/head][font:det_jp_mini]まぁいいか.\nところで,\nきょうは\nサイアクなひじゃないか?",
         "[font:det_jp_mini]とりはしんで,\nはながかれていき,\nまうのはちりばかり.",
         "[font:det_jp_mini]こんなひには,\nボクらのような\nにんげんは...",
         "[font:det_jp_mini]せいぜい\nたのしもうじゃないか",
         "[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad][func:CharaHead,chara/madhead][func:CharaBody,chara/body]はじめようか,\nもうひとりの\nさつじんきさん?",
-        "[func:State,DEFENDING][func:Autophobia][noskip][func:CharaHead,chara/head]",
+        "[func:State,DEFENDING][func:Autophobia][func:CharaHead,chara/head]",
       },
-      c0 = {"[font:det_jp_mini]なにをしているんだ?\n[font:det_jp_mini]あてられるか,\nためしてみなよ."},
-      c1 = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?'},
-      c2 = {'[font:det_jp_mini]いつもおもってたんだ.\nなんできみは\nみんなにやさしく\nありつづけられるのかって.'},
+      c0 = {"[font:det_jp_mini]なにをしているんだ?\n[font:det_jp_mini]あてられるか,\nためしてみなよ.","[next]"},
+      c1 = {'[font:det_jp_mini]なにを\nおどろいているんだい?\nわざわざくらうために\nつったってるやつなんて\nいないだろ?',"[next]"},
+      c2 = {'[font:det_jp_mini]いつもおもってたんだ.\nなんできみは\nみんなにやさしく\nありつづけられるのかって.',"[next]"},
       c3 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]きみのような\nやさしいひとは\nはじめてだったんだ.','[font:det_jp_mini][func:CharaHead,chara/doubthead]ま,けっきょくきみも\nやつらとおなじだった\nみたいだけど.'},
       c4 = {'[font:det_jp_mini][func:CharaHead,chara/head]でも,かんがえてみれば\nとうぜんか.','[font:det_jp_mini]ほんとうに\nやさしいひとは,\nリセットなんて\nしないだろうし.'},
       c5 = {'[font:det_jp_mini]そう,リセットだ.\nボクがしらないとでも\nおもったのかい?','[font:det_jp_mini]きみがじかんじくを\nすきかってに\nいじっていたこと.'},
@@ -41,12 +39,16 @@ function SetLang()
       c10 = {'[font:det_jp_mini]まあ,きみのかんがえは\nどうでもいいんだ.\nどうせ,きいてもりかい\nできないだろうし.','[font:det_jp_mini]だいじなのは,\nきみがなんども\nみんなのしあわせを\nうばってるってことだ.','[func:CharaHead,chara/closedhead]...','[func:CharaHead,chara/head][font:det_jp_mini]...ひとつ,\nなつかしいはなしをしよう.','[font:det_jp_mini]スノーフルの\nとびらのはなし...\nいや,これはなんども\nはなしたか.','[font:det_jp_mini]でも...\n"これ"はしらないだろ?'},
       c11 = {'[font:det_jp_mini]おどろいてくれたかな?\nいせきにいたころ,\nパピルスにおそわったんだ.','[font:det_jp_mini]もっとも,\nかれはこのちからを\nきみをまもるために\nつかってほしかった\nみたいだけど.','[font:det_jp_mini][func:CharaHead,chara/winkedhead]どうせ,やくそくは\nなんどもやぶってる.\nこんかいばかりは,\nえんりょしないよ...'},
       c12 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]いせきが\nなつかしいな...\nみんなのこうげき\nひとつひとつ,\nいまでもおもいだせる.','[font:det_jp_mini]なかでも,かのじょは...\nアルフィーは\nひとすじなわでは\nいかなかった.','[font:det_jp_mini]もう\nたたかえないのが\nざんねんで\nしかたないよ...'},
-      c13 = {'[font:det_jp_mini]あー,ごめん.\nおもいでにひたって\nきみのことを\nわすれるところだった.','[font:det_jp_mini]...\nなんてね,\nじょうだんだ.','[font:det_jp_mini][func:CharaHead,chara/madhead]みんなをきずつけた\nちょうほんにんを\nわすれるわけ\nないだろ?'},
-      c14 = {'[font:det_jp_mini]もちろん,\nそんなことは\nボクいがい\nだれもおぼえてない.','[font:det_jp_mini][func:CharaHead,chara/downhead]だからこそ,\nボクはきみを\nゆるせないんだよ.','[font:det_jp_mini]アズがどれほど\nちじょうに\nいきたがってたか\nしってるか?','[font:det_jp_mini]ちじょうにでたとき,\nアズはいつも\nめをかがやかせて\n"あのまるいものは\nなんだ?!"ってきくんだ.','[font:det_jp_mini]そこでボクが,\n"あれがたいようだ"\nってかえすんだ.','[font:det_jp_mini]つぎのひには,\nかれはスノーフルの\nぼくのへやの\nとびらをたたいて\nこういうんだよ.','[font:det_jp_mini]"おきろ!\nつよくならねば\nちじょうには\nでられないぞ!"'},
+      c13 = {'[font:det_jp_mini]あー,ごめん.\nおもいでにひたって\nきみのことを\nわすれるところだった.','[font:det_jp_mini]...\nなんてね,\nじょうだんだ.','[font:det_jp_mini][func:CharaHead,chara/madhead]みんなをうらぎった\nちょうほんにんを\nわすれるわけ\nないだろ?'},
+      c14 = {'[font:det_jp_mini]もちろん,\nそのことは\nボクいがい\nだれもおぼえてない.','[font:det_jp_mini][func:CharaHead,chara/downhead]だからこそ,\nボクはきみを\nゆるせないんだよ.','[font:det_jp_mini]アズがどれほど\nちじょうに\nいきたがってたか\nしってるか?','[font:det_jp_mini]ちじょうにでたとき,\nアズはいつも\nめをかがやかせて\n"あのまるいものは\nなんだ?!"ってきくんだ.','[font:det_jp_mini]そこでボクが,\n"あれがたいようだ"\nってかえすんだ.','[font:det_jp_mini]つぎのひには,\nかれはスノーフルの\nぼくのへやの\nとびらをたたいて\nこういうんだよ.','[font:det_jp_mini]"おきろ!\nつよくならねば\nちじょうには\nでられないぞ!"'},
       c15 = {'[font:det_jp_mini]ホント,\nむなしくなるよ.\nこんなことばっか\nおこってるんだから\nたまったもんじゃない.','[font:det_jp_mini]そのうえ,\nこんかいのけつまつは\nこれときた.\nまいっちゃうのも\nむりないだろ?','[font:det_jp_mini]...ところで,\nアズを,\nボクのおとうとを\nころしたのは\nせいとうぼうえいか?','[font:det_jp_mini]たしかにイカレたこさ.\nでも,どうじにピュアで\nほんとにひとを\nころすなんてむりだ.','[font:det_jp_mini][func:CharaHead,chara/madhead]いまさら,うそなんて\nつかなくていい.[color:ff0000]\nじひもなく\nむぞうさにころした.\nちがうか?'},
       c16 = {'[font:det_jp_mini]きみのもくてきは\nなんなんだ?\nなんどくりかえしても\nかわらないボクらに\nあいそがつきた?','[font:det_jp_mini]それとも,ただ\nじぶんのちからを\nこじしたい\nだけなのか?','[font:det_jp_mini][func:CharaHead,chara/doubthead]...いや,ちがうな.\nたんなるこうきしん.\nそれがきみの\nケツイのもとだ.\nちがうか?'},
       c17 = {'[font:det_jp_mini]ならきみがボクの\nともだちをころした\nってのは, もう\nもんだいじゃない.','[font:det_jp_mini]きみがここで\nたのしみつづける\nかぎり, どうせみんな\nよみがえるんだ.','[font:det_jp_mini][func:CharaHead,chara/closedhead]だからいま,\nボクがしなきゃ\nいけないのは...','[font:det_jp_mini][func:CharaHead,chara/head]きみがにどと\nここにきたいと\nおもえないように\nすることさ!'},
       c18 = {'[font:det_jp_mini]そういういみでは,\nママは\nおしいところまで\nいってたろうな.','[font:det_jp_mini]なんど\nあきらめたくなった?\nトリエルの\nほんきのまえに.','[font:det_jp_mini]もういちど\nあくむを\nよみがえらせて\nあげようか?'},
+      c19 = {'[font:det_jp_mini]わかってる.\nボクのちからは\nママにとおく\nおよばない.','[font:det_jp_mini]でも,ボクには\nせきにんがある.','[font:det_jp_mini]おなじにんげんとして\nこのぎゃくさつを\nとめるせきにんがね.','[font:det_jp_mini][func:CharaHead,chara/closedhead]だから,ボクは\nここにたっているしか\nないんだ.'},
+      c20 = {'[font:det_jp_mini]...ねぇ,ほんとうに\nつづけたいの?','[font:det_jp_mini]あきらめのわるさは\nほめてあげるけど.\nもっとゆういぎに\nじかんをつかいなよ.','[font:det_jp_mini]ボクだって,\nこんなことホントは\nしたくないんだよ?'},
+      c21 = {'[font:det_jp_mini]オーケー,オーケー,\nきみ,からだを\nうごかすのすきなの?\nそれとも,すきなのは\nきりきざまれること?','[font:det_jp_mini]...あのさ,\nボクにはきみの\nきもちがわからない.','[font:det_jp_mini]でも...\nむかしは,\nつうじあえたことも\nあったろ?','[font:det_jp_mini]ねぇ,あいぼう.\nきみがもし...\nもし,そこにいるなら...','[font:det_jp_mini]もういちど,\nゼロから\nやりなおさないか?','[font:det_jp_mini]いまならまだまにあう.\nこのじかんじくをけして\nつぎでうまくやればいい.','[font:det_jp_mini]どうかな?\nやってみるかちは\nあるとおもうよ?'},
+      c22 = {'[font:det_jp_mini]ま,だろうね.','[font:det_jp_mini]むしろ,\nあんしんしたよ.','[font:det_jp_mini]これで,えんりょなく\nきみのしたことを\nひなんできる.','[font:det_jp_mini][func:CharaHead,chara/madhead]じゅんびは\nいいな?'},
     }
   else
     messages = {
@@ -61,21 +63,19 @@ function SetLang()
         "Many other timelines,\nyou showed us \nawesome endings,\nwithout killing.",
         "That's true \nwe believed \nthe motto that \n'It's kill or be killed'.",
         "But...\nonce see that \npeaceful ending...",
-        "[func:CharaHead,chara/closedhead][noskip]",
-        "*sigh*",
+        "[func:CharaHead,chara/closedhead]*sigh*",
         "Yes, Rei...\nthey're angel.",
         "The angel \ngiving us a DEATH...",
-        "[func:CharaHead,chara/head][noskip]",
-        "By the way, it's a\nterrible day outside.",
+        "[func:CharaHead,chara/head]By the way, it's a\nterrible day outside.",
         "Birds are dying, \nflowers are withering, \ndusts are scattering...",
         "On days like these, \nhumans like us...",
         "have a GREAT TIME.",
         "[color:ff0000][effect:rotate][noskip][voice:v_floweymad][func:CharaHead,chara/madhead][func:CharaBody,chara/body]THEN, SHALL WE PLAY, \nANOTHER KILLER?",
-        "[func:State,DEFENDING][func:Autophobia][noskip][func:CharaHead,chara/head]",
+        "[func:State,DEFENDING][func:Autophobia][func:CharaHead,chara/head]",
       },
-      c0 = {"Hey, \nwhat are you doing?\nHit me \nif you're able."},
-      c1 = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.'},
-      c2 = {'Always wondered \nwhy you can keep on\nbeing merciful \nfor everyone.'},
+      c0 = {"Hey, \nwhat are you doing?\nHit me \nif you're able.","[next]"},
+      c1 = {'Why do you \nget surprised?\nNo one would \nstand there \nand take it.',"[next]"},
+      c2 = {'Always wondered \nwhy you can keep on\nbeing merciful \nfor everyone.',"[next]"},
       c3 = {"[func:CharaHead,chara/closedhead]I never met humans\nlike you, so \nI couldn't understand.","[func:CharaHead,chara/doubthead]Well, finally\nyou're same as them,\nthough."},
       c4 = {"[func:CharaHead,chara/head]Come to think of it,\nit's not strange.","Heartful people \nwouldn't do RESET, \nwould they?"},
       c5 = {"Yes, RESET.\nYou think \nI don't know that?","That you abused\ntimelines."},
@@ -86,12 +86,16 @@ function SetLang()
       c10 = {"Well, your thought is \nnot important.\nEven if I heard it,\nI shouldn't be able to\nunderstand it.","The importance is...\nyou're destroying\ntheir happiness\nfor a long time.","[func:CharaHead,chara/closedhead]...","[func:CharaHead,chara/head]...By the way,\nhere's a \nnostalgic story.","Door in Snowdin...\nno, I told you it \nmany time.","But...you don't\nknow 'THIS'."},
       c11 = {"Surprised by this?\nwhen I lived in Ruins,\nPapyrus taught me \nthis.","Though, he wanted me\nto use this power for\nprotect you.","[func:CharaHead,chara/winkedhead]Anyway, I broke the \npromise many times...\nThis time, I won't\nbother myself to\nuse this power!"},
       c12 = {"Oh, dear days \nin Ruins...\nI still remember\ntheir attack\none by one.","Above all, she...\nAlphys weren't dealt with\neasily.","I regret at\nthat I cannot \nfight against\nher anymore..."},
-      c13 = {"Ah, it wasn't good \nduring fight\nto indulge in\nmemories and \nforget about you.","...\nwell, it's joke.","[func:CharaHead,chara/madhead]Who will forget about\nYOU, who hurt\neveryone?"},
-      c14 = {"Of course, nobody\nremember except me.","[func:CharaHead,chara/downhead]That's why I can't\nforgive you.","Do you know\nhow eager Rei was\nto go to\nthe surface?","When we get to the\nsurface, he always \nsay:'What's that \nround thing?!' \nwith shining eye.","Then I answer,\n'That's the SUN.'","On the next day,\nknocking the door\nof my room \nat Snowdin,\nhe says...","'Get up!\nYou must be stronger\nto go to \nthe surface!'"},
+      c13 = {"Ah, it wasn't good \nduring fight\nto indulge in\nmemories and \nforget about you.","...\nwell, it's joke.","[func:CharaHead,chara/madhead]Who will forget about\nYOU, who betrayed\neveryone?"},
+      c14 = {"Of course, nobody\nremember it \nexcept me.","[func:CharaHead,chara/downhead]That's why I can't\nforgive you.","Do you know\nhow eager Rei was\nto go to\nthe surface?","When we get to the\nsurface, he always \nsay:'What's that \nround thing?!' \nwith shining eye.","Then I answer,\n'That's the SUN.'","On the next day,\nknocking the door\nof my room \nat Snowdin,\nhe says...","'Get up!\nYou must be stronger\nto go to \nthe surface!'"},
       c15 = {"It makes me really \nvoid. When this \nkind of thing \nhappens all the time,\nI can't stand it.","Not only that, this \ntime you reached\nthe ending like this.\nIt's not strange\nI got exhaused,right?","...By the way,\nwas it a \nself-defendence\nyou killed Rei,\nmy sweet brother?","You know he's crazy...\nbut also pure \nso that he couldn't \nkill humans.","[func:CharaHead,chara/madhead]Now you needn't lie.\n[color:ff0000]YOU killed him \nwith NO MERCY.\nDIDN'T YOU?"},
       c16 = {"What's your purpose?\nDisgusted to us \nafter we didn't \nchange in \nevery timeline?",'Or, you just\nwanna show off \nyour power?',"[func:CharaHead,chara/doubthead]...No,it's not. Just for \nyour curiosity. \nThat's the root of \nyour determination. \nIsn't it?"},
       c17 = {"In that case,\nit dosen't matter \nanymore\nyou killed my friends.","As long as \nyou have fun with\nthis world, they can\ncome back anyway.",'[func:CharaHead,chara/closedhead]So, what I have to\ndo now is...',"[func:CharaHead,chara/head]Make you never \nwant to come back\nhere again!"},
       c18 = {"In that sense,\nMom was close enough \nto that purpose.","How many times \ndid you wanna\ngive up\nfacing Toriel's power?",'Would you like to\nget stuck on\nthat nightmare again?'},
+      c19 = {"I know that\nmy power is \nno match for mom's.",'But...\nI have a \nresponsibility.','Responsibility to\nstop this massacre\nas a HUMAN.','[func:CharaHead,chara/closedhead]So I have no choice\nexcept for \nstanding here.'},
+      c20 = {'[font:det_jp_mini]...ねぇ,ほんとうに\nつづけたいの?','[font:det_jp_mini]あきらめのわるさは\nほめてあげるけど.\nもっとゆういぎに\nじかんをつかいなよ.','[font:det_jp_mini]ボクだって,\nこんなことホントは\nしたくないんだよ?'},
+      c21 = {'[font:det_jp_mini]オーケー,オーケー,\nきみ,からだを\nうごかすのすきなの?\nそれとも,すきなのは\nきりきざまれること?','[font:det_jp_mini]...あのさ,\nボクにはきみの\nきもちがわからない.','[font:det_jp_mini]でも...\nむかしは,\nつうじあえたことも\nあったろ?','[font:det_jp_mini]ねぇ,あいぼう.\nきみがもし...\nもし,そこにいるなら...','[font:det_jp_mini]もういちど,\nゼロから\nやりなおさないか?','[font:det_jp_mini]いまならまだまにあう.\nこのじかんじくをけして\nつぎでうまくやればいい.','[font:det_jp_mini]どうかな?\nやってみるかちは\nあるとおもうよ?'},
+      c22 = {'[font:det_jp_mini]ま,だろうね.','[font:det_jp_mini]むしろ,\nあんしんしたよ.','[font:det_jp_mini]これで,えんりょなく\nきみのしたことを\nひなんできる.','[font:det_jp_mini][func:CharaHead,chara/madhead]じゅんびは\nいいな?'}
     }
   end
 
@@ -193,6 +197,20 @@ function HandleAttack(damage)
     elseif turn == 18 then
       Encounter.SetVar("nextwaves",{"18"})
       currentdialogue = messages.c18
+    elseif turn == 19 then
+      Encounter.SetVar("nextwaves",{"19"})
+      currentdialogue = messages.c19
+    elseif turn == 20 then
+      -- Encounter.SetVar("nextwaves",{"20"})
+      currentdialogue = messages.c20
+    elseif turn == 21 then
+      Audio.Stop()
+      Encounter.SetVar("nextwaves",{"21"})
+      currentdialogue = messages.c21
+    elseif turn == 22 then
+      Audio.LoadFile('mus_ang')
+      -- Encounter.SetVar("nextwaves",{"22"})
+      currentdialogue = messages.c22
     end
   end
 end
