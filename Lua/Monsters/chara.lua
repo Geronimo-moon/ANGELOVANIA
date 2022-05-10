@@ -52,7 +52,7 @@ function SetLang()
       c20 = {'[font:det_jp_mini]...ねぇ,ほんとうに\nつづけたいの?','[font:det_jp_mini]あきらめのわるさは\nほめてあげるけど.\nもっとゆういぎに\nじかんをつかいなよ.','[font:det_jp_mini]ボクだって,\nこんなことホントは\nしたくないんだよ?'},
       c21 = {'[font:det_jp_mini][func:Stop]オーケー,オーケー,\nきみ,からだを\nうごかすのすきなの?\nそれとも,すきなのは\nきりきざまれること?','[font:det_jp_mini]...あのさ,\nボクにはきみの\nきもちがわからない.','[font:det_jp_mini]でも...\nむかしは,\nつうじあえたことも\nあったろ?','[font:det_jp_mini][func:Spare]ねぇ,あいぼう.\nきみがもし...\nもし,そこにいるなら...','[font:det_jp_mini]もういちど,\nゼロから\nやりなおさないか?','[font:det_jp_mini]いまならまだまにあう.\nこのじかんじくをけして\nつぎでうまくやればいい.','[font:det_jp_mini]どうかな?\nやってみるかちは\nあるとおもうよ?'},
       spare = {'[font:det_jp_mini][func:Stop]はぁ, めんど...[func:CharaHead,chara/surprisedhead]\n...え?','[font:det_jp_mini]にがすっていうの?\nボクを?','[font:det_jp_mini][noskip]...','[font:det_jp_mini][noskip][func:CharaHead,chara/closedhead]......','[font:det_jp_mini][noskip]......[w:60]\nそっか','[func:KillSpare][next]'},
-      c22 = {'[font:det_jp_mini]ま,だろうね.','[font:det_jp_mini]むしろ,\nあんしんしたよ.','[font:det_jp_mini]これで,えんりょなく\nきみのしたことを\nひなんできる.','[func:Angelovania][font:det_jp_mini][func:CharaHead,chara/madhead]じゅんびは\nいいな?',"...",'[font:det_jp_mini][func:CharaHead,chara/normalhead][func:Stop]...ごめん,\nやっぱいまのなし.','[font:det_jp_mini][func:CharaHead,chara/winkedhead][func:DogSong]このさきのこうげき,\nまだきめてなかった.\nてへへ...','[font:det_jp_mini][func:CharaHead,chara/normalhead]そんなわけで, ここが\n"デモエンド"だ.\nよくたどりついたね!','[font:det_jp_mini]たのしめたかい?\nそうだとうれしいよ...\nそれじゃ,またこんど,\nパートナー!','[func:State,DONE]'},
+      c22 = {'[font:det_jp_mini]ま,だろうね.','[font:det_jp_mini]むしろ,\nあんしんしたよ.','[font:det_jp_mini]これで,えんりょなく\nきみのしたことを\nひなんできる.','[func:Angelovania][font:det_jp_mini][func:CharaHead,chara/madhead]じゅんびは\nいいな?',"...",'[font:det_jp_mini][func:CharaHead,chara/normalhead][func:Stop]...ごめん,\nやっぱいまのなし.','[font:det_jp_mini][func:CharaHead,chara/winkedhead][func:DogSong]このさきのこうげき,\nまだきめてなかった.\nてへへ...','[font:det_jp_mini][func:CharaHead,chara/normalhead]そんなわけで, ここが\n"デモエンド"だ.\nよくたどりついたね!','[font:det_jp_mini]たのしめたかい?\nそうだとうれしいよ...\nそれじゃ,またこんど,\nパートナー!','[func:Delete]'},
     }
   else
     messages = {
@@ -100,7 +100,7 @@ function SetLang()
       c20 = {"...Hey,\nyou REALLY wanna\ncontinue?",'I praise your\ntenacity, though.\nUse times\nmore meaningfully.',"I don't wanna\ndo this either,\nyou know?"},
       c21 = {'Okay, okay,\nyou DO like moving \nthe body, right?\nOr you like\nbeing chopped?','...Well, I can\'t see\nyour feeling.','But...\none day we \nunderstood each \nother, didn\'t we?','[func:Spare]Hey, partner.\nif you...\nif you there...','Why don\'t we\nstart over from \nzero again?','It\'s not too late.\nDelete this timeline\nand do well next time.','How is it?\nIt\'s worth doing,\nisn\'t it?'},
       spare = {'[func:Stop]hehe, I know...[func:CharaHead,chara/surprisedhead]\n...what?','You...\nYou sparing me?','[noskip]...','[func:CharaHead,chara/closedhead][noskip]......','[noskip]......[w:60]\nAlright','[func:KillSpare][next]'},
-      c22 = {'Well, I know.','Rather,\nI felt relief.','Now I can blame you\nfor what you did\nwithout reservation.','[func:Angelovania][func:CharaHead,chara/madhead]Are you...\n[color:ff0000]READY?',"...",'[func:CharaHead,chara/normalhead][func:Stop]...Ah,\nI take back\nwhat I said earlier.','[func:CharaHead,chara/winkedhead][func:DogSong]I haven\'t made\nnext attacks.\nteehee...XD','[func:CharaHead,chara/normalhead]So, this is\n"Demo-end", right?\nYou reached it!','Had fun?\nI hope so...\nwell, see ya,\npartner!',"[func:State,DONE]"}
+      c22 = {'Well, I know.','Rather,\nI felt relief.','Now I can blame you\nfor what you did\nwithout reservation.','[func:Angelovania][func:CharaHead,chara/madhead]Are you...\n[color:ff0000]READY?',"...",'[func:CharaHead,chara/normalhead][func:Stop]...Ah,\nI take back\nwhat I said earlier.','[func:CharaHead,chara/winkedhead][func:DogSong]I haven\'t made\nnext attacks.\nteehee...XD','[func:CharaHead,chara/normalhead]So, this is\n"Demo-end", right?\nYou reached it!','Had fun?\nI hope so...\nwell, see ya,\npartner!',"[func:Delete]"}
     }
   end
   comments = messages.comments --コメントのリスト
@@ -391,6 +391,10 @@ function KillSpare()
   else
     Encounter.SetVar('deathtext',{'It was lie, that it\'s not too late...','It\'s literary...too late...','How about, my family?','They won\'t come back.','"I" in this timeline, will be left alone...','....','After all this time, kindness is...','...partner...I, I just...','I just want...friends...','[w:30]BAD END "Unfair"'})
   end
+end
+
+function Delete()
+  Misc.DestroyWindow()
 end
 
 function CharaHead(text)
