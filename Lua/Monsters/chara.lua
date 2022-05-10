@@ -2,6 +2,9 @@ require "Animations.chara"
 
 messages = {}
 
+SetGlobal('charaSpare',false)
+SetGlobal('phase',1)
+
 function SetLang()
   if Encounter.GetVar("japanese") == true then
     messages = {
@@ -47,8 +50,9 @@ function SetLang()
       c18 = {'[font:det_jp_mini]そういういみでは,\nママは\nおしいところまで\nいってたろうな.','[font:det_jp_mini]なんど\nあきらめたくなった?\nトリエルの\nほんきのまえに.','[font:det_jp_mini]もういちど\nあくむを\nよみがえらせて\nあげようか?'},
       c19 = {'[font:det_jp_mini]わかってる.\nボクのちからは\nママにとおく\nおよばない.','[font:det_jp_mini]でも,ボクには\nせきにんがある.','[font:det_jp_mini]おなじにんげんとして\nこのぎゃくさつを\nとめるせきにんがね.','[font:det_jp_mini][func:CharaHead,chara/closedhead]だから,ボクは\nここにたっているしか\nないんだ.'},
       c20 = {'[font:det_jp_mini]...ねぇ,ほんとうに\nつづけたいの?','[font:det_jp_mini]あきらめのわるさは\nほめてあげるけど.\nもっとゆういぎに\nじかんをつかいなよ.','[font:det_jp_mini]ボクだって,\nこんなことホントは\nしたくないんだよ?'},
-      c21 = {'[font:det_jp_mini]オーケー,オーケー,\nきみ,からだを\nうごかすのすきなの?\nそれとも,すきなのは\nきりきざまれること?','[font:det_jp_mini]...あのさ,\nボクにはきみの\nきもちがわからない.','[font:det_jp_mini]でも...\nむかしは,\nつうじあえたことも\nあったろ?','[font:det_jp_mini]ねぇ,あいぼう.\nきみがもし...\nもし,そこにいるなら...','[font:det_jp_mini]もういちど,\nゼロから\nやりなおさないか?','[font:det_jp_mini]いまならまだまにあう.\nこのじかんじくをけして\nつぎでうまくやればいい.','[font:det_jp_mini]どうかな?\nやってみるかちは\nあるとおもうよ?'},
-      c22 = {'[font:det_jp_mini]ま,だろうね.','[font:det_jp_mini]むしろ,\nあんしんしたよ.','[font:det_jp_mini]これで,えんりょなく\nきみのしたことを\nひなんできる.','[font:det_jp_mini][func:CharaHead,chara/madhead]じゅんびは\nいいな?'},
+      c21 = {'[font:det_jp_mini][func:Stop]オーケー,オーケー,\nきみ,からだを\nうごかすのすきなの?\nそれとも,すきなのは\nきりきざまれること?','[font:det_jp_mini]...あのさ,\nボクにはきみの\nきもちがわからない.','[font:det_jp_mini]でも...\nむかしは,\nつうじあえたことも\nあったろ?','[font:det_jp_mini][func:Spare]ねぇ,あいぼう.\nきみがもし...\nもし,そこにいるなら...','[font:det_jp_mini]もういちど,\nゼロから\nやりなおさないか?','[font:det_jp_mini]いまならまだまにあう.\nこのじかんじくをけして\nつぎでうまくやればいい.','[font:det_jp_mini]どうかな?\nやってみるかちは\nあるとおもうよ?'},
+      spare = {'[font:det_jp_mini][func:Stop]はぁ, めんど...[func:CharaHead,chara/surprisedhead]\n...え?','[font:det_jp_mini]にがすっていうの?\nボクを?','[font:det_jp_mini][noskip]...','[font:det_jp_mini][noskip][func:CharaHead,chara/closedhead]......','[font:det_jp_mini][noskip]......[w:60]\nそっか','[func:KillSpare][next]'},
+      c22 = {'[font:det_jp_mini]ま,だろうね.','[font:det_jp_mini]むしろ,\nあんしんしたよ.','[font:det_jp_mini]これで,えんりょなく\nきみのしたことを\nひなんできる.','[func:Angelovania][font:det_jp_mini][func:CharaHead,chara/madhead]じゅんびは\nいいな?',"...",'[font:det_jp_mini][func:CharaHead,chara/normalhead][func:Stop]...ごめん,\nやっぱいまのなし.','[font:det_jp_mini][func:CharaHead,chara/winkedhead][func:DogSong]このさきのこうげき,\nまだきめてなかった.\nてへへ...','[font:det_jp_mini][func:CharaHead,chara/normalhead]そんなわけで, ここが\n"デモエンド"だ.\nよくたどりついたね!','[font:det_jp_mini]たのしめたかい?\nそうだとうれしいよ...\nそれじゃ,またこんど,\nパートナー!','[func:State,DONE]'},
     }
   else
     messages = {
@@ -93,12 +97,12 @@ function SetLang()
       c17 = {"In that case,\nit dosen't matter \nanymore\nyou killed my friends.","As long as \nyou have fun with\nthis world, they can\ncome back anyway.",'[func:CharaHead,chara/closedhead]So, what I have to\ndo now is...',"[func:CharaHead,chara/head]Make you never \nwant to come back\nhere again!"},
       c18 = {"In that sense,\nMom was close enough \nto that purpose.","How many times \ndid you wanna\ngive up\nfacing Toriel's power?",'Would you like to\nget stuck on\nthat nightmare again?'},
       c19 = {"I know that\nmy power is \nno match for mom's.",'But...\nI have a \nresponsibility.','Responsibility to\nstop this massacre\nas a HUMAN.','[func:CharaHead,chara/closedhead]So I have no choice\nexcept for \nstanding here.'},
-      c20 = {'[font:det_jp_mini]...ねぇ,ほんとうに\nつづけたいの?','[font:det_jp_mini]あきらめのわるさは\nほめてあげるけど.\nもっとゆういぎに\nじかんをつかいなよ.','[font:det_jp_mini]ボクだって,\nこんなことホントは\nしたくないんだよ?'},
-      c21 = {'[font:det_jp_mini]オーケー,オーケー,\nきみ,からだを\nうごかすのすきなの?\nそれとも,すきなのは\nきりきざまれること?','[font:det_jp_mini]...あのさ,\nボクにはきみの\nきもちがわからない.','[font:det_jp_mini]でも...\nむかしは,\nつうじあえたことも\nあったろ?','[font:det_jp_mini]ねぇ,あいぼう.\nきみがもし...\nもし,そこにいるなら...','[font:det_jp_mini]もういちど,\nゼロから\nやりなおさないか?','[font:det_jp_mini]いまならまだまにあう.\nこのじかんじくをけして\nつぎでうまくやればいい.','[font:det_jp_mini]どうかな?\nやってみるかちは\nあるとおもうよ?'},
-      c22 = {'[font:det_jp_mini]ま,だろうね.','[font:det_jp_mini]むしろ,\nあんしんしたよ.','[font:det_jp_mini]これで,えんりょなく\nきみのしたことを\nひなんできる.','[font:det_jp_mini][func:CharaHead,chara/madhead]じゅんびは\nいいな?'}
+      c20 = {"...Hey,\nyou REALLY wanna\ncontinue?",'I praise your\ntenacity, though.\nUse times\nmore meaningfully.',"I don't wanna\ndo this either,\nyou know?"},
+      c21 = {'Okay, okay,\nyou DO like moving \nthe body, right?\nOr you like\nbeing chopped?','...Well, I can\'t see\nyour feeling.','But...\none day we \nunderstood each \nother, didn\'t we?','[func:Spare]Hey, partner.\nif you...\nif you there...','Why don\'t we\nstart over from \nzero again?','It\'s not too late.\nDelete this timeline\nand do well next time.','How is it?\nIt\'s worth doing,\nisn\'t it?'},
+      spare = {'[func:Stop]hehe, I know...[func:CharaHead,chara/surprisedhead]\n...what?','You...\nYou sparing me?','[noskip]...','[func:CharaHead,chara/closedhead][noskip]......','[noskip]......[w:60]\nAlright','[func:KillSpare][next]'},
+      c22 = {'Well, I know.','Rather,\nI felt relief.','Now I can blame you\nfor what you did\nwithout reservation.','[func:Angelovania][func:CharaHead,chara/madhead]Are you...\n[color:ff0000]READY?',"...",'[func:CharaHead,chara/normalhead][func:Stop]...Ah,\nI take back\nwhat I said earlier.','[func:CharaHead,chara/winkedhead][func:DogSong]I haven\'t made\nnext attacks.\nteehee...XD','[func:CharaHead,chara/normalhead]So, this is\n"Demo-end", right?\nYou reached it!','Had fun?\nI hope so...\nwell, see ya,\npartner!',"[func:State,DONE]"}
     }
   end
-
   comments = messages.comments --コメントのリスト
   commands = messages.commands --ACT時のコマンド
   name = messages.name --モンスターの名前
@@ -125,13 +129,17 @@ if Misc.FileExists('User/savedata') then
   local save = Misc.OpenFile('User/savedata','r')
   turn = tonumber(save.ReadLine(1))
   prayed = tonumber(save.ReadLine(3))
+  SetGlobal("phase",tonumber(save.ReadLine(15)))
+  if GetGlobal('phase') == 1.5 then
+    SetGlobal('charaSpare',true)
+  end
 end
 
 randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  -- currentdialogue = messages.c18
+  -- currentdialogue = messages.c22
 end
 
 function HandleAttack(damage)
@@ -139,6 +147,10 @@ function HandleAttack(damage)
   if damage == -1 then
     Encounter.SetVar("nextwaves",{"default"})
     currentdialogue = messages.c0
+    if GetGlobal('charaSpare') then
+      Encounter.SetVar("nextwaves",{"21"})
+      currentdialogue = "[next]"
+    end
   else
     turn = turn + 1
     Backing()
@@ -201,16 +213,18 @@ function HandleAttack(damage)
       Encounter.SetVar("nextwaves",{"19"})
       currentdialogue = messages.c19
     elseif turn == 20 then
-      -- Encounter.SetVar("nextwaves",{"20"})
+      Encounter.SetVar("nextwaves",{"20"})
       currentdialogue = messages.c20
     elseif turn == 21 then
-      Audio.Stop()
       Encounter.SetVar("nextwaves",{"21"})
       currentdialogue = messages.c21
+      SetGlobal('charaSpare',true)
+      SetGlobal('phase',1.5)
     elseif turn == 22 then
-      Audio.LoadFile('mus_ang')
       -- Encounter.SetVar("nextwaves",{"22"})
       currentdialogue = messages.c22
+      SetGlobal('charaSpare',false)
+      SetGlobal('phase',2)
     end
   end
 end
@@ -224,6 +238,9 @@ end
 function HandleCustomCommand(command)
 -- ACTのコマンドの動作
   Encounter.SetVar("nextwaves",{"default"})
+  if GetGlobal('charaSpare') then
+    Encounter.SetVar("nextwaves",{"21"})
+  end
   if command == "CHECK" or command == "[FONT:DET_JP]ぶんせき" then
     BattleDialog(messages.check)
   elseif command == "PRAY" or command == "[FONT:DET_JP]いのる" then
@@ -305,7 +322,7 @@ function HandleCustomCommand(command)
     end
     local save = Misc.OpenFile('User/savedata','w')
     if not Misc.FileExists('User/savedata') then
-      save.Write('\n\n\n\n\n\n\n\n\n\n\n\n\n')
+      save.Write('\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
     end
     save.ReplaceLine(1,tostring(turn)) --savefileの一行目をターンにする
     save.ReplaceLine(2,tostring(Player.hp)) --savefileの二行目をHPにする
@@ -317,6 +334,7 @@ function HandleCustomCommand(command)
     end
     save.ReplaceLine(13,tostring(Encounter.GetVar('noob')))
     save.ReplaceLine(14,tostring(Encounter.GetVar('japanese')))
+    save.ReplaceLine(15,tostring(GetGlobal("phase")))
 
     if Encounter.GetVar("japanese") == true then
       BattleDialog({'[font:det_jp][color:ff0000]ひとり のこっている.\n[color:ffffff]ケツイが みなぎった.'})
@@ -351,6 +369,28 @@ end
 function Azimuth()
   Audio.Pitch(1)
   Audio.LoadFile('mus_azi')
+end
+
+function Stop()
+  Audio.Stop()
+end
+
+function DogSong()
+  Audio.LoadFile('dogsong')
+end
+
+function Spare()
+  Audio.LoadFile('spare')
+end
+
+function KillSpare()
+  Encounter.SetVar("nextwaves",{"spare"})
+  Encounter.SetVar("deathmusic","none")
+  if Encounter.GetVar("japanese") then
+    Encounter.SetVar('deathtext',{'[font:det_jp][color:ffffff]うそだよ, まだ おそくないなんて...','[font:det_jp][color:ffffff]...すべて おそすぎたんだ...','[font:det_jp][color:ffffff]ボクの,かぞくは?','[font:det_jp][color:ffffff]...もう かえってこない.','[font:det_jp][color:ffffff]...このじかんじくの"ボク"は,\nおきざりにされるんだ...','[font:det_jp][color:ffffff]....','[font:det_jp][color:ffffff]いまさらの やさしさなんて...','[font:det_jp][color:ffffff]...あいぼう...わたしは, ただ...','[font:det_jp][color:ffffff]ともだちが...\nほしかっただけなのに...','[w:30][color:ffffff]BAD END "[font:det_jp][color:ffffff]ずるいよ"'})
+  else
+    Encounter.SetVar('deathtext',{'It was lie, that it\'s not too late...','It\'s literary...too late...','How about, my family?','They won\'t come back.','"I" in this timeline, will be left alone...','....','After all this time, kindness is...','...partner...I, I just...','I just want...friends...','[w:30]BAD END "Unfair"'})
+  end
 end
 
 function CharaHead(text)

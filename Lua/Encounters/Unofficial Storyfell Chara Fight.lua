@@ -125,7 +125,18 @@ function EncounterStarting()
     State("DEFENDING")
   else
     encountertext = RandomEncounterText()
-    Audio.LoadFile("mus_aph")
+    if GetGlobal('phase') ==1 then
+      Audio.LoadFile("mus_aph")
+    elseif GetGlobal('phase') ==1.5 then
+      Audio.LoadFile("spare")
+      if japanese then
+        encountertext = "[font:det_jp]キャラは\rにがしてくれるようだ."
+      else
+        encountertext = "Chara is sparing you."
+      end
+    elseif GetGlobal('phase') ==2 then
+      Audio.LoadFile("mus_ang")
+    end
   end
 end
 
@@ -162,11 +173,21 @@ end
 function DefenseEnding()
   if enemies[1].GetVar('turn') >= 1 then
     encountertext = RandomEncounterText()
+    if GetGlobal('charaSpare') then
+      if japanese then
+        encountertext = "[font:det_jp]キャラは\rにがしてくれるようだ."
+      else
+        encountertext = "Chara is sparing you."
+      end
+    end
   end
 end
 
 function HandleItem(id,position)
   nextwaves = {"default"}
+  if GetGlobal('charaSpare') then
+    nextwaves = {"21"}
+  end
   -- アイテムの挙動
   local name = Inventory.GetItem(position)
 
@@ -253,6 +274,11 @@ function HandleItem(id,position)
 end
 
 function HandleSpare()
-	State("ENEMYDIALOGUE")
-  nextwaves = {"default"}
+  if GetGlobal('charaSpare') then
+    enemies[1].SetVar('currentdialogue',enemies[1].GetVar('messages').spare)
+    State("ENEMYDIALOGUE")
+  else
+    State("ENEMYDIALOGUE")
+    nextwaves = {"default"}
+  end
 end
