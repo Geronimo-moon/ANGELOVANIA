@@ -221,7 +221,7 @@ function HandleAttack(damage)
       SetGlobal('charaSpare',true)
       SetGlobal('phase',1.5)
     elseif turn == 22 then
-      -- Encounter.SetVar("nextwaves",{"22"})
+      Encounter.SetVar("nextwaves",{"22"})
       currentdialogue = messages.c22
       SetGlobal('charaSpare',false)
       SetGlobal('phase',2)
