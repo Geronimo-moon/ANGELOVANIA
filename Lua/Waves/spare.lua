@@ -1,6 +1,6 @@
-require 'Libraries.deadForce'
-require 'Libraries.bulletType'
-require 'Libraries.hsvToRgb'
+require 'Libraries/deadForce'
+require 'Libraries/bulletType'
+require 'Libraries/hsvToRgb'
 
 screen999 = nil
 deathtime = nil

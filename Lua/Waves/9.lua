@@ -1,4 +1,4 @@
-require 'Libraries.bulletType'
+require 'Libraries/bulletType'
 
 frame = 0
 

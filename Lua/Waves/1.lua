@@ -1,4 +1,4 @@
-require 'Libraries.bulletType'
+require 'Libraries/bulletType'
 
 Arena.Resize(250,250)
 frame = 0

@@ -1,5 +1,5 @@
-require 'Libraries.bulletType'
-blue = require 'Libraries.bluesoul'
+require 'Libraries/bulletType'
+blue = require 'Libraries/bluesoul'
 blue.Initialize()
 
 GetGlobal('charahead').Set("chara/head")

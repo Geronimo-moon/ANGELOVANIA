@@ -1,5 +1,5 @@
-require 'Libraries.bulletType'
-require 'Libraries.hsvToRgb'
+require 'Libraries/bulletType'
+require 'Libraries/hsvToRgb'
 
 function SetBlaster(name,x,y,layer,color)
   local path = 'attack/' .. name

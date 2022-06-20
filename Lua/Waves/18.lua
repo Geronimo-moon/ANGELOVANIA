@@ -1,6 +1,6 @@
-require "Libraries.bulletType"
-require 'Libraries.deadForce'
-require 'Libraries.hsvToRgb'
+require "Libraries/bulletType"
+require 'Libraries/deadForce'
+require 'Libraries/hsvToRgb'
 
 frame = 0
 

@@ -1,5 +1,5 @@
-require 'Libraries.bulletType'
-require 'Libraries.hsvToRgb'
+require 'Libraries/bulletType'
+require 'Libraries/hsvToRgb'
 
 Arena.Resize(250,110)
 frame = 0

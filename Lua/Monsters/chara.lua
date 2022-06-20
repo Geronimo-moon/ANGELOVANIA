@@ -1,4 +1,4 @@
-require "Animations.chara"
+require "Animations/chara"
 
 messages = {}
 

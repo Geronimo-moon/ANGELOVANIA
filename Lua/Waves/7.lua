@@ -1,4 +1,4 @@
-require 'Libraries.bulletType'
+require 'Libraries/bulletType'
 
 Arena.Resize(220,220)
 

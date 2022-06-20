@@ -1,5 +1,5 @@
-require 'Libraries.bulletType'
-require 'Libraries.hsvToRgb'
+require 'Libraries/bulletType'
+require 'Libraries/hsvToRgb'
 
 Arena.Resize(280,300)
 

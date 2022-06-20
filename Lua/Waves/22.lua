@@ -1,5 +1,5 @@
-local orange = require 'Libraries.orangesoul'
-local cyan = require 'Libraries.cyansoul'
+local orange = require 'Libraries/orangesoul'
+local cyan = require 'Libraries/cyansoul'
 
 frame = 0
 

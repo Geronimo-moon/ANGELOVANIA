@@ -1,5 +1,5 @@
-require 'Animations.chara'
-require 'Animations.mode'
+require 'Animations/chara'
+require 'Animations/mode'
 music = "mus_menu"
 
 playerskipdocommand = true

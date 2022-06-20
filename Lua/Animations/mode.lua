@@ -1,4 +1,4 @@
-require 'Libraries.hsvToRgb'
+require 'Libraries/hsvToRgb'
 
 local mode1 = CreateSprite('null','BelowUI')
 local mode2 = CreateSprite('null','BelowUI')
