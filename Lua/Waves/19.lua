@@ -10,7 +10,11 @@ knives = {}
 indexFlame = 5
 increment = 1
 
+tori = require 'Animations/backMonster'
+tori.init('monsters/tori')
+
 function Update()
+  tori.update(frame)
   frame = frame + 1
 
   if frame % 5 == 0 then
@@ -73,6 +77,7 @@ function Update()
   end
 
   if frame == 650 then
+    tori.destroy()
     EndWave()
   end
 end

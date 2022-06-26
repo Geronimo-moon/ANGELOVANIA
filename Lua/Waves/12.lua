@@ -17,7 +17,11 @@ slash = nil
 slash2 = nil
 spawn = true
 
+alph = require 'Animations/backMonster'
+alph.init('monsters/alph')
+
 function Update()
+  alph.update(frame)
   frame = frame + 1
 
   if frame % 25 == 0 and spawn then
@@ -110,6 +114,7 @@ function Update()
       elseif slash.sprite.alpha == 0 then
         slash.Remove()
         slash2.Remove()
+        alph.destroy()
         EndWave()
       end
     end

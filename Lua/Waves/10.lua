@@ -14,7 +14,11 @@ knivesr = {}
 warnbox = nil
 bones = {}
 
+papy = require 'Animations/backMonster'
+papy.init('monsters/papy')
+
 function Update()
+  papy.update(frame)
   frame = frame + 1
 
   if blue ~= nil then
@@ -192,6 +196,7 @@ function Update()
   end
 
   if frame == 715 then
+    papy.destroy()
     EndWave()
   end
 end

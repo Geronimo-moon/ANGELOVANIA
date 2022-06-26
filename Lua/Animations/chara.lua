@@ -1,4 +1,5 @@
 function InitChara()
+  local black = CreateSprite('chara/black')
   local head = CreateSprite('chara/head')
   local body = CreateSprite('chara/noknifebody')
   local leg = CreateSprite('chara/leg')
@@ -7,8 +8,12 @@ function InitChara()
     body.Set('chara/body')
   end
 
+  leg.SetParent(black)
   body.SetParent(leg)
+  black.SetParent(body)
   head.SetParent(body)
+
+  black.SetAnchor(0,0)
 
   leg.SetPivot(0.5,0)
 
@@ -18,16 +23,19 @@ function InitChara()
   head.SetPivot(0.5,0)
   head.SetAnchor(0.5,1)
 
-  leg.x = 320
-  leg.y = 240
+  leg.x = 0
+  leg.y = -110
   body.x = -22
   body.y = -3
   head.x = 20
   head.y = -40
+  black.x = 320
+  black.y = 350
 
   SetGlobal('charahead',head)
   SetGlobal('charabody',body)
   SetGlobal('charaleg',leg)
+  SetGlobal('charablack',black)
   SetGlobal('charadodge',0)
   SetGlobal('charaback',0)
 end
@@ -54,6 +62,7 @@ function Backing()
 end
 
 function CharaAnime()
+  local black = GetGlobal('charablack')
   local head = GetGlobal('charahead')
   local body = GetGlobal('charabody')
   local leg = GetGlobal('charaleg')
@@ -62,13 +71,13 @@ function CharaAnime()
 
   if dodge > 0 then
     local move = -dodge/8
-    leg.Move(move,0)
+    black.Move(move,0)
     SetGlobal('charadodge',dodge - 5)
     head.Set('chara/winkedhead')
   end
   if back > 0 then
     local move = back/16
-    leg.Move(move,0)
+    black.Move(move,0)
     SetGlobal('charaback',back - 5/2)
     head.Set('chara/head')
   end

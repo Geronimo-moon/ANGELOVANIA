@@ -16,7 +16,11 @@ SetPPCollision(true)
 
 count = 1
 
+asri = require 'Animations/backMonster'
+asri.init('monsters/asri')
+
 function Update()
+  asri.update(frame)
   frame = frame + 1
   box.sprite.Scale(Arena.width/box.sprite.width, Arena.height/box.sprite.height)
   box.MoveTo(0,0)
@@ -95,6 +99,7 @@ function Update()
   end
 
   if frame == 750 then
+    asri.destroy()
     EndWave()
   end
 end

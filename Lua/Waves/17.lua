@@ -42,7 +42,7 @@ function Update()
   radius = 32+12*math.sin(frame*math.pi/60)
   origin = {Arena.width/8*math.sin(param[1]*frame/60),Arena.width/8*math.sin(param[2]*frame/60)}
 
-  if frame % 40 == 0 then
+  if frame % 60 == 0 then
     for i=1,2 do
       local knife = SetNotime('knifer',math.random((-1)^i*Arena.width/2,(-1)^i*Arena.width),Arena.height)
       local num = 0

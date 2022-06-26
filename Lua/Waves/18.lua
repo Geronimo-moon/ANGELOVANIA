@@ -17,7 +17,11 @@ screen999 = nil
 deathtime = nil
 died = false
 
+tori = require 'Animations/backMonster'
+tori.init('monsters/tori')
+
 function Update()
+  tori.update(frame)
   frame = frame + 1
 
   if not died then
@@ -117,6 +121,7 @@ function Update()
     end
 
     if frame == 700 then
+      tori.destroy()
       EndWave()
     end
   end

@@ -9,7 +9,11 @@ lstar = {}
 mstar = {}
 direction = 1
 
+asri = require 'Animations/backMonster'
+asri.init('monsters/asri')
+
 function Update()
+  asri.update(frame)
   frame = frame + 1
 
   Arena.Resize(200,100*(3/4+1/2*(math.sin(frame*math.pi/90))^2))
@@ -136,6 +140,7 @@ function Update()
   end
 
   if frame == 650 then
+    asri.destroy()
     EndWave()
   end
 end

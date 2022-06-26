@@ -15,7 +15,11 @@ dbones = {}
 knives = {}
 db = false
 
+papy = require 'Animations/backMonster'
+papy.init('monsters/papy')
+
 function Update()
+  papy.update(frame)
   frame = frame + 1
   blue.Update()
 
@@ -160,6 +164,7 @@ function Update()
   if frame == 760 then
     Player.SetControlOverride(false)
     Player.sprite.color = {255,0,0}
+    papy.destroy()
     EndWave()
   end
 end

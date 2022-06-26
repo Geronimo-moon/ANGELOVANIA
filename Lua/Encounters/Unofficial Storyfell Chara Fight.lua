@@ -115,7 +115,6 @@ end
 function EncounterStarting()
   Audio.LoadFile('mus_aph')
   Audio.LoadFile('mus_ang')
-  Audio.LoadFile('mus_aty')
   Audio.LoadFile('mus_azi')
   Audio.LoadFile('mus_first')
   Audio.Stop()
@@ -171,6 +170,9 @@ function Update()
 end
 
 function DefenseEnding()
+  if noob then
+    Player.Heal(math.random(5,10))
+  end
   if enemies[1].GetVar('turn') >= 1 then
     encountertext = RandomEncounterText()
     if GetGlobal('charaSpare') then
