@@ -39,7 +39,7 @@ function self.Update()
     end
   end
 
-  Player.Move(self.current.x,self.current.y)
+  Player.Move(1.5*self.current.x,1.5*self.current.y)
 end
 
 function self.Quit()
