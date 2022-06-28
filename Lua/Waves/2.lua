@@ -2,11 +2,11 @@ require 'Libraries/bulletType'
 
 Arena.Resize(40,40)
 
-frame = 0
-offset = 0
-index = {}
-emers = {isactive = false}
-knives = {}
+local frame = 0
+local offset = 0
+local index = {}
+local emers = {isactive = false}
+local knives = {}
 
 function Update()
   frame = frame + 1

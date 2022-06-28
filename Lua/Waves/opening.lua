@@ -3,24 +3,24 @@ require 'Libraries/deadForce'
 require 'Libraries/bulletType'
 require 'Libraries/hsvToRgb'
 
-screen999 = nil
-deathtime = nil
-died = false
+local screen999 = nil
+local deathtime = nil
+local died = false
 
-frame = 0
-dirs = {nil,nil}
-cuts1 = {nil,nil}
-warns1 = {nil,nil,nil,nil,nil,nil,nil,nil}
-cuts2 = {nil,nil,nil,nil,nil,nil,nil,nil}
-knives = {}
-warns3 = {nil,nil,nil,nil,nil,nil,nil,nil}
-cuts3 = {nil,nil,nil,nil,nil,nil,nil,nil}
-warns4 = {nil,nil,nil,nil}
-cuts4 = {nil,nil,nil,nil}
-warns5 = {nil,nil,nil,nil,nil,nil,nil,nil}
-cuts5 = {nil,nil,nil,nil,nil,nil,nil,nil}
-warns6 = {nil,nil,nil,nil}
-cuts6 = {nil,nil,nil,nil}
+local frame = 0
+local dirs = {nil,nil}
+local cuts1 = {nil,nil}
+local warns1 = {nil,nil,nil,nil,nil,nil,nil,nil}
+local cuts2 = {nil,nil,nil,nil,nil,nil,nil,nil}
+local knives = {}
+local warns3 = {nil,nil,nil,nil,nil,nil,nil,nil}
+local cuts3 = {nil,nil,nil,nil,nil,nil,nil,nil}
+local warns4 = {nil,nil,nil,nil}
+local cuts4 = {nil,nil,nil,nil}
+local warns5 = {nil,nil,nil,nil,nil,nil,nil,nil}
+local cuts5 = {nil,nil,nil,nil,nil,nil,nil,nil}
+local warns6 = {nil,nil,nil,nil}
+local cuts6 = {nil,nil,nil,nil}
 
 function Update()
   frame = frame + 1

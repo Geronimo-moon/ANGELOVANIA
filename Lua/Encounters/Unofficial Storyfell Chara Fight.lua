@@ -120,6 +120,7 @@ function EncounterStarting()
   Audio.Stop()
   Audio.LoadFile('mus_menu')
   InitChara()
+  require 'Libraries/karma'
   if not Misc.FileExists('User/savedata') then
     State("DEFENDING")
   else
@@ -167,6 +168,7 @@ function Update()
 
   CharaAnime()
   ModeAnime()
+  Karma.Update()
 end
 
 function DefenseEnding()

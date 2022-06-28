@@ -45,7 +45,7 @@ soul.color = {255,0,0}
 soul.MoveToAbs(125,250)
 soul.SetVar('place',1)
 
-press = false
+local press = false
 
 function Update()
   local place = {{125,250},{365,250},{225,180},{250,65}}

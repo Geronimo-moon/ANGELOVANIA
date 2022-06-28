@@ -1,20 +1,20 @@
 require 'Libraries/bulletType'
-blue = require "Libraries/bluesoul"
+local blue = require "Libraries/bluesoul"
 blue.Initialize()
 Audio.PlaySound("change")
 
 Arena.Resize(200,140)
 
-frame = 0
+local frame = 0
 
-bonesl = {}
-bonesr = {}
-knivesl = {}
-knivesr = {}
-warnbox = nil
-bones = {}
+local bonesl = {}
+local bonesr = {}
+local knivesl = {}
+local knivesr = {}
+local warnbox = nil
+local bones = {}
 
-papy = require 'Animations/backMonster'
+local papy = require 'Animations/backMonster'
 papy.init('monsters/papy')
 
 function Update()

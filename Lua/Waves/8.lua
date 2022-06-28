@@ -2,13 +2,13 @@ require 'Libraries/bulletType'
 
 Arena.Resize(80,80)
 
-frame = 0
-speed = 1
+local frame = 0
+local speed = 1
 
-knives = {}
-fastknives = {}
-lastb = {}
-lastv = {}
+local knives = {}
+local fastknives = {}
+local lastb = {}
+local lastv = {}
 
 function Update()
   frame = frame + 1

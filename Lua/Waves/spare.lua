@@ -2,13 +2,13 @@ require 'Libraries/deadForce'
 require 'Libraries/bulletType'
 require 'Libraries/hsvToRgb'
 
-screen999 = nil
-deathtime = nil
-died = false
+local screen999 = nil
+local deathtime = nil
+local died = false
 
-frame = 0
-dirs = {nil,nil}
-cuts1 = {nil,nil}
+local frame = 0
+local dirs = {nil,nil}
+local cuts1 = {nil,nil}
 
 Arena.ResizeImmediate(18,18)
 

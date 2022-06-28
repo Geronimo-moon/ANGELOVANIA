@@ -2,15 +2,15 @@ require 'Libraries/bulletType'
 
 Arena.Resize(200,160)
 
-frame = 0
+local frame = 0
 
-flames = {}
-knives = {}
+local flames = {}
+local knives = {}
 
-indexFlame = 5
-increment = 1
+local indexFlame = 5
+local increment = 1
 
-tori = require 'Animations/backMonster'
+local tori = require 'Animations/backMonster'
 tori.init('monsters/tori')
 
 function Update()

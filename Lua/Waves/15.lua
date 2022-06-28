@@ -3,11 +3,11 @@ require 'Libraries/blaster'
 
 Arena.Resize(400,360)
 
-frame = 0
+local frame = 0
 
-vknives = {}
-bknives = {}
-blasters = {}
+local vknives = {}
+local bknives = {}
+local blasters = {}
 
 local box = SetSprite("empty", 0,0,"BelowBullet")
 box.sprite.Mask("box")

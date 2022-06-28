@@ -41,6 +41,7 @@ Esc…mod選択画面へ
 [Create Your Frisk](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases) by RhenaudTheLukark  
 [Unitale日本語化パッケージ](http://www.mediafire.com/file/4854os5xvz0kihd/unitale_Japanese.zip/file) by Wtoro([explain](https://youtu.be/4LRU2k3iCJA) by プルトゥpultoo3s)  
 [Blue Soul](https://www.reddit.com/r/Unitale/comments/b6ruh5/unitale_cyf_blue_soul_library_supports_4way/) by WD200019  
+[Karma](https://github.com/DevinF06/CYF-Libraries) by DevinF06  
 <!-- [Green Soul](https://www.youtube.com/watch?v=YClhSMdktIk&ab_channel=TheWoodlandEngineer) by Kikori kaihatsu Shaneru  
 [Yellow Soul](https://www.reddit.com/r/Unitale/comments/7bfmv6/ive_done_a_yellow_soul_library/) by Cipsenas  
 [Purple Soul](https://www.reddit.com/r/Unitale/comments/46shck/purple_soul_library_w_muffet_attacks/) by Joms   -->

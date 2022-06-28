@@ -2,21 +2,21 @@ require 'Libraries/bulletType'
 local orange = require 'Libraries/orangesoul'
 local cyan = require 'Libraries/cyansoul'
 
-frame = 0
+local frame = 0
 
 Arena.Resize(300,200)
 
-firstKnives = {}
-saves = {}
-secondKnives = {}
+local firstKnives = {}
+local saves = {}
+local secondKnives = {}
 
-safebox = SetSprite('warnbox',0,0)
+local safebox = SetSprite('warnbox',0,0)
 safebox.sprite.color = {0,1,0}
 safebox.sprite.Scale(0.5,0.5)
 safebox.sprite.alpha = 0
 
-knives = {}
-shadows = {}
+local knives = {}
+local shadows = {}
 
 function Update()
   frame = frame + 1

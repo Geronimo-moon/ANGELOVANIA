@@ -4,20 +4,20 @@ require 'Libraries/hsvToRgb'
 
 Arena.Resize(150,150)
 
-screen999 = nil
-deathtime = nil
-died = false
+local screen999 = nil
+local deathtime = nil
+local died = false
 
-frame = 0
-dir = 1
-volts = {}
-warns = nil
-warns2 = nil
-slash = nil
-slash2 = nil
-spawn = true
+local frame = 0
+local dir = 1
+local volts = {}
+local warns = nil
+local warns2 = nil
+local slash = nil
+local slash2 = nil
+local spawn = true
 
-alph = require 'Animations/backMonster'
+local alph = require 'Animations/backMonster'
 alph.init('monsters/alph')
 
 function Update()

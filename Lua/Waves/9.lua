@@ -1,9 +1,9 @@
 require 'Libraries/bulletType'
 
-frame = 0
+local frame = 0
 
-knives = {}
-bknives = {}
+local knives = {}
+local bknives = {}
 
 Arena.Resize(150,200)
 

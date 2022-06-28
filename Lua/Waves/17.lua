@@ -1,6 +1,6 @@
 require 'Libraries/bulletType'
 
-frame = 0
+local frame = 0
 
 Arena.Resize(150,150)
 
@@ -10,7 +10,7 @@ box.sprite.Scale(Arena.width/box.sprite.width, Arena.height/box.sprite.height)
 
 SetPPCollision(true)
 
-knives = {}
+local knives = {}
 
 for i=0,29 do
   local knife = SetNotime('knifel',0,0)
@@ -26,7 +26,7 @@ local param = {math.random(1,3),math.random(4,6)}
 local origin = {0,0}
 local radius = 32
 
-shot = {}
+local shot = {}
 
 function Update()
   box.MoveTo(0,0)

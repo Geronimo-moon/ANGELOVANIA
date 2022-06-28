@@ -3,12 +3,12 @@ require 'Libraries/hsvToRgb'
 
 Arena.Resize(280,300)
 
-frame = 0
-uknives = {SetBeam("rknifeu",50,358),SetBeam("rknifeu",50,258),SetBeam("rknifeu",50,158),SetBeam("rknifeu",50,58),SetBeam("rknifeu",50,-42),SetBeam("rknifeu",50,-142),SetBeam("rknifeu",50,-242)}
-dknives = {SetBeam("rknifed",-50,388),SetBeam("rknifed",-50,288),SetBeam("rknifed",-50,188),SetBeam("rknifed",-50,88),SetBeam("rknifed",-50,-12),SetBeam("rknifed",-50,-112),SetBeam("rknifed",-50,-212)}
-warning = {}
-knives = {}
-place = 0
+local frame = 0
+local uknives = {SetBeam("rknifeu",50,358),SetBeam("rknifeu",50,258),SetBeam("rknifeu",50,158),SetBeam("rknifeu",50,58),SetBeam("rknifeu",50,-42),SetBeam("rknifeu",50,-142),SetBeam("rknifeu",50,-242)}
+local dknives = {SetBeam("rknifed",-50,388),SetBeam("rknifed",-50,288),SetBeam("rknifed",-50,188),SetBeam("rknifed",-50,88),SetBeam("rknifed",-50,-12),SetBeam("rknifed",-50,-112),SetBeam("rknifed",-50,-212)}
+local warning = {}
+local knives = {}
+local place = 0
 
 function Update()
   frame = frame + 1

@@ -1,21 +1,21 @@
 require 'Libraries/bulletType'
-blue = require 'Libraries/bluesoul'
+local blue = require 'Libraries/bluesoul'
 blue.Initialize()
 
 GetGlobal('charahead').Set("chara/head")
 
-frame = 0
+local frame = 0
 
 Arena.Resize(200,150)
 
-warnbox = nil
-lbones = {}
-rbones = {}
-dbones = {}
-knives = {}
-db = false
+local warnbox = nil
+local lbones = {}
+local rbones = {}
+local dbones = {}
+local knives = {}
+local db = false
 
-papy = require 'Animations/backMonster'
+local papy = require 'Animations/backMonster'
 papy.init('monsters/papy')
 
 function Update()

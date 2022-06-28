@@ -2,15 +2,15 @@ require 'Libraries/bulletType'
 
 Arena.Resize(230,230)
 
-frame = 0
+local frame = 0
 
-knives = {}
-bknives = {}
-oknives = {}
+local knives = {}
+local bknives = {}
+local oknives = {}
 
-start = math.random(1,360)
-bindex = start
-oindex = start
+local start = math.random(1,360)
+local bindex = start
+local oindex = start
 
 function Update()
   frame = frame + 1

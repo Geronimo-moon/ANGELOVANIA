@@ -1,15 +1,15 @@
 require 'Libraries/bulletType'
 
 Arena.Resize(200,100)
-frame = 0
-uknives = {}
-dknives = {}
-rstar = {}
-lstar = {}
-mstar = {}
-direction = 1
+local frame = 0
+local uknives = {}
+local dknives = {}
+local rstar = {}
+local lstar = {}
+local mstar = {}
+local direction = 1
 
-asri = require 'Animations/backMonster'
+local asri = require 'Animations/backMonster'
 asri.init('monsters/asri')
 
 function Update()

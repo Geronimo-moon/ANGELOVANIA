@@ -1,10 +1,10 @@
 require 'Libraries/bulletType'
 
 Arena.Resize(200,100)
-frame = 0
-uknives = {}
-dknives = {}
-direction = 1
+local frame = 0
+local uknives = {}
+local dknives = {}
+local direction = 1
 
 function Update()
   frame = frame + 1

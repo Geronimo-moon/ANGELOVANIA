@@ -2,10 +2,10 @@ require 'Libraries/bulletType'
 require 'Libraries/hsvToRgb'
 
 Arena.Resize(250,110)
-frame = 0
-uknives = {}
-dknives = {}
-direction = 1
+local frame = 0
+local uknives = {}
+local dknives = {}
+local direction = 1
 local warning
 
 function Update()

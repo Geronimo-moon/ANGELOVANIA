@@ -5,12 +5,12 @@ Arena.Resize(220,220)
 frame = -10
 moves = {0,0}
 
-uknives = {}
-dknives = {}
-rknives = {}
-lknives = {}
+local uknives = {}
+local dknives = {}
+local rknives = {}
+local lknives = {}
 
-lastmoves = {0,0}
+local lastmoves = {0,0}
 
 local box = SetSprite("empty", 0,0,"BelowBullet")
 box.sprite.Mask("box")

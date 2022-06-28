@@ -2,22 +2,22 @@ require "Libraries/bulletType"
 require 'Libraries/deadForce'
 require 'Libraries/hsvToRgb'
 
-frame = 0
+local frame = 0
 
 Arena.Resize(150,150)
 
-flames = {}
-bflames = {}
-vflames = {}
+local flames = {}
+local bflames = {}
+local vflames = {}
 
-warns = {}
-slashs = {}
+local warns = {}
+local slashs = {}
 
-screen999 = nil
-deathtime = nil
-died = false
+local screen999 = nil
+local deathtime = nil
+local died = false
 
-tori = require 'Animations/backMonster'
+local tori = require 'Animations/backMonster'
 tori.init('monsters/tori')
 
 function Update()
