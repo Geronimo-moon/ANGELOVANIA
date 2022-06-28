@@ -18,7 +18,7 @@ function Update()
 
   Arena.Resize(200,100*(3/4+1/2*(math.sin(frame*math.pi/90))^2))
 
-  if frame % 36 == 0 and frame <= 573 then
+  if frame % 40 == 0 and frame <= 573 then
     local uknife = SetNotime("knifed",100,Arena.height/2-20)
     local dknife = SetNotime("knifeu",-100,-Arena.height/2+20)
     uknife.ppcollision = true
