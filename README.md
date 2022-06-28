@@ -54,5 +54,5 @@ Esc…mod選択画面へ
 [Gaster Blaster](https://www.youtube.com/watch?v=aOSRyij7Law&ab_channel=Takka0923) by [Takka 0923](https://www.youtube.com/channel/UCjaRBuK587iCojDi6VTy1Nw)  
 [Chaos Blaster](https://www.youtube.com/watch?v=dGS4iBnhtjI&ab_channel=ALTERswap%E3%83%BB%E3%83%9D%E3%83%83%E3%82%AD%E3%83%BCAsgore) by [ALTERswap・ ポッキーAsgore](https://www.youtube.com/channel/UCWJXAOOg6LtXeuRsa8qwL_g)  
 [Papyrus](https://www.deviantart.com/georgtime/art/StoryFell-Papyrus-battle-sprite-737202287) by [GeorgTime](https://www.deviantart.com/georgtime/)  
-[Alphys](https://www.deviantart.com/jtgp-da/art/Storyfell-Alphys-Battle-Sprite-698280884), [Toriel](https://www.deviantart.com/jtgp-da/art/Storyfell-Toriel-Battle-Sprite-667015191) by [jtgp-DA](https://www.deviantart.com/jtgp-da/)
+[Alphys](https://www.deviantart.com/jtgp-da/art/Storyfell-Alphys-Battle-Sprite-698280884), [Toriel](https://www.deviantart.com/jtgp-da/art/Storyfell-Toriel-Battle-Sprite-667015191) by [jtgp-DA](https://www.deviantart.com/jtgp-da/)  
 [Asriel](https://www.deviantart.com/pongy25/art/Storyfell-or-Fellshift-idk-Asriel-sprite-757450868) by [Pongy25](https://www.deviantart.com/pongy25/)  
