@@ -27,14 +27,19 @@ jpnbox.SetParent(jpn)
 jpnbox.color = {255,0,0}
 jpnbox.MoveTo(-75,0)
 
-local nb = CreateSprite('noobmenu','Top')
+local nb = CreateSprite('normal','Top')
 nb.MoveToAbs(320,180)
 nb.color = {255,0,0}
 nb.SetVar('set',false)
-local nbbox = CreateSprite('choosebox','Top')
-nbbox.SetParent(nb)
-nbbox.color = {255,0,0}
-nbbox.MoveTo(-95,0)
+local leftArrow = CreateSprite('arrow','Top')
+leftArrow.SetParent(nb)
+leftArrow.color = {255,0,0}
+leftArrow.MoveTo(-190,0)
+local rightArrow = CreateSprite('arrow','Top')
+rightArrow.SetParent(nb)
+rightArrow.color = {255,0,0}
+rightArrow.Scale(-1,1)
+rightArrow.MoveTo(190,0)
 
 local fight = CreateSprite('UI/Buttons/fightbt_0',"Top")
 fight.Scale(2,2)
@@ -47,6 +52,10 @@ soul.SetVar('place',1)
 
 local press = false
 
+local modes = {"practice","noobmenu",'normal',"extreme"}
+local modeflag = {"ez","noob","normal","extreme"}
+local current = 2 -- 1少ない
+
 function Update()
   local place = {{125,250},{365,250},{225,180},{250,65}}
 
@@ -57,6 +66,8 @@ function Update()
         soul.SetVar('place',(soul.GetVar('place'))%2+1)
         soul.MoveToAbs(place[soul.GetVar('place')][1],place[soul.GetVar('place')][2])
       elseif Input.Down == 1 then
+        soul.alpha = 0
+        nb.color = {255,255,0}
         Audio.PlaySound('menumove')
         soul.SetVar('place',3)
         soul.MoveToAbs(place[3][1],place[3][2])
@@ -85,10 +96,14 @@ function Update()
 
     elseif soul.GetVar('place') == 3 then
       if Input.Up == 1 then
+        soul.alpha = 1
+        nb.color = {255,0,0}
         Audio.PlaySound('menumove')
         soul.SetVar('place',1)
         soul.MoveToAbs(place[1][1],place[1][2])
       elseif Input.Down == 1 then
+        soul.alpha = 1
+        nb.color = {255,0,0}
         Audio.PlaySound('menumove')
         soul.SetVar('place',4)
         soul.MoveToAbs(place[4][1],place[4][2])
@@ -96,28 +111,38 @@ function Update()
         fight.Set('UI/Buttons/fightbt_1')
       end
 
-      if Input.Confirm == 1 then
-        Audio.PlaySound('menuconfirm')
-        Encounter.SetVar('noob',true)
-        nb.color = {255,255,0}
-        nbbox.color = {255,255,0}
-      elseif Input.Cancel == 1 then
-        Audio.PlaySound('menuconfirm')
-        Encounter.SetVar('noob',false)
-        nb.color = {255,0,0}
-        nbbox.color = {255,0,0}
+      if Input.Left == 1 then
+        Audio.PlaySound('menumove')
+        current = (current - 1)%4
+        nb.Set(modes[current+1])
+      elseif Input.Right == 1 then
+        Audio.PlaySound('menumove')
+        current = (current + 1)%4
+        nb.Set(modes[current+1])
       end
 
     elseif soul.GetVar('place') == 4 then
       if Input.Up == 1 then
         Audio.PlaySound('menumove')
         soul.SetVar('place',3)
+        nb.color = {255,255,0}
+        soul.alpha = 0
         soul.MoveToAbs(place[3][1],place[3][2])
         soul.Scale(1,1)
         fight.Set('UI/Buttons/fightbt_0')
       end
 
       if Input.Confirm == 1 then
+        Encounter.SetVar(modeflag[current+1],true)
+        if current == 0 then
+          Player.maxhp = 150
+          Player.hp = 150
+        elseif current == 3 then
+          Player.maxhp = 1
+          Player.hp = 1
+        else
+          Encounter.Call('InitKarma')
+        end
         Audio.PlaySound('BeginBattle3')
         Encounter.SetVar('nextwaves',{'opening'})
         mask.Remove()
@@ -129,7 +154,7 @@ function Update()
         engbox.Remove()
         jpnbox.Remove()
         nb.Remove()
-        nbbox.Remove()
+        leftArrow.Remove()
         soul.Remove()
         fight.Remove()
 
@@ -140,4 +165,8 @@ function Update()
       end
     end
   end
+end
+
+function OnHit(bullet)
+  do return end
 end

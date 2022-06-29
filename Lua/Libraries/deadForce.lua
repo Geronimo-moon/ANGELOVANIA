@@ -1,6 +1,10 @@
 ---@diagnostic disable: undefined-global
 -- 即死攻撃の処理　arg1:frame ...現在フレーム
+
 function KillForce(frame)
+  Encounter['noob'] = false
+  Encounter['ez'] = false
+  Encounter['extreme'] = false
   Audio.Stop()
   Player.SetControlOverride(true)
   local screen = CreateProjectile("dead", 0, 80)

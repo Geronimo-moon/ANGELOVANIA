@@ -12,6 +12,8 @@ end
 
 debugging = false
 noob = false
+ez = false
+extreme = false
 
 function SetLang()
   if japanese then
@@ -49,6 +51,8 @@ function SetLang()
         table.insert(itemlist,item)
       end
       noob = ("true" == save.ReadLine(13))
+      ez = ("true" == save.ReadLine(16))
+      extreme = ("true" == save.ReadLine(17))
       Inventory.SetInventory(itemlist)
     else
       Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
@@ -82,6 +86,8 @@ function SetLang()
         table.insert(itemlist,item)
       end
       noob = ("true" == save.ReadLine(13))
+      ez = ("true" == save.ReadLine(16))
+      extreme = ("true" == save.ReadLine(17))
       Inventory.SetInventory(itemlist)
     else
       Inventory.SetInventory({"Lasagna","SnowPiece","SnowPiece","SnowPiece","Tea","Steak","L. Hero","L. Hero"})
@@ -120,7 +126,6 @@ function EncounterStarting()
   Audio.Stop()
   Audio.LoadFile('mus_menu')
   InitChara()
-  require 'Libraries/karma'
   if not Misc.FileExists('User/savedata') then
     State("DEFENDING")
   else
@@ -142,7 +147,7 @@ end
 
 function Update()
   -- デバッグモードの設定
-  if not noob and Input.GetKey('S')~=0 and Input.GetKey('U')~=0 and Input.GetKey('D')~=0 and Input.GetKey('O')~=0 then
+  if not (noob or ez or extreme) and Input.GetKey('S')~=0 and Input.GetKey('U')~=0 and Input.GetKey('D')~=0 and Input.GetKey('O')~=0 then
     debugging = true
     Player.name = "DEBUG"
     SetMode('debug')
@@ -164,16 +169,27 @@ function Update()
 
   if noob then
     SetMode('noob')
+  elseif ez then
+    SetMode('ez')
+  elseif extreme then
+    SetMode('extreme')
+  else
+    SetMode('none')
   end
 
   CharaAnime()
   ModeAnime()
-  Karma.Update()
+  if Karma ~= nil then
+    Karma.Update()
+  end
 end
 
 function DefenseEnding()
   if noob then
     Player.Heal(math.random(5,10))
+  end
+  if ez then
+    Player.Heal(100)
   end
   if enemies[1].GetVar('turn') >= 1 then
     encountertext = RandomEncounterText()
@@ -196,7 +212,7 @@ function HandleItem(id,position)
   local name = Inventory.GetItem(position)
 
   if japanese then
-    if noob then
+    if noob or ez then
       if id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ラザニア' then
         Player.Heal(99)
         BattleDialog({"[font:det_jp]パピルスのラザニアをたべた.\nHPがぜんかいふくした."})
@@ -235,7 +251,7 @@ function HandleItem(id,position)
       BattleDialog({"[font:det_jp][color:ff0000]これはつかうにあたいしない.\nぼくたちのきずは ちかのものじゃ\rなおせないだろうさ.","[font:det_jp]あなたは".. name .."[font:det_jp]をつかおうとした.\nが、とつぜん\rあなたはそれをほうりなげた。"})
     end
   else
-    if noob then
+    if noob or ez then
       if id == 'LASAGNA' then
         Player.Heal(99)
         BattleDialog({"You ate Papyrus's lasagna. \nYour HP maxed out."})
@@ -285,4 +301,8 @@ function HandleSpare()
     State("ENEMYDIALOGUE")
     nextwaves = {"default"}
   end
+end
+
+function InitKarma()
+  require 'Libraries/karma'
 end

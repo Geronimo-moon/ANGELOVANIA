@@ -326,7 +326,7 @@ function HandleCustomCommand(command)
     end
     local save = Misc.OpenFile('User/savedata','w')
     if not Misc.FileExists('User/savedata') then
-      save.Write('\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
+      save.Write('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
     end
     save.ReplaceLine(1,tostring(turn)) --savefileの一行目をターンにする
     save.ReplaceLine(2,tostring(Player.hp)) --savefileの二行目をHPにする
@@ -339,6 +339,8 @@ function HandleCustomCommand(command)
     save.ReplaceLine(13,tostring(Encounter.GetVar('noob')))
     save.ReplaceLine(14,tostring(Encounter.GetVar('japanese')))
     save.ReplaceLine(15,tostring(GetGlobal("phase")))
+    save.ReplaceLine(13,tostring(Encounter.GetVar('ez')))
+    save.ReplaceLine(14,tostring(Encounter.GetVar('extreme')))
 
     if Encounter.GetVar("japanese") == true then
       BattleDialog({'[font:det_jp][color:ff0000]ひとり のこっている.\n[color:ffffff]ケツイが みなぎった.'})
