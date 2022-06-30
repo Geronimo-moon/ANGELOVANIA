@@ -18,7 +18,7 @@ function Update()
 
   Arena.Resize(200,100*(3/4+1/2*(math.sin(frame*math.pi/90))^2))
 
-  if frame % 40 == 0 and frame <= 573 then
+  if frame % 50 == 0 and frame <= 573 then
     local uknife = SetNotime("knifed",100,Arena.height/2-20)
     local dknife = SetNotime("knifeu",-100,-Arena.height/2+20)
     uknife.ppcollision = true
@@ -37,7 +37,7 @@ function Update()
 
   for i=1,#uknives do
     if uknives[i].isactive then
-      uknives[i].Move(2.5*(-1)^direction,0)
+      uknives[i].Move(2*(-1)^direction,0)
       uknives[i].MoveTo(uknives[i].x,Arena.height/2-20)
       if uknives[i].x <= -Arena.width/2 then
         uknives[i].Remove()
@@ -47,7 +47,7 @@ function Update()
 
   for i=1,#dknives do
     if dknives[i].isactive then
-      dknives[i].Move(-2.5*(-1)^direction,0)
+      dknives[i].Move(-2*(-1)^direction,0)
       dknives[i].MoveTo(dknives[i].x,-Arena.height/2+20)
       if dknives[i].x >= Arena.width/2  then
         dknives[i].Remove()

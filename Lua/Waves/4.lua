@@ -21,7 +21,7 @@ function Update()
   for i=1,#uknives do
     if uknives[i].isactive then
       local y = -1/2*(math.sin(math.pi*i/4))^2
-      uknives[i].Move(5/2*(-1)^direction,y)
+      uknives[i].Move(2*(-1)^direction,y)
       if (uknives[i].x >= Arena.width/2 and direction == 2) or (uknives[i].x <= -Arena.width/2 and direction == 1) then
         uknives[i].Remove()
       end
@@ -31,7 +31,7 @@ function Update()
   for i=1,#dknives do
     if dknives[i].isactive then
       local y = 1/2*(math.cos(math.pi*i/4))^2
-      dknives[i].Move(-5/2*(-1)^direction,y)
+      dknives[i].Move(-2*(-1)^direction,y)
       if (dknives[i].x >= Arena.width/2 and direction == 1) or (dknives[i].x <= -Arena.width/2 and direction == 2)  then
         dknives[i].Remove()
       end

@@ -26,8 +26,6 @@ local param = {math.random(1,3),math.random(4,6)}
 local origin = {0,0}
 local radius = 32
 
-local shot = {}
-
 function Update()
   box.MoveTo(0,0)
   frame = frame + 1
@@ -41,32 +39,6 @@ function Update()
 
   radius = 32+12*math.sin(frame*math.pi/60)
   origin = {Arena.width/8*math.sin(param[1]*frame/60),Arena.width/8*math.sin(param[2]*frame/60)}
-
-  if frame % 60 == 0 then
-    for i=1,2 do
-      local knife = SetNotime('knifer',math.random((-1)^i*Arena.width/2,(-1)^i*Arena.width),Arena.height)
-      local num = 0
-      if knife.x - Player.x >= 0 then
-        num = 180
-      end
-      knife.sprite.rotation = num + 180*math.atan((Player.y-knife.y)/(Player.x-knife.x))/math.pi
-      knife.SetVar('theta',math.pi*knife.sprite.rotation/180)
-      knife.sprite.alpha = 0
-      table.insert(shot,knife)
-    end
-  end
-
-  for i=1,#shot do
-    if shot[i].isactive then
-      shot[i].Move(7*math.cos(shot[i].GetVar('theta')),7*math.sin(shot[i].GetVar('theta')))
-      if shot[i].sprite.alpha ~= 1 then
-        shot[i].sprite.alpha = shot[i].sprite.alpha + 0.1
-      end
-      if shot[i].absx <= 0 or shot[i].absy <= 0 or shot[i].absx >= 640 or shot[i].absy >= 480 then
-        shot[i].Remove()
-      end
-    end
-  end
 
   if frame == 600 then
     EndWave()
