@@ -186,10 +186,10 @@ end
 
 function DefenseEnding()
   if noob then
-    Player.Heal(math.random(5,10))
+    Player.Heal(10)
   end
   if ez then
-    Player.Heal(100)
+    Player.Heal(50)
   end
   if enemies[1].GetVar('turn') >= 1 then
     encountertext = RandomEncounterText()
