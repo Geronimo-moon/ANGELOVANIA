@@ -227,6 +227,8 @@ function HandleAttack(damage)
       currentdialogue = messages.c22
       SetGlobal('charaSpare',false)
       SetGlobal('phase',2)
+      Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
+      prayed = 0
     elseif turn == 23 then
       currentdialogue = messages.c23
     end
