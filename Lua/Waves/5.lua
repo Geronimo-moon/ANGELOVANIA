@@ -61,8 +61,8 @@ function Update()
     if knives[i].isactive then
       local rd = knives[i].GetVar('dir')
       local theta = math.pi*knives[i].GetVar("angle")/180 + math.pi/120*(-1)^rd
-      local x = 7*math.cos(theta)
-      local y = 7*math.sin(theta)
+      local x = 6*math.cos(theta)
+      local y = 6*math.sin(theta)
       knives[i].Move(x,y)
 
       knives[i].SetVar("angle",knives[i].GetVar("angle")+3/2*(-1)^rd)

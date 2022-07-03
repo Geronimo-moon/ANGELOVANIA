@@ -32,8 +32,8 @@ function Update()
   for i=1,#knives do
     if knives[i].isactive then
       local theta = math.pi*knives[i].GetVar("angle")/180
-      local x = 7*math.cos(theta)
-      local y = 7*math.sin(theta)
+      local x = 6*math.cos(theta)
+      local y = 6*math.sin(theta)
       knives[i].Move(x,y)
 
       if knives[i].absx <= 0 or knives[i].absx >= 640 or knives[i].absy <= 0 or knives[i].absy >= 480 then

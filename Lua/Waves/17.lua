@@ -38,7 +38,7 @@ function Update()
   end
 
   radius = 32+12*math.sin(frame*math.pi/60)
-  origin = {Arena.width/8*math.sin(param[1]*frame/60),Arena.width/8*math.sin(param[2]*frame/60)}
+  origin = {Arena.width/6*math.sin(param[1]*frame/60),Arena.width/6*math.sin(param[2]*frame/60)}
 
   if frame == 600 then
     EndWave()

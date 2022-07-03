@@ -140,8 +140,6 @@ function Update()
         elseif current == 3 then
           Player.maxhp = 1
           Player.hp = 1
-        else
-          Encounter.Call('InitKarma')
         end
         Audio.PlaySound('BeginBattle3')
         Encounter.SetVar('nextwaves',{'opening'})

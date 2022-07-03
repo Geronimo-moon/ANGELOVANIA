@@ -126,6 +126,13 @@ function EncounterStarting()
   Audio.Stop()
   Audio.LoadFile('mus_menu')
   InitChara()
+  if ez then
+    Player.maxhp = 150
+    Player.hp = 150
+  elseif extreme then
+    Player.maxhp = 1
+    Player.hp = 1
+  end
   if not Misc.FileExists('User/savedata') then
     State("DEFENDING")
   else
@@ -154,6 +161,7 @@ function Update()
   end
 
   if debugging then
+    SetMode('debug')
     if Input.GetKey('Delete')~=0 then
       debugging = false
       Player.name = "Shifty"
@@ -165,9 +173,7 @@ function Update()
     if GetCurrentState() == "ENEMYDIALOGUE" and Input.GetKey('K')~=0 then
       State("DEFENDING")
     end
-  end
-
-  if noob then
+  elseif noob then
     SetMode('noob')
   elseif ez then
     SetMode('ez')

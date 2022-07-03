@@ -93,7 +93,7 @@ function Hit(bullet)
   end
 -- 攻撃タイプに応じたダメージ
   local type = bullet.GetVar("type")
-  if Encounter.GetVar('noob') or Encounter.GetVar('ez') then
+  if Encounter.GetVar('noob') or Encounter.GetVar('ez') or GetGlobal('phase') ~= 1 then
     if type == 'force' then
       return true
     elseif type == 'notime' then

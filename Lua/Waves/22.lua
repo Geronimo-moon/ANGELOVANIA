@@ -84,12 +84,12 @@ function Update()
     if frame % 90 == 30 then
       local x = saves[(frame-30)/90][1]
       local y = saves[(frame-30)/90][2]
-      local knifer = SetBeam('rknifel',320,Player.y)
-      local knifel = SetBeam('rknifer',-320,Player.y)
-      local knifeu = SetBeam('rknifed',Player.x,240)
-      local knifed = SetBeam('rknifeu',Player.x,-240)
-      knifer.sprite.Scale(10,10)
-      knifel.sprite.Scale(10,-10)
+      local knifer = SetNotime('knifel',320,Player.y)
+      local knifel = SetNotime('knifer',-320,Player.y)
+      local knifeu = SetNotime('knifed',Player.x,240)
+      local knifed = SetNotime('knifeu',Player.x,-240)
+      knifer.sprite.Scale(10,-10)
+      knifel.sprite.Scale(10,10)
       knifeu.sprite.Scale(-10,10)
       knifed.sprite.Scale(-10,10)
       knifer.ppcollision = true
@@ -121,13 +121,13 @@ function Update()
     end
   end
 
-  if frame == 520 then
+  if frame == 550 then
     orange.Quit()
     Arena.Resize(200,200)
     cyan.Init()
   end
 
-  if frame >= 520 and frame <= 600 then
+  if frame >= 550 and frame <= 630 then
     if frame % 8 == 0 then
       local knife = SetNotime("knifed",math.random(-Arena.width/2,Arena.width/2),Arena.height*2)
       knife.SetVar('spawn',frame)
@@ -137,7 +137,7 @@ function Update()
     end
   end
 
-  if frame >= 600 and frame <= 680 then
+  if frame >= 630 and frame <= 710 then
     if frame % 8 == 0 then
       local knife = SetNotime("knifeu",math.random(-Arena.width/2,Arena.width/2),-Arena.height*2)
       knife.SetVar('spawn',frame)
@@ -147,7 +147,7 @@ function Update()
     end
   end
 
-  if frame >= 680 and frame <= 760 then
+  if frame >= 710 and frame <= 790 then
     if frame % 8 == 0 then
       local knife = SetNotime("knifer",-Arena.width*2,math.random(-Arena.height/2,Arena.height/2))
       knife.SetVar('spawn',frame)
@@ -157,7 +157,7 @@ function Update()
     end
   end
 
-  if frame >= 760 and frame <= 840 then
+  if frame >= 790 and frame <= 870 then
     if frame % 8 == 0 then
       local knife = SetNotime("knifel",Arena.width*2,math.random(-Arena.height/2,Arena.height/2))
       knife.SetVar('spawn',frame)
@@ -206,5 +206,14 @@ function Update()
 end
 
 function OnHit(bullet)
+  local kr
+  if Encounter["noob"] or Encounter["ez"] then
+    kr = 3
+  elseif Encounter["debugging"] or bullet.GetVar("type") == "sprite" then
+    kr = 0
+  else
+    kr = 6
+  end
+  Encounter.Call("Karma_Inc", kr)
   Hit(bullet)
 end
