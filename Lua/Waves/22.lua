@@ -206,14 +206,5 @@ function Update()
 end
 
 function OnHit(bullet)
-  local kr
-  if Encounter["debugging"] or bullet.GetVar("type") == "sprite" then
-    kr = 0
-  elseif Encounter["noob"] or Encounter["ez"] then
-    kr = 3
-  else
-    kr = 6
-  end
-  Encounter.Call("Karma_Inc", kr)
   Hit(bullet)
 end

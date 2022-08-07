@@ -51,6 +51,7 @@ function Update()
             star.SetVar('loc',{x,y})
             table.insert(flames,star)
           end
+          Audio.PlaySound('heartsplosion')
 
           if math.random(1,10) <= math.random(2,5) then
             local warn = SetSprite('slash/emerb',x,y)
@@ -75,6 +76,7 @@ function Update()
             star.SetVar('theta',theta)
             table.insert(flames,star)
           end
+          Audio.PlaySound('heartsplosion')
 
           if math.random(1,10) <= math.random(2,5) then
             local warn = SetSprite('slash/emerb',x,y)

@@ -105,6 +105,7 @@ enemypositions = { --画面上の敵の位置(x,y)
 }
 
 flee = false --Freeオプションを表示しない
+krInited = false
 
 --Playerのステータス
 Player.lv = 19
@@ -321,4 +322,5 @@ end
 
 function InitKarma()
   require 'Libraries/karma'
+  krInited = true
 end

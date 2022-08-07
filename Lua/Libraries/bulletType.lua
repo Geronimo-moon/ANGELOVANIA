@@ -75,6 +75,7 @@ end
 
 -- 被弾時の処理 出力…即死か否か
 function Hit(bullet)
+  local doKr = Encounter.GetVar('krInited')
 
   if Encounter.GetVar('debugging') then
     return
@@ -97,10 +98,16 @@ function Hit(bullet)
     if type == 'force' then
       return true
     elseif type == 'notime' then
+      if doKr then
+        Encounter.Call("Karma_Inc", 3)
+      end
       Player.Hurt(1,0.033)
     elseif type == 'default' then
       Player.Hurt(math.random(9,12),1)
     elseif type == 'beam' then
+      if doKr then
+        Encounter.Call("Karma_Inc", 3)
+      end
       Player.Hurt(2,0.001)
     end
   else
