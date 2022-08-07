@@ -42,7 +42,6 @@ function Update()
 end
 
 function OnHit(bullet)
-  Hit(bullet)
   if GetGlobal('phase') ~= 1 then
     local kr
     if Encounter["debugging"] or bullet.GetVar("type") == "sprite" then
@@ -54,4 +53,5 @@ function OnHit(bullet)
     end
     Encounter.Call("Karma_Inc", kr)
   end
+  Hit(bullet)
 end

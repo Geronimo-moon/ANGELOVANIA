@@ -148,6 +148,7 @@ function EncounterStarting()
       end
     elseif GetGlobal('phase') ==2 then
       Audio.LoadFile("mus_ang")
+      InitKarma()
     end
   end
   SetGlobal('currentPlayer',{x=Player.x,y=Player.y})
