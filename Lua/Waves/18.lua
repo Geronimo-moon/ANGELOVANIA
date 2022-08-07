@@ -44,18 +44,20 @@ function Update()
           local x,y = bflames[i].x,bflames[i].y
           bflames[i].Remove()
 
-          for j=0, 5 do
-            local theta = math.pi*2*j/6
+          for j=0, 7 do
+            local theta = math.pi*2*j/8
             local star = SetDefault('attack/flame',math.cos(theta)+x,math.sin(theta)+y)
             star.SetVar('theta',theta)
             star.SetVar('loc',{x,y})
             table.insert(flames,star)
           end
 
-          local warn = SetSprite('slash/emerb',x,y)
-          warn.SetVar('spawn',frame)
-          table.insert(warns,warn)
-          Audio.PlaySound('thunder')
+          if math.random(1,10) <= math.random(2,5) then
+            local warn = SetSprite('slash/emerb',x,y)
+            warn.SetVar('spawn',frame)
+            table.insert(warns,warn)
+            Audio.PlaySound('thunder')
+          end
         end
       end
     end
@@ -67,18 +69,20 @@ function Update()
           local x,y = vflames[i].x,vflames[i].y
           vflames[i].Remove()
 
-          for j=0, 6 do
-            local theta = math.pi*2*j/7
+          for j=0, 7 do
+            local theta = math.pi*2*j/8+math.pi/8
             local star = SetDefault('attack/flame',math.cos(theta)+x,math.sin(theta)+y)
             star.SetVar('theta',theta)
             table.insert(flames,star)
           end
 
-          local warn = SetSprite('slash/emerb',x,y)
-          warn.SetVar('spawn',frame)
-          warn.sprite.rotation = 90
-          table.insert(warns,warn)
-          Audio.PlaySound('thunder')
+          if math.random(1,10) <= math.random(2,5) then
+            local warn = SetSprite('slash/emerb',x,y)
+            warn.SetVar('spawn',frame)
+            warn.sprite.rotation = 90
+            table.insert(warns,warn)
+            Audio.PlaySound('thunder')
+          end
         end
       end
     end
