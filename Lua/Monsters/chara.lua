@@ -55,7 +55,7 @@ function SetLang()
       c21 = {'[font:det_jp_mini][func:Stop]オーケー,オーケー,\nきみ,からだを\nうごかすのすきなの?\nそれとも,すきなのは\nきりきざまれること?','[font:det_jp_mini]...あのさ,\nボクにはきみの\nきもちがわからない.','[font:det_jp_mini]でも...\nむかしは,\nつうじあえたことも\nあったろ?','[font:det_jp_mini][func:Spare]ねぇ,あいぼう.\nきみがもし...\nもし,そこにいるなら...','[font:det_jp_mini]もういちど,\nゼロから\nやりなおさないか?','[font:det_jp_mini]いまならまだまにあう.\nこのじかんじくをけして\nつぎでうまくやればいい.','[font:det_jp_mini]どうかな?\nやってみるかちは\nあるとおもうよ?'},
       spare = {'[font:det_jp_mini][func:Stop]はぁ, めんど...[func:CharaHead,chara/surprisedhead]\n...え?','[font:det_jp_mini]にがすっていうの?\nボクを?','[font:det_jp_mini][noskip]...','[font:det_jp_mini][noskip][func:CharaHead,chara/closedhead]......','[font:det_jp_mini][noskip]......[w:60]\nそっか','[func:KillSpare][next]'},
       c22 = {'[font:det_jp_mini][func:Stop]ま,だろうね.','[font:det_jp_mini]むしろ,\nあんしんしたよ.','[font:det_jp_mini]これで,えんりょなく\nきみのしたことを\nひなんできる.','[func:Angelovania][font:det_jp_mini][func:CharaHead,chara/madhead][func:CallKarma]じゅんびは\nいいな?'},
-      c23 = {"...",'[font:det_jp_mini][func:CharaHead,chara/head][func:Stop]...ごめん,\nやっぱいまのなし.','[font:det_jp_mini][func:CharaHead,chara/winkedhead][func:DogSong]このさきのこうげき,\nまだきめてなかった.\nてへへ...','[font:det_jp_mini][func:CharaHead,chara/head]そんなわけで, ここが\n"デモエンド"だ.\nよくたどりついたね!','[font:det_jp_mini]たのしめたかい?\nそうだとうれしいよ...\nそれじゃ,またこんど,\nパートナー!','[func:Delete]'},
+      c23 = {'[font:det_jp_mini]どうだい?\nとうさんとつくった\nタマシイのまほうさ.','[font:det_jp_mini]ああ,アズゴアは\nかなりイカレてた.\nボクをころそうと\nするくらいにはね...','[font:det_jp_mini][func:CharaHead,chara/closedhead]でも,けっきょくはボクを\nみとめてくれた.\nそうしていっしょに\nけんきゅうして\nみつけたんだ.','[func:CharaHead,chara/head][color:ff0000]"LOVE"[font:det_jp_mini][color:ff0000]をかこから\nよびもどすほうほうを.'},
     }
   else
     messages = {
@@ -104,7 +104,7 @@ function SetLang()
       c21 = {'Okay, okay,\nyou DO like moving \nthe body, right?\nOr you like\nbeing chopped?','...Well, I can\'t see\nyour feeling.','But...\none day we \nunderstood each \nother, didn\'t we?','[func:Spare]Hey, partner.\nif you...\nif you there...','Why don\'t we\nstart over from \nzero again?','It\'s not too late.\nDelete this timeline\nand do well next time.','How is it?\nIt\'s worth doing,\nisn\'t it?'},
       spare = {'[func:Stop]hehe, I know...[func:CharaHead,chara/surprisedhead]\n...what?','You...\nYou sparing me?','[noskip]...','[func:CharaHead,chara/closedhead][noskip]......','[noskip]......[w:60]\nAlright','[func:KillSpare][next]'},
       c22 = {'[func:Stop]Well, I know.','Rather,\nI felt relief.','Now I can blame you\nfor what you did\nwithout reservation.','[func:Angelovania][func:CharaHead,chara/madhead]Are you...\n[color:ff0000][func:CallKarma]READY?'},
-      c23 = {"...",'[func:CharaHead,chara/head][func:Stop]...Ah,\nI take back\nwhat I said earlier.','[func:CharaHead,chara/winkedhead][func:DogSong]I haven\'t made\nnext attacks.\nteehee...XD','[func:CharaHead,chara/head]So, this is\n"Demo-end", right?\nYou reached it!','Had fun?\nI hope so...\nwell, see ya,\npartner!',"[func:Delete]"}
+      c23 = {'How\'s it going?\nIt\'s a soul-magic\nI created with \nmy father.','Yeah, Asgore was so \ncrazy that he tried \nto kill me...','[func:CharaHead,chara/closedhead]But at last, he \nrecognized me. That\'s \nhow we did our\nresearch together\nand found a way...','[func:CharaHead,chara/head][color:ff0000]To bring back\nthe past LOVE.'},
     }
   end
   comments = messages.comments --コメントのリスト
@@ -143,7 +143,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  -- currentdialogue = messages.c22
+  currentdialogue = messages.c23
 end
 
 function HandleAttack(damage)
@@ -231,6 +231,7 @@ function HandleAttack(damage)
       Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
       prayed = 0
     elseif turn == 23 then
+      Encounter.SetVar("nextwaves",{"23"})
       currentdialogue = messages.c23
     end
   end

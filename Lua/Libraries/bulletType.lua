@@ -83,11 +83,11 @@ function Hit(bullet)
   local color = bullet.GetVar("color")
 -- 青攻撃・オレンジ攻撃の判定
   if color == "blue" then
-    if not Player.ismoving then
+    if not GetGlobal('isMoving')  then
       return false
     end
   elseif color == "orange" then
-    if Player.ismoving then
+    if GetGlobal('isMoving') then
       return false
     end
   end
@@ -99,7 +99,7 @@ function Hit(bullet)
     elseif type == 'notime' then
       Player.Hurt(1,0.033)
     elseif type == 'default' then
-      Player.Hurt(math.random(7,10),1)
+      Player.Hurt(math.random(9,12),1)
     elseif type == 'beam' then
       Player.Hurt(2,0.001)
     end
@@ -109,7 +109,7 @@ function Hit(bullet)
     elseif type == 'notime' then
       Player.Hurt(1,0.001)
     elseif type == 'default' then
-      Player.Hurt(math.random(9,12),1)
+      Player.Hurt(math.random(7,11),0.5)
     elseif type == 'beam' then
       Player.Hurt(4,0.001)
     end

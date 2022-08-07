@@ -14,12 +14,11 @@ end
 
 function self.Update()
   if Input.Up == 2 then
-    self.r = self.r + 2
+    self.r = 2
   elseif Input.Down == 2 then
-    self.r = self.r - 2
-    if self.r <= 0 then
-      self.r = 0
-    end
+    self.r = - 2
+  else
+    self.r = 0
   end
   if Input.Right == 2 then
       self.theta = self.theta - math.pi/60
@@ -31,7 +30,7 @@ function self.Update()
       Misc.ScreenShader.SetInt("Rotation",Misc.ScreenShader.GetInt("Rotation")-3)
   end
 
-  Player.MoveTo(self.r*math.cos(self.theta),self.r*math.sin(self.theta))
+  Player.Move(self.r*math.cos(self.theta),self.r*math.sin(self.theta))
 end
 
 function self.Quit()

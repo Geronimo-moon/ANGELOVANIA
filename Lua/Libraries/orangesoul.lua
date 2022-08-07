@@ -1,6 +1,6 @@
 local self = {}
 
-self.current = {x=2 ,y=2}
+self.current = {x=-2 ,y=0}
 self.isactive = false
 
 function self.Init()

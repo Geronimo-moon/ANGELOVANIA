@@ -14,15 +14,15 @@ function InitChara()
   head.SetParent(leg)
   body.SetParent(leg)
   black.SetParent(body)
-  leg.Scale(2,2)
-  body.Scale(2,2)
-  head.Scale(2,2.05)
+  leg.Scale(1.85,1.85)
+  body.Scale(1.85,1.85)
+  head.Scale(1.85,1.85)
 
   black.SetAnchor(0,0)
 
   leg.SetPivot(0.5,0)
 
-  body.SetPivot(0.5,0)
+  body.SetPivot(0.5,1)
   body.SetAnchor(0.5,1)
 
   head.SetPivot(0.5,0)
@@ -36,9 +36,9 @@ function InitChara()
   leg.x = 0
   leg.y = -110
   body.x = 0
-  body.y = -6
+  body.y = -6+46*1.85
   head.x = -4
-  head.y = 56
+  head.y = 50
   black.x = 320
   black.y = 350
 
@@ -74,23 +74,40 @@ function CharaAnime()
   local frame = GetGlobal('charaframe')
 
   if frame > 0 then
-    if frame == 15 then
+    if frame == 5 then
+      leg.Move(-5,0)
       cut.Set("slash/6")
       SetHead('chara/head')
-    elseif frame == 30 then
+      SetBody('chara/body')
+    elseif frame == 10 then
+      leg.Move(10,0)
       cut.Set("slash/5")
-    elseif frame == 45 then
+    elseif frame == 15 then
+      leg.Move(-10,0)
       cut.Set("slash/4")
-    elseif frame == 60 then
+    elseif frame == 20 then
+      leg.Move(10,0)
       cut.Set("slash/3")
-    elseif frame == 75 then
+    elseif frame == 25 then
       cut.Set("slash/2")
-    elseif frame == 90 then
+      leg.Move(-10,0)
+    elseif frame == 30 then
       cut.Set("slash/1")
+      SetBody('chara/body')
+      leg.Move(5,0)
+    elseif frame == 60 then
+      Audio.PlaySound('thunder')
+    elseif frame == 80 then
+      SetBody('chara/parrybody')
+    elseif frame == 90 then
+      SetBody('chara/swingbody')
       SetHead('chara/madhead')
     end
     SetGlobal('charaframe',frame-1)
   else
     cut.Set('null')
   end
+
+  leg.yscale = 1.85 + 0.005*math.sin(math.pi*Time.time)
+  head.y = 50 + math.sin(math.pi*Time.time)
 end

@@ -150,6 +150,8 @@ function EncounterStarting()
       Audio.LoadFile("mus_ang")
     end
   end
+  SetGlobal('currentPlayer',{x=Player.x,y=Player.y})
+  SetGlobal('isMoving',false)
 end
 
 function Update()
@@ -187,6 +189,13 @@ function Update()
   ModeAnime()
   if Karma ~= nil then
     Karma.Update()
+  end
+
+  if GetGlobal("currentPlayer").x ~= Player.x or GetGlobal("currentPlayer").y ~= Player.y then
+    SetGlobal('isMoving',true)
+    SetGlobal('currentPlayer',{x=Player.x,y=Player.y})
+  else
+    SetGlobal('isMoving',false)
   end
 end
 
