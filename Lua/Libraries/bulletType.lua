@@ -94,7 +94,7 @@ function Hit(bullet)
   end
 -- 攻撃タイプに応じたダメージ
   local type = bullet.GetVar("type")
-  if Encounter.GetVar('noob') or Encounter.GetVar('ez') or GetGlobal('phase') ~= 1 then
+  if Encounter.GetVar('noob') or Encounter.GetVar('ez') then
     if type == 'force' then
       return true
     elseif type == 'notime' then
@@ -103,7 +103,7 @@ function Hit(bullet)
       end
       Player.Hurt(1,0.033)
     elseif type == 'default' then
-      Player.Hurt(math.random(9,12),1)
+      Player.Hurt(math.random(4,6),0.7)
     elseif type == 'beam' then
       if doKr then
         Encounter.Call("Karma_Inc", 3)
@@ -114,11 +114,17 @@ function Hit(bullet)
     if type == 'force' then
       return true
     elseif type == 'notime' then
-      Player.Hurt(1,0.001)
+      if doKr then
+        Encounter.Call("Karma_Inc", 6)
+      end
+      Player.Hurt(1,0.005)
     elseif type == 'default' then
-      Player.Hurt(math.random(7,11),0.5)
+      Player.Hurt(math.random(7,11),0.7)
     elseif type == 'beam' then
-      Player.Hurt(4,0.001)
+      if doKr then
+        Encounter.Call("Karma_Inc", 6)
+      end
+      Player.Hurt(4,0.002)
     end
   end
   return false
