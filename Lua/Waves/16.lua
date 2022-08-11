@@ -3,83 +3,43 @@ require 'Libraries/bulletType'
 local frame = 0
 local knives = {}
 
-Arena.Resize(200,200)
+Arena.Resize(140,140)
+
+SetPPCollision(true)
+
+local box = SetSprite("empty", 0,0,"BelowBullet")
+box.sprite.Mask("box")
+box.sprite.Scale(Arena.width/box.sprite.width, Arena.height/box.sprite.height)
 
 function Update()
+  box.MoveTo(0,0)
   frame = frame + 1
 
-  if frame % 15 == 1 then
-    local x,y
-    while true do
-      x = math.random(-320,320)
-      y = math.random(-240,240)
-
-      if not (x <= 150 and x >= -150 and y <= 150 and y >= -150) then
-        break
-      end
-    end
-    local tox = math.random(-Arena.width/2+10,Arena.width/2-10)
-    local toy = math.random(-Arena.height/2+10,Arena.height/2-10)
-    local dydx = (y-toy)/(x-tox)
-    local dir = (tox-x)/math.abs(x-tox)
-    local theta
-
-    if dir == 1 then
-      if math.atan(dydx) >= 0 then
-        theta = math.atan(dydx)
-      else
-        theta = math.atan(dydx) + 2*math.pi
-      end
-    else
-      theta = math.atan(dydx) + math.pi
-    end
-
-    local knife = SetNotime('knifer',x,y)
-    knife.SetVar('theta',theta)
-    knife.sprite.rotation = 180*theta/math.pi
-    knife.ppcollision = true
-    knife.SetVar('speed',8)
-
+  if frame % 30 == 0 then
+    local theta = math.random()*math.pi
+    local pos = math.random(-60,30)
+    local x = 150*math.cos(theta + math.pi/2)
+    local y = 150*math.sin(theta + math.pi/2)
+    local knife = {SetBeam('rknifer',x+(pos-64)*math.cos(theta),y+(pos-64)*math.sin(theta)),SetBeam('rknifel',x+(pos+94)*math.cos(theta),y+(pos+94)*math.sin(theta))}
+    knife[1].sprite.rotation = theta/math.pi*180
+    knife[2].sprite.rotation = theta/math.pi*180
+    knife[1].sprite.SetParent(box.sprite)
+    knife[2].sprite.SetParent(box.sprite)
+    knife[1].sprite.Scale(2,1)
+    knife[2].sprite.Scale(2,1)
+    table.insert(knife,theta+math.pi/2)
     table.insert(knives,knife)
   end
 
-  for i = 1 ,#knives do
-    if knives[i].isactive then
-      local theta = knives[i].GetVar('theta')
-      knives[i].Move(knives[i].GetVar('speed')*math.cos(theta),knives[i].GetVar('speed')*math.sin(theta))
-
-      if knives[i].GetVar('speed') == 8 and knives[i].x^2+knives[i].y^2 <= 10000 then
-        local rknife = SetBeam('rknifer',knives[i].x,knives[i].y)
-        rknife.SetVar('theta',theta)
-        rknife.SetVar('speed',math.random(1,4))
-        if math.random(10) == 1 then
-          rknife.SetVar('speed',0)
-        end
-        rknife.sprite.rotation = 180*theta/math.pi
-        rknife.ppcollision = true
-        table.insert(knives,rknife)
-        local bknife = SetBeam('bknifer',knives[i].x,knives[i].y,'','blue')
-        bknife.SetVar('theta',theta+math.pi/6)
-        bknife.SetVar('speed',math.random(1,5))
-        bknife.sprite.rotation = 180*theta/math.pi+30
-        bknife.ppcollision = true
-        table.insert(knives,bknife)
-        local oknife = SetBeam('oknifer',knives[i].x,knives[i].y,'','orange')
-        oknife.SetVar('theta',theta-math.pi/6)
-        oknife.SetVar('speed',math.random(1,5))
-        oknife.sprite.rotation = 180*theta/math.pi-30
-        oknife.ppcollision = true
-        table.insert(knives,oknife)
-        knives[i].Remove()
-      end
-
-      if knives[i].absx <= 0 or knives[i].absx >= 640 or knives[i].absy <= 0 or knives[i].absy >= 480 then
-        knives[i].Remove()
+  for i=1,#knives do
+    if knives[i][1].isactive then
+      for j=1,2 do
+        knives[i][j].Move(-2*math.cos(knives[i][3]),-2*math.sin(knives[i][3]))
       end
     end
   end
 
-  if frame == 700 then
+  if frame == 750 then
     EndWave()
   end
 end
