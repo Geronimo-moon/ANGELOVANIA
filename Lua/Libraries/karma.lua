@@ -47,7 +47,7 @@ function Karma.Update()
 
   d = 1.2
   --if Player.hp > Player.maxhp then d = d * Player.hp / Player.maxhp end
-  --if Player.maxhp > 103 then d = d * 103 / Player.maxhp end
+  if Player.maxhp > 103 then d = d * 103 / Player.maxhp end
   bar.x = (Player.hp - Karma.kr) * d + 276
   bar.xscale = Karma.kr * d
   hphide.x = Player.maxhp * d + 285
