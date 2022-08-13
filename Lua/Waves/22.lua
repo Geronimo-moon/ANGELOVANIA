@@ -1,6 +1,5 @@
 require 'Libraries/bulletType'
-local orange = require 'Libraries/orangesoul'
-local cyan = require 'Libraries/cyansoul'
+local soul = require 'Libraries/soulManager'
 
 local frame = 0
 
@@ -21,12 +20,7 @@ local shadows = {}
 function Update()
   frame = frame + 1
 
-  if orange.isactive then
-    orange.Update()
-  end
-  if cyan.isactive then
-    cyan.Update()
-  end
+  soul.Update()
 
   if frame >= 10 and frame <= 110 then
     if frame % 5 == 0 then
@@ -74,7 +68,7 @@ function Update()
   end
 
   if frame == 105 then
-    orange.Init()
+    soul.Change({'orange'})
     if safebox.sprite.alpha == 1 then
       safebox.sprite.alpha = 0
     end
@@ -122,9 +116,8 @@ function Update()
   end
 
   if frame == 550 then
-    orange.Quit()
     Arena.Resize(200,200)
-    cyan.Init()
+    soul.Change({'cyan'})
   end
 
   if frame >= 550 and frame <= 630 then
@@ -200,7 +193,7 @@ function Update()
   end
 
   if frame == 900 then
-    cyan.Quit()
+    soul.Change()
     EndWave()
   end
 end

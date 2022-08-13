@@ -113,9 +113,7 @@ function self.Change(list)
 
   if (#self.currentSoul == 1 and self.currentSoul[1] == "orange") then
     self.orange.Quit()
-  elseif (#self.currentSoul == 1 and self.currentSoul[1] == "red") then
-    return
-  else
+  elseif not (#self.currentSoul == 1 and self.currentSoul[1] == "red") then
     for i = 1, #self.currentSoul do
       if self.currentSoul[i] ~= 'orange' then
         self[self.currentSoul[i]].Quit()

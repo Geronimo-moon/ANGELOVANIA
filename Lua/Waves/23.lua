@@ -1,7 +1,6 @@
 require 'Libraries/bulletType'
-local orange = require 'Libraries/orangesoul'
-orange.Init()
-local cyan = require 'Libraries/cyansoul'
+local soul = require 'Libraries/soulManager'
+soul.Init({"orange"})
 
 Arena.Resize(420,100)
 Player.MoveTo(-Arena.width/2+20,0)
@@ -95,8 +94,7 @@ function Update()
     end
 
     if frame == 540 then
-      orange.Quit()
-      cyan.Init()
+      soul.Change({'cyan'})
       local index = math.random(1,14)
       if index <= 7 then
         if index%2 == 1 then
@@ -134,18 +132,13 @@ function Update()
     end
 
     if frame == 720 then
-      cyan.Quit()
+      soul.Change()
       gore.destroy()
       EndWave()
     end
   end
 
-  if orange.isactive then
-    orange.Update()
-  end
-  if cyan.isactive then
-    cyan.Update()
-  end
+  soul.Update()
 end
 
 function OnHit(bullet)
