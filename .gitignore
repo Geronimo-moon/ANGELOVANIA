@@ -2,5 +2,6 @@
 .vscode
 
 Lua/Encounters/debug.lua
+Lua/Libraries/bluesoul.lua
 
 User/

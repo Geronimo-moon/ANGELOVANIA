@@ -1,16 +1,14 @@
 local self = {}
 
-self.current = {x=-2 ,y=0}
 self.isactive = false
+self.multi = false
 
 function self.Init()
-  Player.SetControlOverride(true)
-  Player.sprite.color = {1,0.45,0}
-  Audio.PlaySound('change')
   self.isactive = true
+  self.current = {x=-2 ,y=0}
 end
 
-function self.Update()
+function self.Control()
   if Input.Up == 2 then
     self.current.y = 2
     if Input.Right == 2 then
@@ -43,9 +41,6 @@ function self.Update()
 end
 
 function self.Quit()
-  Player.SetControlOverride(false)
-  Player.sprite.color = {1,0,0}
-  Audio.PlaySound('change')
   self.isactive = false
 end
 

@@ -1,6 +1,6 @@
 require 'Libraries/bulletType'
-local blue = require 'Libraries/bluesoul'
-blue.Initialize()
+local blue = require 'Libraries/soulManager'
+blue.Init({"blue"})
 
 GetGlobal('charahead').Set("chara/head")
 
@@ -25,7 +25,7 @@ function Update()
 
   if frame == 1 then
     warnbox = SetSprite('attack/warnbox112',-Arena.width/2+40,0)
-    blue.Dir('left')
+    blue.blue.SetDir('left')
     Player.MoveTo(-Arena.width/2+8,0)
     Audio.PlaySound('BeginBattle1')
   end
@@ -49,7 +49,7 @@ function Update()
 
   if frame == 41 then
     warnbox = SetSprite('attack/warnbox112',Arena.width/2-40,0)
-    blue.Dir('right')
+    blue.blue.SetDir('right')
     Player.MoveTo(Arena.width/2-8,0)
     Audio.PlaySound('BeginBattle1')
   end
@@ -72,7 +72,7 @@ function Update()
   end
 
   if frame == 81 then
-    blue.Dir('down')
+    blue.blue.SetDir('down')
   end
 
   if frame >= 81 then
@@ -162,8 +162,7 @@ function Update()
   end
 
   if frame == 760 then
-    Player.SetControlOverride(false)
-    Player.sprite.color = {255,0,0}
+    blue.Change()
     papy.destroy()
     EndWave()
   end

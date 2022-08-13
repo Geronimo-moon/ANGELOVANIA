@@ -1,30 +1,27 @@
 local self = {}
 
-self.r = 0
-self.theta = math.pi/2
 self.isactive = false
 
 function self.Init()
-  Player.SetControlOverride(true)
-  Player.sprite.color = {0.15,0.7,0.95}
-  Audio.PlaySound('change')
   Misc.ScreenShader.Set('cyfshaders','Rotation')
   self.isactive = true
+  self.r = 0
+  self.theta = math.pi/2
 end
 
-function self.Update()
-  if Input.Up == 2 then
+function self.Control(key)
+  if Input.GetKey('UpArrow') == 2 or key.UpArrow then
     self.r = 2
-  elseif Input.Down == 2 then
+  elseif Input.GetKey('DownArrow') == 2 or key.DownArrow then
     self.r = - 2
   else
     self.r = 0
   end
-  if Input.Right == 2 then
+  if Input.GetKey('RightArrow') == 2 or key.RightArrow then
       self.theta = self.theta - math.pi/60
       Player.sprite.rotation = Player.sprite.rotation - 3
       Misc.ScreenShader.SetInt("Rotation",Misc.ScreenShader.GetInt("Rotation")+3)
-  elseif Input.Left == 2 then
+  elseif Input.GetKey('LeftArrow') == 2 or key.LeftArrow then
       self.theta = self.theta + math.pi/60
       Player.sprite.rotation = Player.sprite.rotation + 3
       Misc.ScreenShader.SetInt("Rotation",Misc.ScreenShader.GetInt("Rotation")-3)
@@ -34,10 +31,7 @@ function self.Update()
 end
 
 function self.Quit()
-  Player.SetControlOverride(false)
-  Player.sprite.color = {1,0,0}
   Player.sprite.rotation = 0
-  Audio.PlaySound('change')
   Misc.ScreenShader.Revert()
   self.isactive = false
 end

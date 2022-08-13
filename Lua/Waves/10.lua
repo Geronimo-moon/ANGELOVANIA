@@ -1,7 +1,6 @@
 require 'Libraries/bulletType'
-local blue = require "Libraries/bluesoul"
-blue.Initialize()
-Audio.PlaySound("change")
+local blue = require "Libraries/soulManager"
+blue.Init({"blue"})
 
 Arena.Resize(200,140)
 
@@ -21,9 +20,7 @@ function Update()
   papy.update(frame)
   frame = frame + 1
 
-  if blue ~= nil then
-    blue.Update()
-  end
+  blue.Update()
 
   if frame <= 530 then
     if frame % 40 == 1 then
@@ -144,11 +141,8 @@ function Update()
     end
   end
 
-  if Player.y >= 0 and frame >= 550 and blue ~= nil then
-    blue = nil
-    Audio.PlaySound('change')
-    Player.SetControlOverride(false)
-    Player.sprite.color = {255,0,0}
+  if Player.y >= 0 and frame >= 550 and blue.blue.isactive then
+    blue.Change()
   end
 
   if frame == 610 then

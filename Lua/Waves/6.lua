@@ -51,6 +51,7 @@ function Update()
     local warn = SetSprite('warnbox',100*place-100,-100)
     warn.SetVar("spawn",frame)
     table.insert(warning,warn)
+    Audio.PlaySound('BeginBattle1')
   end
 
   for i=1,#warning do
