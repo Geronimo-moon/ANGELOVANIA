@@ -44,6 +44,21 @@ function self.Control(key)
       Player.MoveTo(Player.x + (self.calVertical(key)/10),Player.y + (self.calHorizon(key)/10),false)
     end
   end
+  if key.active then
+    if self.dir == "up" and Input.GetKey('UpArrow') == 1 then
+      self.gravity = 3.6
+    elseif self.dir == "down" and Input.GetKey('DownArrow') == 1 then
+      self.gravity = 3.6
+    elseif self.dir == "right" and Input.GetKey('RightArrow') == 1 then
+      self.gravity = 3.6
+    elseif self.dir == "left" and Input.GetKey('LeftArrow') == 1 then
+      self.gravity = 3.6
+    else
+      self.gravity = 0.12
+    end
+  end
+
+  return true
 end
 
 function self.calVertical(key)
@@ -98,6 +113,7 @@ end
 
 function self.calHorizon(key)
   local move = 0
+  local slow = Input.Cancel > 0
   if self.dir == "down" or self.dir == "up" then
     if Input.GetKey('LeftArrow') > 0 or key.LeftArrow then
       move = move - 2
@@ -110,6 +126,9 @@ function self.calHorizon(key)
     elseif Input.GetKey('UpArrow') > 0 or key.UpArrow then
       move = move + 2
     end
+  end
+  if slow then
+    move = move / 2
   end
   return move
 end

@@ -10,6 +10,10 @@ function self.Init()
 end
 
 function self.Control(key)
+  local div = 1
+  if Input.Cancel > 0 then
+    div = 2
+  end
   if Input.GetKey('UpArrow') == 2 or key.UpArrow then
     self.r = 2
   elseif Input.GetKey('DownArrow') == 2 or key.DownArrow then
@@ -27,7 +31,9 @@ function self.Control(key)
       Misc.ScreenShader.SetInt("Rotation",Misc.ScreenShader.GetInt("Rotation")-3)
   end
 
-  Player.Move(self.r*math.cos(self.theta),self.r*math.sin(self.theta))
+  Player.Move(self.r*math.cos(self.theta)/div,self.r*math.sin(self.theta)/div)
+
+  return true
 end
 
 function self.Quit()

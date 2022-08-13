@@ -1,6 +1,5 @@
 local self = {
   blue = require 'soul/blue',
-  orange = require 'soul/orange',
   cyan = require 'soul/cyan',
   green = require 'soul/green',
   yellow = require 'soul/yellow',
@@ -68,9 +67,11 @@ function self.Init(list)
   end
 
   for i = 1, #list do
-    if list[i] == "orange" and #list ~= 1 then
-      self.orange.multi = true
+    if list[i] == "orange" then
       self.orangeKey(true)
+      if #list == 1 then
+        self.lastKeys.RightArrow = true
+      end
     elseif list[i] == "red" and #list == 1 then
       return
     else
@@ -80,20 +81,49 @@ function self.Init(list)
 end
 
 function self.Update() -- 毎フレームの更新
-  if (#self.currentSoul == 1 and self.currentSoul[1] == "orange") then
-    self.orange.Control()
-  elseif (#self.currentSoul == 1 and self.currentSoul[1] == "red") then
+  local originalMove = false
+  if (#self.currentSoul == 1 and self.currentSoul[1] == "red") then
     return
   else
-    if self.orange.multi then
+    if self.lastKeys.active then
       self.orangeKey()
     end
     for i = 1, #self.currentSoul do
       if self.currentSoul[i] ~= 'orange' then
-        self[self.currentSoul[i]].Control(self.lastKeys)
+        originalMove = originalMove or self[self.currentSoul[i]].Control(self.lastKeys) -- アップデート・プレーヤーを動かしたか確認
       end
     end
   end
+
+  if not originalMove then
+    self.Control(self.lastKeys)
+  end
+end
+
+function self.Control(key) -- プレーヤーを動かしてないなら矢印操作で動かす
+  local move = {x=0,y=0}
+  local div = 1
+  if Input.GetKey('UpArrow') == 2 or key.UpArrow then
+    move.y = move.y + 2
+  end
+  if Input.GetKey('DownArrow') == 2 or key.DownArrow then
+    move.y = move.y - 2
+  end
+  if Input.GetKey('RightArrow') == 2 or key.RightArrow then
+    move.x = move.x + 2
+  end
+  if Input.GetKey('LeftArrow') == 2 or key.LeftArrow then
+    move.x = move.x - 2
+  end
+
+  if Input.Cancel > 0 and not key.active then
+    div = div*2
+  end
+  if key.active then
+    div = div*2/3
+  end
+
+  Player.Move(move.x/div,move.y/div)
 end
 
 function self.Change(list)
@@ -111,9 +141,7 @@ function self.Change(list)
     active = false
   }
 
-  if (#self.currentSoul == 1 and self.currentSoul[1] == "orange") then
-    self.orange.Quit()
-  elseif not (#self.currentSoul == 1 and self.currentSoul[1] == "red") then
+  if not (#self.currentSoul == 1 and self.currentSoul[1] == "red") then
     for i = 1, #self.currentSoul do
       if self.currentSoul[i] ~= 'orange' then
         self[self.currentSoul[i]].Quit()

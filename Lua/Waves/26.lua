@@ -1,7 +1,7 @@
 require 'Libraries/bulletType'
 
 local soul = require 'Libraries/soulManager'
-soul.Init({'blue'})
+soul.Init({'blue','orange'})
 
 local frame = 0
 
