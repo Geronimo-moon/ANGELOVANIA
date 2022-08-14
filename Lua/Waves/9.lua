@@ -30,6 +30,7 @@ function Update()
   end
 
   if frame%50 == 0 then
+    Audio.PlaySound('fly')
     local knifel = SetBeam("rknifel",320,Player.y)
     knifel.SetVar("dir",-1)
     knifel.SetVar('spawn',frame)

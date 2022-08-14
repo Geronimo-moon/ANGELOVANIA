@@ -103,7 +103,7 @@ function Hit(bullet)
       end
       Player.Hurt(1,0.033)
     elseif type == 'default' then
-      Player.Hurt(math.random(4,6),0.7)
+      Player.Hurt(math.random(5,7),0.6)
     elseif type == 'beam' then
       if doKr then
         Encounter.Call("Karma_Inc", 3)
@@ -119,7 +119,7 @@ function Hit(bullet)
       end
       Player.Hurt(1,0.005)
     elseif type == 'default' then
-      Player.Hurt(math.random(7,11),0.7)
+      Player.Hurt(math.random(7,10),0.6)
     elseif type == 'beam' then
       if doKr then
         Encounter.Call("Karma_Inc", 6)

@@ -71,16 +71,24 @@ function self.Control()
     end
   end
 
-  if self.move then
-    if self.pos == "up" then
-      self.shield.MoveTo(Player.absx,Player.absy+26)
-    elseif self.pos == "down" then
-      self.shield.MoveTo(Player.absx,Player.absy-26)
-    elseif self.pos == "right" then
-      self.shield.MoveTo(Player.absx+26,Player.absy)
-    elseif self.pos == "left" then
-      self.shield.MoveTo(Player.absx-26,Player.absy)
-    end
+  if self.pos == "up" then
+    self.shield.MoveTo(Player.absx,Player.absy+26)
+  elseif self.pos == "down" then
+    self.shield.MoveTo(Player.absx,Player.absy-26)
+  elseif self.pos == "right" then
+    self.shield.MoveTo(Player.absx+26,Player.absy)
+  elseif self.pos == "left" then
+    self.shield.MoveTo(Player.absx-26,Player.absy)
+  end
+
+  if self.pos_red == "up" then
+    self.shield_red.MoveTo(Player.absx,Player.absy+26)
+  elseif self.pos_red == "down" then
+    self.shield_red.MoveTo(Player.absx,Player.absy-26)
+  elseif self.pos_red == "right" then
+    self.shield_red.MoveTo(Player.absx+26,Player.absy)
+  elseif self.pos_red == "left" then
+    self.shield_red.MoveTo(Player.absx-26,Player.absy)
   end
 
   return not self.move
@@ -104,6 +112,7 @@ end
 function self.Parry(bullet)
   if (self.pos == bullet.GetVar('pos') or self.pos_red == bullet.GetVar('pos')) and (math.abs(Player.x-bullet.x)-bullet.sprite.width/2)^2+(math.abs(Player.y-bullet.y)-bullet.sprite.height/2)^2 <= 40^2 then
     bullet.Remove()
+    Audio.PlaySound('change')
   end
 end
 

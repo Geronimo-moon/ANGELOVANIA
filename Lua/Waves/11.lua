@@ -79,9 +79,11 @@ function Update()
     if frame % 50 == 5 then
       local knife = SetNotime('knifed',10,272)
       table.insert(knives,knife)
+      Audio.PlaySound('fly')
     elseif frame % 50 == 30 then
       local knife = SetNotime('knifed',-10,272)
       table.insert(knives,knife)
+      Audio.PlaySound('fly')
     end
 
     if frame % 60 == 0 then

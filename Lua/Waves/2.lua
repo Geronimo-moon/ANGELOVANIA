@@ -99,7 +99,7 @@ function RandomShot(frame)
         emers.Remove()
         emers = {isactive = false}
       end
-
+      Audio.PlaySound('fly')
       if index[n-8]==1 then
         local knife = SetNotime("knifel",256,10)
         knife.SetVar("direction","left")

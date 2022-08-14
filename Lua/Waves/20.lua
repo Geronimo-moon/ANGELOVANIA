@@ -9,13 +9,18 @@ local bknives = {}
 local oknives = {}
 
 local start = math.random(1,360)
-local bindex = start
-local oindex = start
+local bindex = start + 90
+local oindex = math.random(1,360)
+
+SetPPCollision(true)
+
+local switch = 1
 
 function Update()
   frame = frame + 1
 
-  if frame % 4 == 0 then
+  if frame % 3 == 0 then
+    Audio.PlaySound('fly')
     local knife = SetBeam('rknifel',Arena.width*3/4*math.cos(math.pi*start/180),Arena.width*3/4*math.sin(math.pi*start/180))
     knife.SetVar('spawn',frame)
     knife.SetVar('theta',math.pi*start/180)
@@ -34,9 +39,9 @@ function Update()
     oknife.sprite.rotation = oindex
     table.insert(oknives,oknife)
 
-    start = start + 5
-    bindex = bindex + 10
-    oindex = oindex - 10
+    start = start - switch*8.1
+    bindex = bindex - 8.1
+    oindex = oindex + 10
   end
 
   for i=1,#knives do
@@ -45,7 +50,7 @@ function Update()
       if knives[i].GetVar('spawn') + 30 >= frame then
         knives[i].MoveTo((Arena.width*3/4+30*math.sin(((frame-knives[i].GetVar('spawn'))*math.pi/30)))*math.cos(theta),(Arena.width*3/4+30*math.sin(((frame-knives[i].GetVar('spawn'))*math.pi/30)))*math.sin(theta))
       else
-        knives[i].Move(-7*math.cos(theta),-7*math.sin(theta))
+        knives[i].Move(-10*math.cos(theta),-10*math.sin(theta))
       end
 
       if knives[i].absx <= 0 or knives[i].absy <= 0 or knives[i].absx >= 640 or knives[i].absy >= 480 then
@@ -60,7 +65,7 @@ function Update()
       if bknives[i].GetVar('spawn') + 30 >= frame then
         bknives[i].MoveTo((Arena.width*3/4+30*math.sin(((frame-bknives[i].GetVar('spawn'))*math.pi/30)))*math.cos(theta),(Arena.width*3/4+30*math.sin(((frame-bknives[i].GetVar('spawn'))*math.pi/30)))*math.sin(theta))
       else
-        bknives[i].Move(-7*math.cos(theta),-7*math.sin(theta))
+        bknives[i].Move(-10*math.cos(theta),-10*math.sin(theta))
       end
       if bknives[i].absx <= 0 or bknives[i].absy <= 0 or bknives[i].absx >= 640 or bknives[i].absy >= 480 then
         bknives[i].Remove()
@@ -74,12 +79,16 @@ function Update()
       if oknives[i].GetVar('spawn') + 30 >= frame then
         oknives[i].MoveTo((Arena.width*3/4+30*math.sin(((frame-oknives[i].GetVar('spawn'))*math.pi/30)))*math.cos(theta),(Arena.width*3/4+30*math.sin(((frame-oknives[i].GetVar('spawn'))*math.pi/30)))*math.sin(theta))
       else
-        oknives[i].Move(-7*math.cos(theta),-7*math.sin(theta))
+        oknives[i].Move(-10*math.cos(theta),-10*math.sin(theta))
       end
       if oknives[i].absx <= 0 or oknives[i].absy <= 0 or oknives[i].absx >= 640 or oknives[i].absy >= 480 then
         oknives[i].Remove()
       end
     end
+  end
+
+  if frame == 600 then
+    switch = -1
   end
 
   if frame == 1000 then

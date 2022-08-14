@@ -62,7 +62,8 @@ function self.Control(key)
     local bullet = CreateSprite("soul/ybullet","Top")
     bullet.rotation = Player.sprite.rotation - 180
     bullet.MoveTo(Player.absx,Player.absy)
-    self.reload = 10
+    self.reload = 5
+    Audio.PlaySound('shot')
     table.insert(self.bullet,bullet)
   end
   return false

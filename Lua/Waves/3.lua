@@ -21,6 +21,7 @@ function Update()
       knife.sprite.rotation = 45*i+22.5
       table.insert(knives,knife)
     end
+    Audio.PlaySound('spawn')
   end
 
   if frame % 50 == 35 then
@@ -36,6 +37,7 @@ function Update()
       knife.sprite.rotation = 45*i
       table.insert(knives,knife)
     end
+    Audio.PlaySound('spawn')
   end
 
   for i=1,#knives do
