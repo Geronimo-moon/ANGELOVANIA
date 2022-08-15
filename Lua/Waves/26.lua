@@ -127,7 +127,7 @@ function Update()
       end
     end
 
-    if frame % 20 == 0 then
+    if frame % 15 == 0 then
       local pos,x,y
       local index = math.random(1,4)
       if index == 1 then

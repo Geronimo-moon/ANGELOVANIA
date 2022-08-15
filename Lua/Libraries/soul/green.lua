@@ -109,15 +109,18 @@ function self.ChangeShield(num,mv)
   end
 end
 
-function self.Parry(bullet)
-  if (self.pos == bullet.GetVar('pos') or self.pos_red == bullet.GetVar('pos')) and (math.abs(Player.x-bullet.x)-bullet.sprite.width/2)^2+(math.abs(Player.y-bullet.y)-bullet.sprite.height/2)^2 <= 40^2 then
+function self.Parry(bullet,color)
+  if color == nil then
+    color = "blue"
+  end
+  if ((color == "blue" and self.pos == bullet.GetVar('pos')) or (color == "red" and self.pos_red == bullet.GetVar('pos'))) and (math.abs(Player.x-bullet.x)-bullet.sprite.width/2)^2+(math.abs(Player.y-bullet.y)-bullet.sprite.height/2)^2 <= 40^2 then
     bullet.Remove()
     Audio.PlaySound('change')
   end
 end
 
 function self.Quit()
-  if num == 2 then
+  if self.num == 2 then
     self.shield_red.Remove()
   end
   self.shield.Remove()
