@@ -80,6 +80,11 @@ end
 
 function self.Quit()
   self.aim.Remove()
+  for i = 1, #self.bullet do
+    if self.bullet[i].isactive then
+      self.bullet[i].Remove()
+    end
+  end
   Player.sprite.rotation = 0
   self.isactive = false
 end

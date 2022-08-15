@@ -1,4 +1,6 @@
 require 'Libraries/bulletType'
+require 'Libraries/hsvToRgb'
+require 'Libraries/deadForce'
 
 local soul = require 'Libraries/soulManager'
 soul.Init({'yellow'})
@@ -11,11 +13,20 @@ local dbox = {}
 local lbox = {}
 local rbox = {}
 local box = {}
+local warns = {}
 local spears = {}
+local slashs = {}
+local screen999 = nil
+local deathtime = nil
+local died = false
+
+local dyne = require 'Animations/backMonster'
+dyne.init('monsters/dyne')
 
 function Update()
   frame = frame + 1
   soul.Update()
+  dyne.update(frame)
 
   if frame % 80 == 0 and frame <= 399 then
     for i = 0, 31 do
@@ -77,7 +88,7 @@ function Update()
     Arena.Resize(90,90)
   end
 
-  if frame >= 460 then
+  if frame >= 460 and frame <= 760 then
     if Player.y ~= 0 then
       Player.MoveTo(0,0)
     end
@@ -146,7 +157,7 @@ function Update()
     for i = 1, #spears do
       if spears[i].isactive then
         local mv = spears[i].GetVar('mv')
-        spears[i].Move(2*mv.x,2*mv.y)
+        spears[i].Move(3*mv.x,3*mv.y)
 
         if spears[i].x^2 + spears[i].y^2 <= 5 then
           spears[i].Remove()
@@ -156,13 +167,73 @@ function Update()
     end
   end
 
-  if frame == 660 then
+  if frame == 760 then
     soul.Change()
-    EndWave()
+    for i = 1, #spears do
+      if spears[i].isactive then
+        spears[i].Remove()
+      end
+    end
+    for i = 1, #box do
+      if box[i].isactive then
+        box[i].Remove()
+      end
+    end
+
+    local vwarn = SetSprite('slash/emerb',0,0)
+    vwarn.SetVar('spawn',frame)
+    vwarn.sprite.rotation = 90
+    table.insert(warns,vwarn)
+    Audio.PlaySound('thunder')
+    local bwarn = SetSprite('slash/emerb',0,0)
+    bwarn.SetVar('spawn',frame)
+    table.insert(warns,bwarn)
+    Audio.PlaySound('thunder')
   end
 
+  for i=1,#warns do
+    if warns[i].isactive then
+      local spawn = warns[i].GetVar('spawn')
+      warns[i].sprite.color = hsvToRgb((spawn+30-frame)*2,255,255)
+
+      if spawn + 30 - frame == 0 then
+        local slash = SetDieForce('slash/slashb',warns[i].x,warns[i].y)
+        slash.sprite.rotation = warns[i].sprite.rotation
+        slash.ppcollision = true
+        table.insert(slashs,slash)
+        warns[i].Remove()
+      end
+    end
+  end
+
+  if not died then
+    for i=1,#slashs do
+      if slashs[i].isactive then
+        slashs[i].sprite.alpha = slashs[i].sprite.alpha - 0.1
+        if slashs[i].sprite.alpha == 0.2 then
+          slashs[i].SetVar('type','sprite')
+        elseif slashs[i].sprite.alpha == 0 then
+          slashs[i].Remove()
+        end
+      end
+    end
+
+    if frame == 800 then
+      EndWave()
+      dyne.destroy()
+    end
+  else
+    KillCount(frame,deathtime,screen999)
+  end
 end
 
 function OnHit(bullet)
-  Hit(bullet)
+  local die = Hit(bullet)
+  -- 即死を食らっている場合999...を生成
+  if die and not died then
+    died = true
+    local list = KillForce(frame)
+    screen999 = list[1]
+    deathtime = list[2]
+  end
 end

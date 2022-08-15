@@ -62,6 +62,7 @@ function SetLang()
       c23 = {'[font:det_jp_mini]どうだい?\nとうさんとつくった\nタマシイのまほうさ.','[font:det_jp_mini]ああ,アズゴアは\nかなりイカレてた.\nボクをころそうと\nするくらいにはね...','[font:det_jp_mini][func:CharaHead,chara/closedhead]でも,けっきょくはボクを\nみとめてくれた.\nそうしていっしょに\nけんきゅうして\nみつけたんだ.','[func:CharaHead,chara/head][color:ff0000]"LOVE"[font:det_jp_mini][color:ff0000]をかこから\nよびもどすほうほうを.'},
       c24 = {'[font:det_jp_mini]王のめいれいで,\nきえたタイムラインの\nことはずっと\nさぐっていた.','[font:det_jp_mini]そこでたどりついたのが,\nじぶんのLOVEを\nきてんにして\nタイムラインをさぐる\nほうほうだ.','LOVE[font:det_jp_mini]のリコールは\nふくさんぶつに\nすぎなかったんだ.','[font:det_jp_mini]ま,こうしてつかうことに\nなるとはゆめにも\nおもわなかったけど.'},
       c25 = {'[font:det_jp_mini]つまり...わかるだろ?\n[w:20][color:ff0000][func:CharaHead,chara/madhead][voice:v_floweymad]ボクはいちど,\nみんなをころしている.','[font:det_jp_mini][func:CharaHead,chara/downhead]はじめてここにきて,\nルールをしって,\nLOVEをあつめた.','[font:det_jp_mini]ためらいもしなかった.\nちじょうでもここでも,\nただころした.','[font:det_jp_mini]そうすることだけが\nわたしの\nいきるすべだった.'},
+      c26 = {'[font:det_jp_mini]あまりにたんたんと\nころしてたから,\nアンダインには\nあきれられたよ.','[font:det_jp_mini]あくやくはひとりで\nじゅうぶんだって\nやるきまんまんで\nおそってきたけど.','[font:det_jp_mini]じぶんよりも\nきかいてきなあいてに\nひょうしぬけ\nしたのかもね?'},
     }
   else
     messages = {
@@ -117,6 +118,7 @@ function SetLang()
       c23 = {'How\'s it going?\nIt\'s a soul-magic\nI created with \nmy father.','Yeah, Asgore was so \ncrazy that he tried \nto kill me...','[func:CharaHead,chara/closedhead]But at last, he \nrecognized me. That\'s \nhow we did our\nresearch together\nand found a way...','[func:CharaHead,chara/head][color:ff0000]To bring back\nthe past LOVE.'},
       c24 = {'At the king\'s order, \nI\'ve been trying to \nfind out about the \nlost timeline \nfor a long time.','So I came up with \nthe idea of using \nmy LOVE as a \nstarting point to \nexplore the timeline.','LOVE\'s recall was \njust a byproduct.','Well, little did \nI dream I\'d end up \nusing it like this.'},
       c25 = {'You know \nwhat I mean?\n[w:20][color:ff0000][func:CharaHead,chara/madhead][voice:v_floweymad]I have killed \neveryone once.','[func:CharaHead,chara/downhead]I came here in the \nfirst timeline, learned \nthe rules and \ngathered LOVE.','I felt no hesitate.\nEither here or \nsurface, I just killed \neveryone.','That was \nthe only way \nI could live.'},
+      c26 = {'Undyne was shocked \nwith me because I\nkilled them\nmatter-of-factly.','She said that one \nvillain was enough, \nand attacked me with \na lot of motivation,\nthough.','Maybe, she was more\nupset with a \nmechanical opponent \nthan herself.'},
     }
   end
   comments = messages.comments --コメントのリスト
@@ -156,7 +158,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  -- currentdialogue = messages.c25
+  -- currentdialogue = messages.c26
 end
 
 function HandleAttack(damage)
