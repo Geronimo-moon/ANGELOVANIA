@@ -10,7 +10,7 @@ defensemisstext = "PARRYED"
 function SetLang()
   if Encounter.GetVar("japanese") == true then
     messages = {
-      comments = {"[font:det_jp]キャラは\rあなたがよけるのをみてわらった.", "[font:det_jp]キャラは\rつかれたようにみえない.", "[font:det_jp][color:ff0000]なにかがかのじょに\rちからをかしているようだ.", "[font:det_jp]つみのいしきは\rすでにきえさっている."},
+      comments = {"[font:det_jp]つみのいしきは\rすでにきえさっている."},
       commands = {"[font:det_jp]ぶんせき","[font:det_jp]いのる","[font:det_jp]セーブ","[font:det_jp]リセット"},
       name = "[font:det_jp]キャラ ドリーマー",
       check = {"[font:det_jp]キャラ ドリーマー  LV ?\nドリーマーけのおかげで\rいきのびた しにぞこない.","[font:det_jp][color:ff0000]すでに,まもってくれる\rモンスターはいない."},
@@ -68,10 +68,10 @@ function SetLang()
     }
   else
     messages = {
-      comments = {"Chara laughed \rlooking you're dodging.", "Chara doesn't looks tired.","[color:ff0000]It seems \rsomething is helping her.","The guilt is already\rgone."},
+      comments = {"The guilt is already\rgone."},
       commands = {"Check","Pray","Save","Reset"},
       name = "Chara Dreemurr",
-      check = {"Chara Dreemurr  LV ?\nShe survived this world\r thanks to Dreemurr family.","[color:ff0000]Now, No one would protect her."},
+      check = {"Chara Dreemurr  LV ?\nShe survived this world\rthanks to Dreemurr family.","[color:ff0000]Now, No one would protect her."},
       currentdialogue = {
         "Howdy.",
         "So, finally, \nyou accepted \nour rule.",
@@ -162,7 +162,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  currentdialogue = messages.c28
+  -- currentdialogue = messages.c28
 end
 
 function HandleAttack(damage)
@@ -258,8 +258,11 @@ function HandleAttack(damage)
       currentdialogue = messages.c22
       SetGlobal('charaSpare',false)
       SetGlobal('phase',2)
-      if Encounter.GetVar('japanese') then Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
-      else Inventory.SetInventory({"Lasagna","SnowPiece","SnowPiece","SnowPiece","Tea","Steak","L. Hero","L. Hero"}) end
+      if Encounter.GetVar('japanese') then 
+        comments = {"[font:det_jp]かのじょのめに\rあせりがみえはじめた."}
+      else
+        comments = {"There's impatience in her eye."}
+      end
       prayed = 0
     elseif turn == 23 then
       Encounter.SetVar("nextwaves",{"23"})
@@ -299,18 +302,18 @@ function HandleCustomCommand(command)
     BattleDialog(messages.check)
   elseif command == "PRAY" or command == "[FONT:DET_JP]いのる" then
     if prayed == 0 then
-      Player.Heal(20)
+      Player.Heal(20*GetGlobal('phase'))
       if Encounter.GetVar("japanese") == true then
-        BattleDialog({'[font:det_jp]あなたはいのった. \n20HP かいふくした.'})
+        BattleDialog({'[font:det_jp]あなたはいのった. \n'..tostring((20*GetGlobal('phase')))..'HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered 20 HP.'})
+        BattleDialog({'You prayed. You recovered '..tostring((20*GetGlobal('phase')))..' HP.'})
       end
     elseif prayed == 1 then
-      Player.Heal(20)
+      Player.Heal(20*GetGlobal('phase'))
       if Encounter.GetVar("japanese") == true then
-        BattleDialog({'[font:det_jp]あなたはいのった. \n20HP かいふくした.'})
+        BattleDialog({'[font:det_jp]あなたはいのった. \n'..tostring((20*GetGlobal('phase')))..'HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered 20 HP.'})
+        BattleDialog({'You prayed. You recovered '..tostring((20*GetGlobal('phase')))..' HP.'})
       end
     elseif prayed == 2 then
       Player.Heal(40)

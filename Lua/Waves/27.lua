@@ -6,7 +6,7 @@ local soul = require 'Libraries/soulManager'
 soul.Init({'green'})
 soul.green.ChangeShield(2,false)
 
-local frame = 0
+local frame = -10
 
 local dyne = require 'Animations/backMonster'
 dyne.init('monsters/dyne')

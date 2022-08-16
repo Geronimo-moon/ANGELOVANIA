@@ -149,6 +149,11 @@ function EncounterStarting()
       end
     elseif GetGlobal('phase') ==2 then
       Audio.LoadFile("mus_ang")
+      if japanese then
+        encountertext = "[font:det_jp]かのじょのめに\rあせりがみえはじめた."
+      else
+        encountertext = "There's impatience in her eye."
+      end
       InitKarma()
     end
   end
@@ -268,7 +273,7 @@ function HandleItem(id,position)
       BattleDialog({"[font:det_jp][color:ff0000]これはつかうにあたいしない.\nぼくたちのきずは ちかのものじゃ\rなおせないだろうさ.","[font:det_jp]あなたは".. name .."[font:det_jp]をつかおうとした.\nが、とつぜん\rあなたはそれをほうりなげた。"})
     end
   else
-    if noob or ez then
+    if noob or ez or GetGlobal('phase') >= 2 then
       if id == 'LASAGNA' then
         Player.Heal(99)
         BattleDialog({"You ate Papyrus's lasagna. \nYour HP maxed out."})
