@@ -63,8 +63,9 @@ function SetLang()
       c24 = {'[font:det_jp_mini]王のめいれいで,\nきえたタイムラインの\nことはずっと\nさぐっていた.','[font:det_jp_mini]そこでたどりついたのが,\nじぶんのLOVEを\nきてんにして\nタイムラインをさぐる\nほうほうだ.','LOVE[font:det_jp_mini]のリコールは\nふくさんぶつに\nすぎなかったんだ.','[font:det_jp_mini]ま,こうしてつかうことに\nなるとはゆめにも\nおもわなかったけど.'},
       c25 = {'[font:det_jp_mini]つまり...わかるだろ?\n[w:20][color:ff0000][func:CharaHead,chara/madhead][voice:v_floweymad]ボクはいちど,\nみんなをころしている.','[font:det_jp_mini][func:CharaHead,chara/downhead]はじめてここにきて,\nルールをしって,\nLOVEをあつめた.','[font:det_jp_mini]ためらいもしなかった.\nちじょうでもここでも,\nただころした.','[font:det_jp_mini]そうすることだけが\nわたしの\nいきるすべだった.'},
       c26 = {'[font:det_jp_mini]あまりにたんたんと\nころしてたから,\nアンダインには\nあきれられたよ.','[font:det_jp_mini]あくやくはひとりで\nじゅうぶんだって\nやるきまんまんで\nおそってきたけど.','[font:det_jp_mini]じぶんよりも\nきかいてきなあいてに\nひょうしぬけ\nしたのかもね?'},
-      c27 = {'[font:det_jp_mini]でも,すでにボクは\nたいりょうのLOVEを\nもっていた.','[font:det_jp_mini]かのじょもつよかった\nけど,それでも\nふじゅうぶんだった.','[font:det_jp_mini]まあ,あつめたLOVE\nっていみではきみの\nほうがおおいだろ?','[font:det_jp_mini]じゃ,\nボクもほんきを\nみせないとね...'},
-      c28 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]...','[font:det_jp_mini][func:CharaHead,chara/doubthead]まだ,いきてるのか?','[func:CharaHead,chara/downhead]LOVE[font:det_jp_mini]をよびもどし,\nケツイとあわせて\nころしたみんなの\nちからをもつかって...','...','[font:det_jp_mini][func:CharaHead,chara/madhead]これいじょうやるなら,\nほんとうに\nとりかえしのつかない\nことになる.'},
+      c27 = {'[font:det_jp_mini]でも,すでにボクは\nたいりょうのLOVEを\nもっていた.','[font:det_jp_mini]かのじょもつよかった\nけど,それでも\nふじゅうぶんだった.','[font:det_jp_mini]まあ,あつめたLOVE\nっていみではきみの\nほうがおおいだろ?','[font:det_jp_mini]つまりだ,\nボクもほんきを\nみせないとな...'},
+      c28 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]...','[font:det_jp_mini][func:CharaHead,chara/doubthead]まだ,いきてるのか?','[func:CharaHead,chara/downhead]LOVE[font:det_jp_mini]をよびもどし,\nケツイとあわせて\nころしたみんなの\nちからをもつかって...','...','[font:det_jp_mini][func:CharaHead,chara/serioushead]これいじょうやるなら,\nこころのそこから\nこうかいする\nことになる.'},
+      c29 = {'[font:det_jp_mini]ブーギー...いや,\nナプスタもちゅうこく\nしていたはずだろう?','[font:det_jp_mini]こうきしんがすぎる.\nいいかげんきみは\n"やめどき"をしるべきだ.','[font:det_jp_mini][func:CharaHead,chara/serioushead]王はきがながい\nほうじゃない.\nいそがないと\nておくれになる.','[font:det_jp_mini]リセットしろ.\nじゃなきゃ\n[color:ff0000]スペシャルこうげき[color:000000]で\nけしとばすぞ?'},
     }
   else
     messages = {
@@ -122,7 +123,8 @@ function SetLang()
       c25 = {'You know \nwhat I mean?\n[w:20][color:ff0000][func:CharaHead,chara/madhead][voice:v_floweymad]I have killed \neveryone once.','[func:CharaHead,chara/downhead]I came here in the \nfirst timeline, learned \nthe rules and \ngathered LOVE.','I felt no hesitate.\nEither here or \nsurface, I just killed \neveryone.','That was \nthe only way \nI could live.'},
       c26 = {'Undyne was shocked \nwith me because I\nkilled them\nmatter-of-factly.','She said that one \nvillain was enough, \nand attacked me with \na lot of motivation,\nthough.','Maybe, she was more\nupset with a \nmechanical opponent \nthan herself.'},
       c27 = {'But I already got \na lot of LOVE.','Though she was \nstrong, it was\nnot enough to\nbeat me.','By the way,\nIn the sense of \ncollected LOVE \nyou have more, \ndon\'t you?','Maybe, I\'m  gonna \nhave to try \na little harder \nthan THAT.'},
-      c28 = {'[func:CharaHead,chara/closedhead]...','[func:CharaHead,chara/doubthead]You, still alive?','[func:CharaHead,chara/downhead]Calling LOVE back,\nand with that power\nI used the skill\nwhose I killed...','...','[func:CharaHead,chara/madhead]if you keep pushing\nme, you are REALLY \nnot going to like \nwhat happens next.'},
+      c28 = {'[func:CharaHead,chara/closedhead]...','[func:CharaHead,chara/doubthead]You, still alive?','[func:CharaHead,chara/downhead]Calling LOVE back,\nand with that power\nI used the skill\nwhose I killed...','...','[func:CharaHead,chara/serioushead]if you keep pushing\nme, you are REALLY \nnot going to like \nwhat happens next.'},
+      c29 = {'Boogie...no,\nNapsta warned\nyou, didn\'t he?','Curiosity killed \nthe cat. You should \nknow when it\'s time \nto QUIT.','[func:CharaHead,chara/serioushead]The king is not\na tolerant man.\nDo something, \nor it\'ll be too late.','Just RESET.\nOr...I\'ll use\nmy [color:ff0000]special attack.[color:ffffff]'},
     }
   end
   comments = messages.comments --コメントのリスト
@@ -162,7 +164,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  -- currentdialogue = messages.c28
+  -- currentdialogue = messages.c29
 end
 
 function HandleAttack(damage)
@@ -282,6 +284,9 @@ function HandleAttack(damage)
     elseif turn == 28 then
       Encounter.SetVar("nextwaves",{"28"})
       currentdialogue = messages.c28
+    elseif turn == 29 then
+      Encounter.SetVar("nextwaves",{"29"})
+      currentdialogue = messages.c29
     end
   end
 end
