@@ -10,8 +10,11 @@ function self.Init() -- 起動処理
   self.velocity = 0 -- 初速
 end
 
-function self.SetDir(dir) -- 重力方向の選択(up,down,right,left,ur,ul,dr,dl)
+function self.SetDir(dir,immediate) -- 重力方向の選択(up,down,right,left,ur,ul,dr,dl)
   self.dir = dir
+  if immediate == nil then
+    immediate = false
+  end
   if dir == "up" then
     Player.sprite.rotation = 180
   elseif dir == "down" then
@@ -29,6 +32,9 @@ function self.SetDir(dir) -- 重力方向の選択(up,down,right,left,ur,ul,dr,d
   elseif dir == "dl" then
     Player.sprite.rotation = 315
   end
+  if immediate then
+    self.gravity = 5
+  end
 end
 
 function self.Control(key)
@@ -44,7 +50,11 @@ function self.Control(key)
       Player.MoveTo(Player.x + (self.calVertical(key)/10),Player.y + (self.calHorizon(key)/10),false)
     end
   end
-  if key.active then
+  if self.gravity == 5 and not self.isAir then
+    self.gravity = 0.12
+    Audio.PlaySound('slam')
+  end
+  if key.active and self.gravity ~= 5 then
     if self.dir == "up" and Input.GetKey('UpArrow') == 1 then
       self.gravity = 3.6
     elseif self.dir == "down" and Input.GetKey('DownArrow') == 1 then
@@ -148,6 +158,7 @@ function self.CheckInAir()
 end
 
 function self.Quit()
+  Player.sprite.rotation = 0
   self.isactive = false
 end
 

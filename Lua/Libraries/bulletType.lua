@@ -76,9 +76,9 @@ end
 -- 被弾時の処理 出力…即死か否か
 function Hit(bullet)
   local doKr = Encounter.GetVar('krInited')
-
+  local debug = 1
   if Encounter.GetVar('debugging') then
-    return
+    debug = 0
   end
 
   local color = bullet.GetVar("color")
@@ -96,35 +96,35 @@ function Hit(bullet)
   local type = bullet.GetVar("type")
   if Encounter.GetVar('noob') or Encounter.GetVar('ez') then
     if type == 'force' then
-      return true
+      return debug == 1
     elseif type == 'notime' then
       if doKr then
-        Encounter.Call("Karma_Inc", 3)
+        Encounter.Call("Karma_Inc", debug*3)
       end
-      Player.Hurt(1,0.033)
+      Player.Hurt(debug*1,0.033)
     elseif type == 'default' then
-      Player.Hurt(math.random(5,7),0.6)
+      Player.Hurt(debug*math.random(5,7),0.6)
     elseif type == 'beam' then
       if doKr then
-        Encounter.Call("Karma_Inc", 3)
+        Encounter.Call("Karma_Inc", debug*3)
       end
-      Player.Hurt(2,0.001)
+      Player.Hurt(debug*1,0.001)
     end
   else
     if type == 'force' then
-      return true
+      return debug == 1
     elseif type == 'notime' then
       if doKr then
-        Encounter.Call("Karma_Inc", 6)
+        Encounter.Call("Karma_Inc", debug*6)
       end
-      Player.Hurt(1,0.005)
+      Player.Hurt(debug*1,0.005)
     elseif type == 'default' then
-      Player.Hurt(math.random(7,10),0.6)
+      Player.Hurt(debug*math.random(7,10),0.6)
     elseif type == 'beam' then
       if doKr then
-        Encounter.Call("Karma_Inc", 6)
+        Encounter.Call("Karma_Inc", debug*6)
       end
-      Player.Hurt(4,0.002)
+      Player.Hurt(debug*2,0.001)
     end
   end
   return false

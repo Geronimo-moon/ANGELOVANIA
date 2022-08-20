@@ -13,7 +13,7 @@ local movement = require(current_folder.."player_movement")
 local real_arena = Arena
 arenas.real_arena = Arena
 
-Arena = arenas(Misc.WindowWidth/2, Misc.WindowHeight/3, real_arena.width, real_arena.height)
+Arena = arenas(real_arena.x, real_arena.y, real_arena.width, real_arena.height)
 
 local arinn = getmetatable(Arena)
 arinn.currentwidth = real_arena.currentwidth
