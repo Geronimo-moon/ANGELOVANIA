@@ -25,7 +25,7 @@ end
 function UpdateBlaster(blaster,frame,time)
   local name = blaster.GetVar('name')
 
-  if time == nil or time <= 100 then
+  if time == nil or time <= 50 then
     time = 100
   end
 
@@ -49,9 +49,10 @@ function UpdateBlaster(blaster,frame,time)
 
       if spawn == 50 then
         local beam = SetBeam('slash/slashb',blaster.x+800*math.cos(math.pi*blaster.sprite.rotation/180),blaster.y+800*math.sin(math.pi*blaster.sprite.rotation/180))
-        beam.sprite.Scale(1,5/2*blaster.sprite.yscale)
+        beam.sprite.Scale(2,5/2*blaster.sprite.yscale)
         beam.sprite.color = hsvToRgb(0,255,200)
         beam.sprite.rotation = blaster.sprite.rotation
+        beam.ppcollision = true
         blaster.SetVar('beam',beam)
       end
 
@@ -80,13 +81,14 @@ function UpdateBlaster(blaster,frame,time)
     if spawn == 50 then
       blaster.sprite.Set('attack/'..name..'2')
       local beam = SetBeam('slash/slashb',blaster.x+700*math.cos(math.pi*blaster.sprite.rotation/180),blaster.y+700*math.sin(math.pi*blaster.sprite.rotation/180))
-      beam.sprite.Scale(1,blaster.sprite.yscale)
+      beam.sprite.Scale(2,blaster.sprite.yscale)
       beam.sprite.rotation = blaster.sprite.rotation
       beam.sprite.color = hsvToRgb((spawn-50)%255,255,200)
       beam.sprite.color[1] = 1
       beam.sprite.alpha = 0.5
+      beam.ppcollision = true
       local center = SetSprite('slash/slashb',blaster.x+700*math.cos(math.pi*blaster.sprite.rotation/180),blaster.y+700*math.sin(math.pi*blaster.sprite.rotation/180))
-      center.sprite.Scale(1,blaster.sprite.yscale/2)
+      center.sprite.Scale(2,blaster.sprite.yscale/2)
       center.sprite.rotation = blaster.sprite.rotation
       center.sprite.color = hsvToRgb(0,175,255)
       blaster.SetVar('beam',beam)

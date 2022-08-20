@@ -166,7 +166,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  currentdialogue = messages.c30
+  -- currentdialogue = messages.c30
 end
 
 function HandleAttack(damage)
@@ -292,14 +292,21 @@ function HandleAttack(damage)
     elseif turn == 30 then
       Encounter.SetVar("nextwaves",{"30"})
       currentdialogue = messages.c30
+    elseif turn == 31 then
+      Encounter.SetVar("nextwaves",{"demo"})
     end
   end
 end
 
 function BeforeDamageCalculation()
   -- ダメージ計算の前にダメージを0にする
-  SetDamage(0)
-  Dodging()
+  if turn ~= 30 then
+    Dodging()
+    SetDamage(0)
+  else
+    CharaHead('chara/surprisedhead')
+    SetDamage(999)
+  end
 end
 
 function HandleCustomCommand(command)
@@ -475,7 +482,7 @@ function CallKarma()
 end
 
 function Phase2LastTurn()
-  Audio.Pitch(1.2)
+  Audio.Pitch(1.3)
   Audio.LoadFile("mus_ang")
   local dt = CreateSprite('dt','Top')
   dt.MoveTo(Misc.WindowWidth/2,Misc.WindowHeight/3)

@@ -6,7 +6,7 @@ local arenas, handle_movement = require('Libraries/Arena/init')()
 local soul = require 'Libraries/soulManager'
 soul.Init({'blue'})
 
-local frame = 1780
+local frame = 0
 
 local screen999 = nil
 local deathtime = nil
@@ -18,6 +18,12 @@ box.sprite.Mask("box")
 local bonestab = {bones = {},dir = "up",warn = nil,papy = nil, boog = nil,bullet={}}
 local longfall = {knives = {},lknives={},rknives={},chaos=nil}
 local undyne = {spears = {}, box = {}, alph = nil, dyne = nil}
+local dreemurr = {tori = nil, asgore = nil, flames = {}, ltrident = nil, utrident = nil}
+local last = {chaos = {}, theta = 0, asri = nil,arena=-math.pi/2}
+local warns = {}
+local slashs = {}
+local dirs = {nil,nil}
+local cuts1 = {nil,nil}
 
 local px = SetSprite('px',0,0)
 px.sprite.color = {0,0,0}
@@ -80,6 +86,33 @@ function Update()
       Audio.PlaySound('BeginBattle2')
       px.sprite.alpha = 0
       soul.Change({'cyan'})
+    elseif frame >= 2140 and frame <= 2439 then
+      Dreemurr(frame-2140)
+    elseif frame == 2440 then
+      Audio.Pause()
+      Audio.PlaySound('BeginBattle2')
+      px.sprite.alpha = 1
+      Arena.Resize(150,150,true)
+    elseif frame == 2459 then
+      Audio.Unpause()
+      Audio.PlaySound('BeginBattle2')
+      px.sprite.alpha = 0
+      soul.Change()
+    elseif frame >= 2460 and frame < 3200 then
+      Blasters(frame-2460)
+    elseif frame == 3200 then
+      Audio.Pause()
+      Audio.PlaySound('BeginBattle2')
+      px.sprite.alpha = 1
+      Arena.Resize(200,200,true)
+      Arena.Move(-Arena.x+Misc.WindowWidth/2,0,true,true)
+      Arena.RotateTo(0,true)
+    elseif frame == 3219 then
+      Audio.Unpause()
+      Audio.PlaySound('BeginBattle2')
+      px.sprite.alpha = 0
+    elseif frame >= 3220 then
+      SlashRush(frame - 3220)
     end
   end
 end
@@ -202,6 +235,7 @@ end
 function LongFall(frame)
   if frame == 1 then
     box.sprite.Scale(Arena.width/box.sprite.width, Arena.height/box.sprite.height)
+    Player.Heal(30)
   elseif frame < 30 then
     box.MoveTo(0,0)
   elseif frame >= 30 and frame <= 600 then
@@ -369,8 +403,231 @@ function Undyne(frame)
   end
 
   if frame == 300 then
-    undyne.alph.Remove()
-    undyne.dyne.Remove()
+    if undyne.alph.isactive then
+      undyne.alph.Remove()
+      undyne.dyne.Remove()
+    end
+  end
+end
+
+function Dreemurr(frame)
+  if frame == 0 then
+    dreemurr.asgore = SetSprite('monsters/asgore',180,180)
+    dreemurr.tori = SetSprite('monsters/tori',-180,180)
+    dreemurr.ltrident = SetDefault('attack/trident',-200,Player.y)
+    dreemurr.utrident = SetDefault('attack/trident',Player.x,200)
+    dreemurr.ltrident.sprite.rotation = 90
+    dreemurr.ltrident.sprite.color = {1,0,0}
+    dreemurr.ltrident.ppcollision = true
+    dreemurr.utrident.sprite.color = {1,0,0}
+  end
+  if frame <= 230 then
+    dreemurr.ltrident.Move(0,Player.y-dreemurr.ltrident.y)
+    dreemurr.utrident.Move(Player.x-dreemurr.utrident.x,0)
+
+    if frame%50 == 0 then
+      local start = math.pi/180*math.random(0,359)
+      for i = 0, 15 do
+        local flame = SetDefault('attack/flame',200*math.cos(start+math.pi/10*i),200*math.sin(start+math.pi/10*i))
+        flame.SetVar('theta',(start+math.pi/10*i))
+        flame.SetVar('radius',200)
+        table.insert(dreemurr.flames,flame)
+      end
+    end
+  elseif frame == 260 then
+    dreemurr.ltrident.Move(180,0)
+    dreemurr.utrident.Move(0,-180)
+    Audio.PlaySound('asgore')
+  elseif frame == 299 then
+    if dreemurr.ltrident ~= nil then
+      dreemurr.ltrident.Remove()
+      dreemurr.utrident.Remove()
+      dreemurr.tori.Remove()
+      dreemurr.asgore.Remove()
+    end
+  end
+
+  for i = 1, #dreemurr.flames do
+    if dreemurr.flames[i].isactive then
+      local theta = dreemurr.flames[i].GetVar('theta')
+      local radius = dreemurr.flames[i].GetVar('radius')
+      dreemurr.flames[i].MoveTo(radius*math.cos(theta),radius*math.sin(theta))
+      dreemurr.flames[i].SetVar('radius',radius-4)
+      if radius == 0 then
+        dreemurr.flames[i].Remove()
+      end
+    end
+  end
+end
+
+function Blasters(frame)
+  if frame == 0 then
+    last.theta = math.random(0,359)*math.pi/180
+    last.asri = SetSprite('monsters/asri',200,150)
+    Player.Heal(Player.maxhp/2)
+  end
+
+  if frame <= 660 then
+    local scale,speed
+
+    if frame <= 120 then
+      scale = 1
+      speed = 100
+    elseif frame <= 240 then
+      scale = 1.2
+      speed = 68
+    elseif frame <= 360 then
+      scale = 0.8
+      speed = 52
+    else
+      scale = 0.45
+      speed = 30
+    end
+
+    local chaos = SetBlaster('chaos',220*math.cos(last.theta),220*math.sin(last.theta))
+    chaos.SetVar('theta',last.theta)
+    chaos.sprite.rotation = last.theta/math.pi*180+180
+    chaos.sprite.Scale(1,scale)
+    table.insert(last.chaos,chaos)
+    if frame <= 120 then
+      local chaos2 = SetBlaster('chaos',220*math.cos(last.theta+math.pi/2),220*math.sin(last.theta+math.pi/2))
+      chaos2.SetVar('theta',last.theta+math.pi/2)
+      chaos2.sprite.rotation = last.theta/math.pi*180+270
+      chaos2.sprite.Scale(1,scale)
+      table.insert(last.chaos,chaos2)
+    end
+    last.theta = last.theta + math.pi/speed
+  end
+
+  Arena.Move(-math.sin(last.arena),math.cos(last.arena))
+  Arena.Rotate(-3)
+  last.arena = last.arena + math.pi/120
+
+  for i = 1, #last.chaos do
+    if last.chaos[i].isactive then
+      last.chaos[i].Move(-math.sin(last.arena),math.cos(last.arena))
+      if last.chaos[i].GetVar('beam') ~= nil then
+        local theta = last.chaos[i].GetVar('theta')
+        last.chaos[i].Move(5*math.cos(theta),5*math.sin(theta))
+        last.chaos[i].GetVar('beam').Move(5*math.cos(theta)-math.sin(last.arena),5*math.sin(theta)+math.cos(last.arena))
+        -- last.chaos[i].GetVar('beam').Move(5*math.cos(theta),5*math.sin(theta))
+        last.chaos[i].GetVar('center').Move(5*math.cos(theta)-math.sin(last.arena),5*math.sin(theta)+math.cos(last.arena))
+        -- last.chaos[i].GetVar('center').Move(5*math.cos(theta),5*math.sin(theta))
+      end
+      UpdateBlaster(last.chaos[i],frame,65)
+    end
+  end
+
+  if frame == 659 then
+    last.asri.Remove()
+  end
+end
+
+function SlashRush(frame)
+  if (frame%20 == 0 and frame < 180) or (frame%40 == 0 and frame >= 180 and frame < 480) then
+    local vwarn = SetSprite('slash/emerb',Player.x,0)
+    vwarn.SetVar('spawn',frame)
+    vwarn.sprite.rotation = 90
+    table.insert(warns,vwarn)
+    Audio.PlaySound('thunder')
+    local bwarn = SetSprite('slash/emerb',0,Player.y)
+    bwarn.SetVar('spawn',frame)
+    table.insert(warns,bwarn)
+    Audio.PlaySound('thunder')
+  end
+
+  for i=1,#warns do
+    if warns[i].isactive then
+      local spawn = warns[i].GetVar('spawn')
+      warns[i].sprite.color = hsvToRgb((spawn+30-frame)*2,255,255)
+
+      if spawn + 30 - frame == 0 then
+        local slash = SetDieForce('slash/slashb',warns[i].x,warns[i].y)
+        slash.sprite.rotation = warns[i].sprite.rotation
+        slash.ppcollision = true
+        table.insert(slashs,slash)
+        warns[i].Remove()
+        Audio.Pitch(1.3-0.02*(math.floor(frame/20)))
+      end
+    end
+  end
+
+  for i=1,#slashs do
+    if slashs[i].isactive then
+      slashs[i].sprite.alpha = slashs[i].sprite.alpha - 0.1
+      if slashs[i].sprite.alpha == 0.2 then
+        slashs[i].SetVar('type','sprite')
+      elseif slashs[i].sprite.alpha == 0 then
+        slashs[i].Remove()
+      end
+    end
+  end
+
+  if frame == 551 then
+  -- 最初のフレームで十字に切りかかる
+    local dir1 = SetSprite("slash/0",0,0)
+    local dir2 = SetSprite("slash/0",0,0)
+    dir2.sprite.rotation = 90
+    dir1.sprite.Scale(4,4)
+    dir2.sprite.Scale(4,4)
+    Audio.PlaySound("slice")
+    dirs[1]=dir1
+    dirs[2]=dir2
+  end
+
+  if dirs[1] ~= nil then
+  -- 5フレームごとに斬撃のアニメーションを進める
+    if frame == 555 then
+      dirs[1].sprite.Set("slash/1")
+      dirs[2].sprite.Set("slash/1")
+    elseif frame == 580 then
+      dirs[1].sprite.Set("slash/2")
+      dirs[2].sprite.Set("slash/2")
+    elseif frame == 605 then
+      dirs[1].sprite.Set("slash/3")
+      dirs[2].sprite.Set("slash/3")
+    elseif frame == 630 then
+      dirs[1].sprite.Set("slash/4")
+      dirs[2].sprite.Set("slash/4")
+    elseif frame == 655 then
+      dirs[1].sprite.Set("slash/5")
+      dirs[2].sprite.Set("slash/5")
+    elseif frame == 680 then
+      dirs[1].sprite.Set("slash/6")
+      dirs[2].sprite.Set("slash/6")
+    elseif frame == 705 then
+      for i=1,#dirs do
+        dirs[i].Remove()
+        dirs[i] = nil
+      end
+    end
+  end
+
+  if frame == 680 then
+    -- 十字に斬る
+    local cut1 = SetDieForce("slash/slashv",0,0)
+    local cut2 = SetDieForce("slash/slashb",0,0)
+    cut1.sprite.Scale(5,5)
+    cut2.sprite.Scale(5,5)
+    cuts1[1] = cut1
+    Audio.PlaySound('heavydmg')
+    cuts1[2]=cut2
+  end
+
+  if cuts1[1] ~= nil then
+    for i=1,#cuts1 do
+      cuts1[i].sprite.alpha = cuts1[i].sprite.alpha - 0.04
+      if cuts1[i].sprite.alpha == 0.1 then
+        cuts1[i].SetVar("type","sprite")
+      elseif cuts1[i].sprite.alpha == 0 then
+        cuts1[i].Remove()
+        cuts1[i] = nil
+        arenas.remove_all_arenas()
+        Encounter.Call('SetHead','chara/downhead')
+        Audio.Pitch(0.5)
+        EndWave()
+      end
+    end
   end
 end
 
