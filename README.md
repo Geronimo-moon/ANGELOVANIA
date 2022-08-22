@@ -14,21 +14,14 @@ CAUTION:If you're using Retrocompatibility Mode, this may not work as expected.
 
 ## Controls/操作方法
 
-Arrow Keys/W,A,S,D Keys...Move/Guard(when your soul is green)  
-Arrow Up/W Key...Jump(when your soul is blue)  
+Arrow Keys...Move/Guard(when your soul is green)  
+Arrow Right/Left...Spin(when your soul is cyan)  
+W,A,S,D Keys...Guard(when your soul is green)/Aim(when your soul is yellow)  
 Z Key...Confirm/Shoot(when your soul is yellow)
 X Key...Back  
 S,U,D,O Keys(pushing simultaneously)...Turn on debug mode(no damage)  
 Delete Key...Turn off debug mode  
-Esc...Exit to Mod selection screen
-
-矢印キー・WASD…移動・防御（緑ソウル）  
-上・W キー…ジャンプ（青ソウル）  
-Z…選択・弾発射（黄ソウル）  
-X…戻る  
-S,U,D,O 同時押し…デバッグモード（ダメージなし）  
-Delete…デバッグモードオフ  
-Esc…mod 選択画面へ
+Esc...Exit to Mod selection screen  
 
 ## Credits (honorifics omitted/敬称略)
 
