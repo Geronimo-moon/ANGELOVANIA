@@ -20,6 +20,13 @@ W,A,S,D Keys...Guard(when your soul is green)/Aim(when your soul is yellow)
 Z Key...Confirm/Shoot(when your soul is yellow)
 X Key...Back  
 Esc...Exit to Mod selection screen  
+  
+  
+矢印キー…移動・盾移動（緑ソウル）  
+左右キー…回転（水色ソウル）  
+WASD…盾移動（緑ソウル）・狙いの移動（黄色ソウル）  
+Z・Enter…決定・発射（黄色ソウル）  
+Esc...Mod選択画面へ  
 
 ## Credits (honorifics omitted/敬称略)
 
