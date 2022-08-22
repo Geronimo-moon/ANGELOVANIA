@@ -19,8 +19,6 @@ Arrow Right/Left...Spin(when your soul is cyan)
 W,A,S,D Keys...Guard(when your soul is green)/Aim(when your soul is yellow)  
 Z Key...Confirm/Shoot(when your soul is yellow)
 X Key...Back  
-S,U,D,O Keys(pushing simultaneously)...Turn on debug mode(no damage)  
-Delete Key...Turn off debug mode  
 Esc...Exit to Mod selection screen  
 
 ## Credits (honorifics omitted/敬称略)
