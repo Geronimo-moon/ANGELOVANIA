@@ -70,6 +70,10 @@ function library.remove_all_arenas()
 	for k in pairs(arena_list) do
 		k.Remove()
 	end
+	if library.real_arena then
+		Arena = library.real_arena
+		Arena.Show()
+	end
 end
 
 function library.collide_all_arenas()
@@ -218,6 +222,10 @@ function library.create_arena(self, x, y, w, h, r)
 	dummy.Scale(shell.width + 10, shell.height + 10)
 	dummy.MoveTo(x, y)
 
+	if library.real_arena then
+		inner.color = library.real_arena.innerColor
+		outer.color = library.real_arena.outerColor
+	end
 
 	shell.walls = outer
 	shell.center = inner

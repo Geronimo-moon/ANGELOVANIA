@@ -22,6 +22,7 @@ hphide.SetPivot(0, 0.5)
 hphide.color = {0, 0, 0}
 kr.y = 70
 kr.SetPivot(0, 0.5)
+kr.color  = {1,0,0}
 
 function Karma_Inc(k)
   if Player.ishurting then return 0 end
@@ -56,13 +57,13 @@ function Karma.Update()
     hp = CreateText("[noskip][novoice][w:9] ", {430, 63}, 120)
     hp.HideBubble()
     hp.progressmode = "none"
-    hp.color = {1, 1, 1}
+    hp.color = {1, 0, 0}
     hp.SetFont("uibattlesmall")
-    hp.NextLine()
+    -- hp.NextLine()
   end
   hp.x = Player.maxhp * d + 325
-  if Karma.kr > 0 then hp.color = bar.color else hp.color = {1, 1, 1} end
+  if Karma.kr > 0 then hp.color = bar.color else hp.color = {1, 0, 0} end
   t = "" .. Player.hp
   hp.SetText("[noskip][novoice][instant]" .. string.sub(t, 1, -2) .. "[charspacing:14]" .. string.sub(t, -1, -1) .. "/[charspacing:3]" .. Player.maxhp .. "[instant:stop] ")
-  hp.NextLine()
+  -- hp.NextLine()
 end

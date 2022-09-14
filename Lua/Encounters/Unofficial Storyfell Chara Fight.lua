@@ -17,9 +17,9 @@ extreme = false
 
 function SetLang()
   if japanese then
-    encountertext = "[font:det_jp]もうひとりのてんしが\rゆくてをはばんだ!"
+    encountertext = "[font:det_jp][color:ff0000]もうひとりのてんしが\rゆくてをはばんだ!"
   else
-    encountertext = "Another ANGEL blocked your way!"
+    encountertext = "[color:ff0000]Another ANGEL blocked your way!"
   end
 
   if japanese then
@@ -28,7 +28,7 @@ function SetLang()
       "[voice:v_sans][waitall:2][font:det_jp_mini][music:stop][color:ff0000]なんてったって まだ\nオマエのタマシイを もらってないからな!",
       } --死亡時のテキスト
 
-    Inventory.AddCustomItems({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]フェイスステーキ"},{0,0,0,0,0})
+    Inventory.AddCustomItems({"[font:det_jp_mini][color:ff0000]ラザニア","[font:det_jp_mini][color:ff0000]ちゃば","[font:det_jp_mini][color:ff0000]ゆきだるまのかけら","[font:det_jp_mini][color:ff0000]レジェンドヒーロー","[font:det_jp_mini][color:ff0000]フェイスステーキ"},{0,0,0,0,0})
 
     if Misc.FileExists('User/savedata') then
       local save = Misc.OpenFile('User/savedata','r')
@@ -38,15 +38,15 @@ function SetLang()
       for i=1,items do
         local item = save.ReadLine(4+i)
         if item == "Lasagna" then
-          item = "[font:det_jp_mini][color:ffffff]ラザニア"
+          item = "[font:det_jp_mini][color:ff0000]ラザニア"
         elseif item == "Tea" then
-          item = "[font:det_jp_mini][color:ffffff]ちゃば"
+          item = "[font:det_jp_mini][color:ff0000]ちゃば"
         elseif item == "SnowPiece" then
-          item = "[font:det_jp_mini][color:ffffff]ゆきだるまのかけら"
+          item = "[font:det_jp_mini][color:ff0000]ゆきだるまのかけら"
         elseif item == "L. Hero" then
-          item = "[font:det_jp_mini][color:ffffff]レジェンドヒーロー"
+          item = "[font:det_jp_mini][color:ff0000]レジェンドヒーロー"
         elseif item == "Steak" then
-          item = "[font:det_jp_mini][color:ffffff]フェイスステーキ"
+          item = "[font:det_jp_mini][color:ff0000]フェイスステーキ"
         end
         table.insert(itemlist,item)
       end
@@ -55,7 +55,7 @@ function SetLang()
       extreme = ("true" == save.ReadLine(17))
       Inventory.SetInventory(itemlist)
     else
-      Inventory.SetInventory({"[font:det_jp_mini][color:ffffff]ラザニア","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ゆきだるまのかけら","[font:det_jp_mini][color:ffffff]ちゃば","[font:det_jp_mini][color:ffffff]フェイスステーキ","[font:det_jp_mini][color:ffffff]レジェンドヒーロー","[font:det_jp_mini][color:ffffff]レジェンドヒーロー"})
+      Inventory.SetInventory({"[font:det_jp_mini][color:ff0000]ラザニア","[font:det_jp_mini][color:ff0000]ゆきだるまのかけら","[font:det_jp_mini][color:ff0000]ゆきだるまのかけら","[font:det_jp_mini][color:ff0000]ゆきだるまのかけら","[font:det_jp_mini][color:ff0000]ちゃば","[font:det_jp_mini][color:ff0000]フェイスステーキ","[font:det_jp_mini][color:ff0000]レジェンドヒーロー","[font:det_jp_mini][color:ff0000]レジェンドヒーロー"})
     end
   else
     deathtext = {
@@ -72,15 +72,15 @@ function SetLang()
       local itemlist = {}
       for i=1,items do
         local item = save.ReadLine(4+i)
-        if item == "[font:det_jp_mini][color:ffffff]ラザニア" then
+        if item == "[font:det_jp_mini][color:ff0000]ラザニア" then
           item = "Lasagna"
-        elseif item == "[font:det_jp_mini][color:ffffff]ちゃば" then
+        elseif item == "[font:det_jp_mini][color:ff0000]ちゃば" then
           item = "Tea"
-        elseif item == "[font:det_jp_mini][color:ffffff]ゆきだるまのかけら" then
+        elseif item == "[font:det_jp_mini][color:ff0000]ゆきだるまのかけら" then
           item = "SnowPiece"
-        elseif item == "[font:det_jp_mini][color:ffffff]レジェンドヒーロー" then
+        elseif item == "[font:det_jp_mini][color:ff0000]レジェンドヒーロー" then
           item = "L. Hero"
-        elseif item == "[font:det_jp_mini][color:ffffff]フェイスステーキ" then
+        elseif item == "[font:det_jp_mini][color:ff0000]フェイスステーキ" then
           item = "Steak"
         end
         table.insert(itemlist,item)
@@ -143,14 +143,14 @@ function EncounterStarting()
     elseif GetGlobal('phase') ==1.5 then
       Audio.LoadFile("spare")
       if japanese then
-        encountertext = "[font:det_jp]キャラは\rにがしてくれるようだ."
+        encountertext = "[font:det_jp][color:ff0000]キャラは\rにがしてくれるようだ."
       else
         encountertext = "Chara is sparing you."
       end
     elseif GetGlobal('phase') ==2 then
       Audio.LoadFile("mus_ang")
       if japanese then
-        encountertext = "[font:det_jp]かのじょのめに\rあせりがみえはじめた."
+        encountertext = "[font:det_jp][color:ff0000]かのじょのめに\rあせりがみえはじめた."
       else
         encountertext = "There's impatience in her eye."
       end
@@ -159,6 +159,11 @@ function EncounterStarting()
   end
   SetGlobal('currentPlayer',{x=Player.x,y=Player.y})
   SetGlobal('isMoving',false)
+
+  Arena.outerColor = {1,0,0}
+  UI.namelv.color  = {1,0,0}
+  UI.hplabel.color  = {1,0,0}
+  UI.hptext.color  = {1,0,0}
 end
 
 function Update()
@@ -217,7 +222,7 @@ function DefenseEnding()
     encountertext = RandomEncounterText()
     if GetGlobal('charaSpare') then
       if japanese then
-        encountertext = "[font:det_jp]キャラは\rにがしてくれるようだ."
+        encountertext = "[font:det_jp][color:ff0000]キャラは\rにがしてくれるようだ."
       else
         encountertext = "Chara is sparing you."
       end
@@ -234,43 +239,43 @@ function HandleItem(id,position)
   local name = Inventory.GetItem(position)
 
   if japanese then
-    if noob or ez then
-      if id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ラザニア' then
+    if noob or ez or GetGlobal('phase') >= 2 then
+      if id == '[FONT:DET_JP_MINI][COLOR:FF0000]ラザニア' then
         Player.Heal(99)
-        BattleDialog({"[font:det_jp]パピルスのラザニアをたべた.\nHPがぜんかいふくした."})
+        BattleDialog({"[font:det_jp][color:ff0000]パピルスのラザニアをたべた.\nHPがぜんかいふくした."})
         enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]ラザニア...\nパピルスの\nとくいりょうりだった.","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれにたいして\nなにも\nおもわないのか?"})
-      elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ちゃば' then
+      elseif id == '[FONT:DET_JP_MINI][COLOR:FF0000]ちゃば' then
         Player.Heal(90)
         enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]そのちゃば...\nアズゴアのラボに\nあったものだな?","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれをころした\nそのあとでも,\nおいしく\nかんじるかい?[font:monster][color:ff0000]=)"})
         if Player.hp < Player.maxhp then
-          BattleDialog({"[font:det_jp]そのままたべたほうがおいしい. \n90HP かいふくした."})
+          BattleDialog({"[font:det_jp][color:ff0000]そのままたべたほうがおいしい. \n90HP かいふくした."})
         else
-          BattleDialog({"[font:det_jp]そのままたべたほうがおいしい. \nHPがぜんかいふくした."})
+          BattleDialog({"[font:det_jp][color:ff0000]そのままたべたほうがおいしい. \nHPがぜんかいふくした."})
         end
-      elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]ゆきだるまのかけら' then
+      elseif id == '[FONT:DET_JP_MINI][COLOR:FF0000]ゆきだるまのかけら' then
         Player.Heal(45)
         if Player.hp < Player.maxhp then 
-          BattleDialog({"[font:det_jp]ゆきだるまのかけらをたべた. \n45HP かいふくした."})
+          BattleDialog({"[font:det_jp][color:ff0000]ゆきだるまのかけらをたべた. \n45HP かいふくした."})
         else
-          BattleDialog({"[font:det_jp]ゆきだるまのかけらをたべた. \nHPがぜんかいふくした."})
+          BattleDialog({"[font:det_jp][color:ff0000]ゆきだるまのかけらをたべた. \nHPがぜんかいふくした."})
         end
-      elseif id == '[FONT:DET_JP_MINI][COLOR:FFFFFF]レジェンドヒーロー' then
+      elseif id == '[FONT:DET_JP_MINI][COLOR:FF0000]レジェンドヒーロー' then
         Player.Heal(40)
         if Player.hp < Player.maxhp then 
-          BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","[font:det_jp]こうげきが4あがった! \n40HP かいふくした."})
+          BattleDialog({"[font:det_jp][color:ff0000]レジェンドヒーローをたべた.","[font:det_jp][color:ff0000]こうげきが4あがった! \n40HP かいふくした."})
         else
-          BattleDialog({"[font:det_jp]レジェンドヒーローをたべた.","[font:det_jp]こうげきが4あがった! \nHPがぜんかいふくした."})
+          BattleDialog({"[font:det_jp][color:ff0000]レジェンドヒーローをたべた.","[font:det_jp][color:ff0000]こうげきが4あがった! \nHPがぜんかいふくした."})
         end
-      elseif id == "[FONT:DET_JP_MINI][COLOR:FFFFFF]フェイスステーキ" then
+      elseif id == "[FONT:DET_JP_MINI][COLOR:FF0000]フェイスステーキ" then
         Player.Heal(60)
         if Player.hp < Player.maxhp then 
-          BattleDialog({"[font:det_jp]フェイスステーキをたべた. \n60HP かいふくした."})
+          BattleDialog({"[font:det_jp][color:ff0000]フェイスステーキをたべた. \n60HP かいふくした."})
         else
-          BattleDialog({"[font:det_jp]フェイスステーキをたべた. \nHPがぜんかいふくした."})
+          BattleDialog({"[font:det_jp][color:ff0000]フェイスステーキをたべた. \nHPがぜんかいふくした."})
         end
       end
     else
-      BattleDialog({"[font:det_jp][color:ff0000]これはつかうにあたいしない.\nぼくたちのきずは ちかのものじゃ\rなおせないだろうさ.","[font:det_jp]あなたは".. name .."[font:det_jp]をつかおうとした.\nが、とつぜん\rあなたはそれをほうりなげた。"})
+      BattleDialog({"[font:det_jp][color:ff0000]これはつかうにあたいしない.\nぼくたちのきずは ちかのものじゃ\rなおせないだろうさ.","[font:det_jp][color:ff0000]あなたは".. name .."[font:det_jp][color:ff0000]をつかおうとした.\nが、とつぜん\rあなたはそれをほうりなげた。"})
     end
   else
     if noob or ez or GetGlobal('phase') >= 2 then
