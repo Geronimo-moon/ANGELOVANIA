@@ -2,14 +2,14 @@
 
 This is a CYF 0.6.5 mod and you can fight against Storyfell-Chara.  
 Please note dialogues may be wrong because I'm Japanese and I'm not good at English.  
-This mod requires [CYF 0.6.5](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases).  
+This mod requires [CYF 0.6.6.2](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases).  
 This is just under development.
 
 CAUTION:If you're using Retrocompatibility Mode, this may not work as expected.
 
 作りかけの Storyfell の Chara 戦 Mod です。  
 英語が怪しいので日本語も使えるようにする予定です。  
-[CYF 0.6.5](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases)で動かしてください。他 ver では未確認です。  
+[CYF 0.6.6.2](https://github.com/RhenaudTheLukark/CreateYourFrisk/releases)で動かしてください。他 ver では未確認です。  
 注意：Option から Retrocompatibility Mode を ON にしていると、正常に動作しない場合があります。
 
 ## Controls/操作方法
