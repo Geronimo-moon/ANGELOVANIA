@@ -290,7 +290,7 @@ function HandleItem(id,position)
           enemies[1].SetVar("currentdialogue",{"That leaves...\nYou stole them from \nAsgore's lab,right?","[color:ffff00][effect:rotate][noskip][voice:v_floweymad]Does it tastes good\nafter you \nkilled him?=)"})
         else
           BattleDialog({"[color:ff0000]They're better dry. \nYour HP maxed out."})
-          enemies[1].SetVar("currentdialogue",{"That leaves...\nYou stole them from \nAsgore's lab,right?","[color:ff0000][effect:rotate][noskip][voice:v_floweymad]Does it tastes good\nafter you \nkilled him?=)"})
+          enemies[1].SetVar("currentdialogue",{"That leaves...\nYou stole them from \nAsgore's lab,right?","[color:ffff00][effect:rotate][noskip][voice:v_floweymad]Does it tastes good\nafter you \nkilled him?=)"})
         end
       elseif id == '[COLOR:FF0000]SNOWPIECE' then
         Player.Heal(45)

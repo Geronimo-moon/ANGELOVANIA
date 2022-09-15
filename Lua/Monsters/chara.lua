@@ -70,7 +70,7 @@ function SetLang()
     }
   else
     messages = {
-      comments = {"[color:ff0000]The guilt is already\rgone."},
+      comments = {"[color:ff0000]The guilt is already gone."},
       commands = {"[color:ff0000]Check","[color:ff0000]Pray","[color:ff0000]Save","[color:ff0000]Reset"},
       name = "[color:ff0000]Chara Dreemurr",
       check = {"[color:ff0000]Chara Dreemurr  LV ?\nShe survived this world\rthanks to Dreemurr family.","[color:ffff00]Now, No one would protect her."},
