@@ -13,7 +13,7 @@ function SetLang()
       comments = {"[font:det_jp][color:ff0000]つみのいしきは\rすでにきえさっている."},
       commands = {"[font:det_jp][color:ff0000]ぶんせき","[font:det_jp][color:ff0000]いのる","[font:det_jp][color:ff0000]セーブ","[font:det_jp][color:ff0000]リセット"},
       name = "[font:det_jp][color:ff0000]キャラ ドリーマー",
-      check = {"[font:det_jp][color:ff0000]キャラ ドリーマー  LV ?\nドリーマーけのおかげで\rいきのびた しにぞこない.","[font:det_jp][color:ff0000][color:ffff00]すでに,まもってくれる\rモンスターはいない."},
+      check = {"[font:det_jp][color:ff0000]キャラ ドリーマー  LV ?\nドリーマーけのおかげで\rいきのびた しにぞこない.","[font:det_jp][color:ffff00]すでに,まもってくれる\rモンスターはいない."},
       currentdialogue = {
         "[font:det_jp_mini]ハロー.",
         "[font:det_jp_mini]けっきょく,\nボクらのルールに\nしたがうことに\nしたんだね.",
@@ -70,10 +70,10 @@ function SetLang()
     }
   else
     messages = {
-      comments = {"The guilt is already\rgone."},
-      commands = {"Check","Pray","Save","Reset"},
-      name = "Chara Dreemurr",
-      check = {"Chara Dreemurr  LV ?\nShe survived this world\rthanks to Dreemurr family.","[color:ffff00]Now, No one would protect her."},
+      comments = {"[color:ff0000]The guilt is already\rgone."},
+      commands = {"[color:ff0000]Check","[color:ff0000]Pray","[color:ff0000]Save","[color:ff0000]Reset"},
+      name = "[color:ff0000]Chara Dreemurr",
+      check = {"[color:ff0000]Chara Dreemurr  LV ?\nShe survived this world\rthanks to Dreemurr family.","[color:ffff00]Now, No one would protect her."},
       currentdialogue = {
         "Howdy.",
         "So, finally, \nyou accepted \nour rule.",
@@ -265,7 +265,7 @@ function HandleAttack(damage)
       if Encounter.GetVar('japanese') then 
         comments = {"[font:det_jp][color:ff0000]かのじょのめに\rあせりがみえはじめた."}
       else
-        comments = {"There's impatience in her eye."}
+        comments = {"[color:ff0000]There's impatience in her eye."}
       end
       prayed = 0
     elseif turn == 23 then
@@ -315,81 +315,81 @@ function HandleCustomCommand(command)
   if GetGlobal('charaSpare') then
     Encounter.SetVar("nextwaves",{"21"})
   end
-  if command == "CHECK" or command == "[font:det_jp][color:ff0000]ぶんせき" then
+  if command == "[COLOR:FF0000]CHECK" or command == "[FONT:DET_JP][COLOR:FF0000]ぶんせき" then
     BattleDialog(messages.check)
-  elseif command == "PRAY" or command == "[font:det_jp][color:ff0000]いのる" then
+  elseif command == "[COLOR:FF0000]PRAY" or command == "[FONT:DET_JP][COLOR:FF0000]いのる" then
     if prayed == 0 then
       Player.Heal(20*GetGlobal('phase'))
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \n'..tostring((20*GetGlobal('phase')))..'HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered '..tostring((20*GetGlobal('phase')))..' HP.'})
+        BattleDialog({'[color:ff0000]You prayed. You recovered '..tostring((20*GetGlobal('phase')))..' HP.'})
       end
     elseif prayed == 1 then
       Player.Heal(20*GetGlobal('phase'))
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \n'..tostring((20*GetGlobal('phase')))..'HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered '..tostring((20*GetGlobal('phase')))..' HP.'})
+        BattleDialog({'[color:ff0000]You prayed. You recovered '..tostring((20*GetGlobal('phase')))..' HP.'})
       end
     elseif prayed == 2 then
       Player.Heal(40)
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \n40HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered 40 HP.'})
+        BattleDialog({'[color:ff0000]You prayed. You recovered 40 HP.'})
       end
     elseif prayed == 3 then
       Player.Heal(40)
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \n40HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered 40 HP.'})
+        BattleDialog({'[color:ff0000]You prayed. You recovered 40 HP.'})
       end
     elseif prayed == 4 then
       Player.Heal(60)
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \n60HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered 60 HP.'})
+        BattleDialog({'[color:ff0000]You prayed. You recovered 60 HP.'})
       end
     elseif prayed == 5 then
       Player.Heal(60)
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \n60HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered 60 HP.'})
+        BattleDialog({'[color:ff0000]You prayed. You recovered 60 HP.'})
       end
     elseif prayed == 6 then
       Player.Heal(80)
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \n80HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered 80 HP.'})
+        BattleDialog({'[color:ff0000]You prayed. You recovered 80 HP.'})
       end
     elseif prayed == 7 then
       Player.Heal(80)
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \n80HP かいふくした.'})
       else
-        BattleDialog({'You prayed. You recovered 80 HP.'})
+        BattleDialog({'[color:ff0000]You prayed. You recovered 80 HP.'})
       end
     elseif prayed == 8 then
       Player.Heal(99)
       if Encounter.GetVar("japanese") == true then
         BattleDialog({'[font:det_jp][color:ff0000]あなたはいのった. \nHPが ぜんかいふくした.'})
       else
-        BattleDialog({'You prayed. Your HP maxed out.'})
+        BattleDialog({'[color:ff0000]You prayed. Your HP maxed out.'})
       end
     elseif prayed >= 9 then
       if Encounter.GetVar("japanese") == true then
-        BattleDialog({'[font:det_jp][color:ff0000][color:ffff00]たくさんだ!　\nもう　じゅうぶんいのっただろ!'},{"あなたはいのろうとした.\nが、すでにいのりはつきていた。"})
+        BattleDialog({'[font:det_jp][color:ff0000][color:ffff00]たくさんだ!　\nもう　じゅうぶんいのっただろ!'},{"[font:det_jp][color:ff0000]あなたはいのろうとした.\nが、すでにいのりはつきていた。"})
       else
-        BattleDialog({"[color:ffff00]That's enough! Prayed too much!","You tried to pray.\nBut no prayers left."})
+        BattleDialog({"[color:ffff00]That's enough! Prayed too much!","[color:ff0000]You tried to pray.\nBut no prayers left."})
       end
     end
     prayed = prayed + 1
-  elseif command == "SAVE" or command == "[font:det_jp][color:ff0000]セーブ" then
+  elseif command == "[COLOR:FF0000]SAVE" or command == "[FONT:DET_JP][COLOR:FF0000]セーブ" then
     Audio.PlaySound('saved')
     if not Misc.DirExists('User') then
       Misc.CreateDir('User')
@@ -417,7 +417,7 @@ function HandleCustomCommand(command)
     else
       BattleDialog({"[color:ffff00]One left.\n[color:ff0000]You filled with DETERMINATION."})
     end
-  elseif command == "RESET" or command == "[font:det_jp][color:ff0000]リセット" then
+  elseif command == "[COLOR:FF0000]RESET" or command == "[FONT:DET_JP][COLOR:FF0000]リセット" then
     if Misc.FileExists('User/savedata') then
       local save = Misc.OpenFile('User/savedata','w')
       save.Delete()
@@ -458,9 +458,9 @@ function KillSpare()
   Encounter.SetVar("nextwaves",{"spare"})
   Encounter.SetVar("deathmusic","none")
   if Encounter.GetVar("japanese") then
-    Encounter.SetVar('deathtext',{'[font:det_jp][color:ff0000][color:ff0000]うそだよ, まだ おそくないなんて...','[font:det_jp][color:ff0000][color:ff0000]...すべて おそすぎたんだ...','[font:det_jp][color:ff0000][color:ff0000]ボクの,かぞくは?','[font:det_jp][color:ff0000][color:ff0000]...そもそも, ここにはいない.','[font:det_jp][color:ff0000][color:ff0000]...このせかいの"ボク"は,\nおきざりにされるんだ...','[font:det_jp][color:ff0000][color:ff0000]....','[font:det_jp][color:ff0000][color:ff0000]いまさらの やさしさなんて...','[font:det_jp][color:ff0000][color:ff0000]...あいぼう...わたしは, ただ...','[font:det_jp][color:ff0000][color:ff0000]ともだちが...\nほしかっただけなのに...','[w:30][color:ff0000]BAD END "[font:det_jp][color:ff0000][color:ff0000]ずるいよ"'})
+    Encounter.SetVar('deathtext',{'[font:det_jp][color:ffffff]うそだよ, まだ おそくないなんて...','[font:det_jp][color:ffffff]...すべて おそすぎたんだ...','[font:det_jp][color:ffffff]ボクの,かぞくは?','[font:det_jp][color:ffffff]...そもそも, ここにはいない.','[font:det_jp][color:ffffff]...このせかいの"ボク"は,\nおきざりにされるんだ...','[font:det_jp][color:ffffff]....','[font:det_jp][color:ffffff]いまさらの やさしさなんて...','[font:det_jp][color:ffffff]...あいぼう...わたしは, ただ...','[font:det_jp][color:ffffff]ともだちが...\nほしかっただけなのに...','[w:30][color:ff0000]BAD END "[font:det_jp][color:ff0000]ずるいよ"'})
   else
-    Encounter.SetVar('deathtext',{'It was lie, that it\'s not too late...','It\'s literary...too late...','How about, my family?','They aren\'t here from the beginning.','"I" in this world, will be left alone...','....','After all this time, kindness is...','...partner...I, I just...','I just want...friends...','[w:30]BAD END "Unfair"'})
+    Encounter.SetVar('deathtext',{'It was lie, that it\'s not too late...','It\'s literary...too late...','How about, my family?','They aren\'t here from the beginning.','"I" in this world, will be left alone...','....','After all this time, kindness is...','...partner...I, I just...','I just want...friends...','[color:ff0000][w:30]BAD END "Unfair"'})
   end
 end
 

@@ -37,15 +37,15 @@ function SetLang()
       local itemlist = {}
       for i=1,items do
         local item = save.ReadLine(4+i)
-        if item == "Lasagna" then
+        if item == "[color:ff0000]Lasagna" then
           item = "[font:det_jp_mini][color:ff0000]ラザニア"
-        elseif item == "Tea" then
+        elseif item == "[color:ff0000]Tea" then
           item = "[font:det_jp_mini][color:ff0000]ちゃば"
-        elseif item == "SnowPiece" then
+        elseif item == "[color:ff0000]SnowPiece" then
           item = "[font:det_jp_mini][color:ff0000]ゆきだるまのかけら"
-        elseif item == "L. Hero" then
+        elseif item == "[color:ff0000]L. Hero" then
           item = "[font:det_jp_mini][color:ff0000]レジェンドヒーロー"
-        elseif item == "Steak" then
+        elseif item == "[color:ff0000]Steak" then
           item = "[font:det_jp_mini][color:ff0000]フェイスステーキ"
         end
         table.insert(itemlist,item)
@@ -63,7 +63,7 @@ function SetLang()
       "[voice:v_sans][waitall:2][font:sans][music:stop][color:ff0000]'cuz i haven't get your soul yet!",
       } --死亡時のテキスト
 
-    Inventory.AddCustomItems({"Lasagna","Tea","SnowPiece","L. Hero","Steak"},{0,0,0,0,0})
+    Inventory.AddCustomItems({"[color:ff0000]Lasagna","[color:ff0000]Tea","[color:ff0000]SnowPiece","[color:ff0000]L. Hero","[color:ff0000]Steak"},{0,0,0,0,0})
 
     if Misc.FileExists('User/savedata') then
       local save = Misc.OpenFile('User/savedata','r')
@@ -73,15 +73,15 @@ function SetLang()
       for i=1,items do
         local item = save.ReadLine(4+i)
         if item == "[font:det_jp_mini][color:ff0000]ラザニア" then
-          item = "Lasagna"
+          item = "[color:ff0000]Lasagna"
         elseif item == "[font:det_jp_mini][color:ff0000]ちゃば" then
-          item = "Tea"
+          item = "[color:ff0000]Tea"
         elseif item == "[font:det_jp_mini][color:ff0000]ゆきだるまのかけら" then
-          item = "SnowPiece"
+          item = "[color:ff0000]SnowPiece"
         elseif item == "[font:det_jp_mini][color:ff0000]レジェンドヒーロー" then
-          item = "L. Hero"
+          item = "[color:ff0000]L. Hero"
         elseif item == "[font:det_jp_mini][color:ff0000]フェイスステーキ" then
-          item = "Steak"
+          item = "[color:ff0000]Steak"
         end
         table.insert(itemlist,item)
       end
@@ -90,7 +90,7 @@ function SetLang()
       extreme = ("true" == save.ReadLine(17))
       Inventory.SetInventory(itemlist)
     else
-      Inventory.SetInventory({"Lasagna","SnowPiece","SnowPiece","SnowPiece","Tea","Steak","L. Hero","L. Hero"})
+      Inventory.SetInventory({"[color:ff0000]Lasagna","[color:ff0000]SnowPiece","[color:ff0000]SnowPiece","[color:ff0000]SnowPiece","[color:ff0000]Tea","[color:ff0000]Steak","[color:ff0000]L. Hero","[color:ff0000]L. Hero"})
     end
   end
 end
@@ -145,14 +145,14 @@ function EncounterStarting()
       if japanese then
         encountertext = "[font:det_jp][color:ff0000]キャラは\rにがしてくれるようだ."
       else
-        encountertext = "Chara is sparing you."
+        encountertext = "[color:ff0000]Chara is sparing you."
       end
     elseif GetGlobal('phase') ==2 then
       Audio.LoadFile("mus_ang")
       if japanese then
         encountertext = "[font:det_jp][color:ff0000]かのじょのめに\rあせりがみえはじめた."
       else
-        encountertext = "There's impatience in her eye."
+        encountertext = "[color:ff0000]There's impatience in her eye."
       end
       InitKarma()
     end
@@ -224,7 +224,7 @@ function DefenseEnding()
       if japanese then
         encountertext = "[font:det_jp][color:ff0000]キャラは\rにがしてくれるようだ."
       else
-        encountertext = "Chara is sparing you."
+        encountertext = "[color:ff0000]Chara is sparing you."
       end
     end
   end
@@ -243,10 +243,10 @@ function HandleItem(id,position)
       if id == '[FONT:DET_JP_MINI][COLOR:FF0000]ラザニア' then
         Player.Heal(99)
         BattleDialog({"[font:det_jp][color:ff0000]パピルスのラザニアをたべた.\nHPがぜんかいふくした."})
-        enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]ラザニア...\nパピルスの\nとくいりょうりだった.","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれにたいして\nなにも\nおもわないのか?"})
+        enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]ラザニア...\nパピルスの\nとくいりょうりだった.","[font:det_jp_mini][color:ffff00][effect:rotate][noskip][voice:v_floweymad]かれにたいして\nなにも\nおもわないのか?"})
       elseif id == '[FONT:DET_JP_MINI][COLOR:FF0000]ちゃば' then
         Player.Heal(90)
-        enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]そのちゃば...\nアズゴアのラボに\nあったものだな?","[font:det_jp_mini][color:ff0000][effect:rotate][noskip][voice:v_floweymad]かれをころした\nそのあとでも,\nおいしく\nかんじるかい?[font:monster][color:ff0000]=)"})
+        enemies[1].SetVar("currentdialogue",{"[font:det_jp_mini]そのちゃば...\nアズゴアのラボに\nあったものだな?","[font:det_jp_mini][color:ffff00][effect:rotate][noskip][voice:v_floweymad]かれをころした\nそのあとでも,\nおいしく\nかんじるかい?[font:monster][color:ff0000]=)"})
         if Player.hp < Player.maxhp then
           BattleDialog({"[font:det_jp][color:ff0000]そのままたべたほうがおいしい. \n90HP かいふくした."})
         else
@@ -279,43 +279,43 @@ function HandleItem(id,position)
     end
   else
     if noob or ez or GetGlobal('phase') >= 2 then
-      if id == 'LASAGNA' then
+      if id == '[COLOR:FF0000]LASAGNA' then
         Player.Heal(99)
-        BattleDialog({"You ate Papyrus's lasagna. \nYour HP maxed out."})
-        enemies[1].SetVar("currentdialogue",{"Lasagna...\nThat was Papyrus's \nSpecialties...","[color:ff0000][effect:rotate][noskip][voice:v_floweymad]You REALLY \nfeel nothing for him, \nhuh?"})
-      elseif id == 'TEA' then
+        BattleDialog({"[color:ff0000]You ate Papyrus's lasagna. \nYour HP maxed out."})
+        enemies[1].SetVar("currentdialogue",{"Lasagna...\nThat was Papyrus's \nSpecialties...","[color:ffff00][effect:rotate][noskip][voice:v_floweymad]You REALLY \nfeel nothing for him, \nhuh?"})
+      elseif id == '[COLOR:FF0000]TEA' then
         Player.Heal(90)
         if Player.hp < Player.maxhp then
-          BattleDialog({"They're better dry. \nYou recovered 90 HP!"})
-          enemies[1].SetVar("currentdialogue",{"That leaves...\nYou stole them from \nAsgore's lab,right?","[color:ff0000][effect:rotate][noskip][voice:v_floweymad]Does it tastes good\nafter you \nkilled him?=)"})
+          BattleDialog({"[color:ff0000]They're better dry. \nYou recovered 90 HP!"})
+          enemies[1].SetVar("currentdialogue",{"That leaves...\nYou stole them from \nAsgore's lab,right?","[color:ffff00][effect:rotate][noskip][voice:v_floweymad]Does it tastes good\nafter you \nkilled him?=)"})
         else
-          BattleDialog({"They're better dry. \nYour HP maxed out."})
+          BattleDialog({"[color:ff0000]They're better dry. \nYour HP maxed out."})
           enemies[1].SetVar("currentdialogue",{"That leaves...\nYou stole them from \nAsgore's lab,right?","[color:ff0000][effect:rotate][noskip][voice:v_floweymad]Does it tastes good\nafter you \nkilled him?=)"})
         end
-      elseif id == 'SNOWPIECE' then
+      elseif id == '[COLOR:FF0000]SNOWPIECE' then
         Player.Heal(45)
         if Player.hp < Player.maxhp then 
-          BattleDialog({"You ate the Snowman Pieces. \nYou recovered 45 HP!"})
+          BattleDialog({"[color:ff0000]You ate the Snowman Pieces. \nYou recovered 45 HP!"})
         else
-          BattleDialog({"You ate the Snowman Pieces. \nYour HP maxed out."})
+          BattleDialog({"[color:ff0000]You ate the Snowman Pieces. \nYour HP maxed out."})
         end
-      elseif id == 'L. HERO' then
+      elseif id == '[COLOR:FF0000]L. HERO' then
         Player.Heal(40)
         if Player.hp < Player.maxhp then 
-          BattleDialog({"You ate the Legendary Hero. \nYour ATTACK increased by 4! \nYou recovered 40 HP!"})
+          BattleDialog({"[color:ff0000]You ate the Legendary Hero. \nYour ATTACK increased by 4! \nYou recovered 40 HP!"})
         else
-          BattleDialog({"You ate the Legendary Hero. \nYour ATTACK increased by 4! \nYour HP maxed out."})
+          BattleDialog({"[color:ff0000]You ate the Legendary Hero. \nYour ATTACK increased by 4! \nYour HP maxed out."})
         end
-      elseif id == "STEAK" then
+      elseif id == "[COLOR:FF0000]STEAK" then
         Player.Heal(60)
         if Player.hp < Player.maxhp then 
-          BattleDialog({"You ate the Face Steak. \nYou recovered 60 HP!"})
+          BattleDialog({"[color:ff0000]You ate the Face Steak. \nYou recovered 60 HP!"})
         else
-          BattleDialog({"You ate the Face Steak. \nYour HP maxed out."})
+          BattleDialog({"[color:ff0000]You ate the Face Steak. \nYour HP maxed out."})
         end
       end
     else
-      BattleDialog({"[color:ff0000]This doesn't deserve to use.\nOur wounds wouldn't be good \rwith underground's food.","You try to use ".. name .. "\rbut you suddenly throw it."})
+      BattleDialog({"[color:ff0000]This doesn't deserve to use.\nOur wounds wouldn't be good \rwith underground's food.","[color:ff0000]You try to use ".. name .. "\r[color:ff0000]but you suddenly throw it."})
     end
   end
 end
