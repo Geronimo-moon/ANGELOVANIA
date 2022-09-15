@@ -93,7 +93,7 @@ function Update()
       Player.MoveTo(0,0)
     end
 
-    if frame % 30 == 9 then
+    if frame % 40 == 9 then
       local bx = SetDefault('attack/shootbox',(-1)^math.random(0,1)*math.random(50,200),(-1)^math.random(0,1)*math.random(50,200))
 
       local x = bx.x
@@ -133,24 +133,24 @@ function Update()
       if index == 1 then
         pos = 'up'
         x = 0
-        y = 200
+        y = 300
       elseif index == 3 then
         pos = 'down'
         x = 0
         y = -200
       elseif index == 4 then
         pos = 'right'
-        x = 200
+        x = 300
         y = 0
       elseif index == 2 then
         pos = 'left'
-        x = -200
+        x = -300
         y = 0
       end
       local spear = SetDefault('attack/mspearb',x,y)
       spear.sprite.rotation = 90*index
       spear.SetVar('pos',pos)
-      spear.SetVar('mv',{x=-x/100,y=-y/100})
+      spear.SetVar('mv',{x=-x/150,y=-y/150})
       table.insert(spears,spear)
     end
 

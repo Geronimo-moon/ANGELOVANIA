@@ -22,13 +22,13 @@ function self.Control(key)
     self.r = 0
   end
   if Input.GetKey('RightArrow') == 2 or key.RightArrow then
-      self.theta = self.theta - math.pi/60
-      Player.sprite.rotation = Player.sprite.rotation - 3
-      Misc.ScreenShader.SetInt("Rotation",Misc.ScreenShader.GetInt("Rotation")+3)
+      self.theta = self.theta - math.pi/30
+      Player.sprite.rotation = Player.sprite.rotation - 6
+      Misc.ScreenShader.SetInt("Rotation",Misc.ScreenShader.GetInt("Rotation")+6)
   elseif Input.GetKey('LeftArrow') == 2 or key.LeftArrow then
-      self.theta = self.theta + math.pi/60
-      Player.sprite.rotation = Player.sprite.rotation + 3
-      Misc.ScreenShader.SetInt("Rotation",Misc.ScreenShader.GetInt("Rotation")-3)
+      self.theta = self.theta + math.pi/30
+      Player.sprite.rotation = Player.sprite.rotation + 6
+      Misc.ScreenShader.SetInt("Rotation",Misc.ScreenShader.GetInt("Rotation")-6)
   end
 
   Player.Move(self.r*math.cos(self.theta)/div,self.r*math.sin(self.theta)/div)

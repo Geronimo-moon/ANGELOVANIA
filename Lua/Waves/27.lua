@@ -25,7 +25,7 @@ function Update()
     Arena.MoveTo(320,170)
   end
 
-  if frame % 11 == 0 and frame <= 349 then
+  if frame % 15 == 0 and frame <= 349 then
     local pos,x,y
     local index = math.random(1,4)
     if index == 1 then
@@ -53,7 +53,7 @@ function Update()
     table.insert(spears,spear)
   end
 
-  if frame % 11 == 0 and frame > 349 then
+  if frame % 15 == 0 and frame > 349 then
     local pos,x,y
     local index = math.random(1,4)
     if index == 1 then
@@ -84,7 +84,7 @@ function Update()
     table.insert(yspears,spear)
   end
 
-  if frame % 12 == 7 and frame <= 349 then
+  if frame % 15 == 7 and frame <= 349 then
     local pos,x,y
     local index = math.random(1,4)
     if index == 1 then
@@ -112,7 +112,7 @@ function Update()
     table.insert(spears,spear)
   end
 
-  if frame % 12 == 7 and frame > 349 then
+  if frame % 15 == 7 and frame > 349 then
     local pos,x,y
     local index = math.random(1,4)
     if index == 1 then

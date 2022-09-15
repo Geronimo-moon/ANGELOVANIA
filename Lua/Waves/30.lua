@@ -185,9 +185,9 @@ function BonesTab(frame)
       table.insert(bonestab.bones,bone)
     end
 
-    for i = 0, 5 do
-      local bullet = SetDefault('attack/fbullet',Player.x+90*math.cos(math.pi/3*i),Player.y+90*math.sin(math.pi/3*i))
-      bullet.SetVar('mv',{-4*math.cos(math.pi/3*i),-4*math.sin(math.pi/3*i)})
+    for i = 0, 4 do
+      local bullet = SetDefault('attack/fbullet',Player.x+90*math.cos(math.pi/5*2*i),Player.y+90*math.sin(math.pi/5*2*i))
+      bullet.SetVar('mv',{-4*math.cos(math.pi/5*2*i),-4*math.sin(math.pi/5*2*i)})
       bullet.sprite.Scale(0.5,0.5)
       bullet.sprite.color = {1,0,0}
       bullet.ppcollision = true
@@ -327,9 +327,9 @@ function Undyne(frame)
   if frame == 0 then
     undyne.alph = SetSprite('monsters/alph',-150,150)
     undyne.dyne = SetSprite('monsters/dyne',150,150)
-    Player.Heal(Player.maxhp/2)
+    Player.Heal(Player.maxhp/3)
   end
-  if frame % 15 == 0 then
+  if frame % 20 == 0 then
     local pos,x,y
     local index = math.random(1,4)
     if index == 1 then
@@ -368,7 +368,7 @@ function Undyne(frame)
     end
   end
 
-  if frame % 30 == 9 then
+  if frame % 40 == 9 then
     local bx = SetDefault('attack/volt',(-1)^math.random(0,1)*math.random(50,200),(-1)^math.random(0,1)*math.random(50,200))
 
     local x = bx.x
@@ -474,7 +474,7 @@ function Blasters(frame)
       scale = 1
       speed = 100
     elseif frame <= 240 then
-      scale = 1.2
+      scale = 0.95
       speed = 68
     elseif frame <= 360 then
       scale = 0.8

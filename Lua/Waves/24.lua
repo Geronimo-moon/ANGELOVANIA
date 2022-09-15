@@ -68,7 +68,7 @@ function Update()
       if frame % 53 == 52 then
         place.x[i] = baseFire[i].x
         place.y[i] = baseFire[i].y
-        place.z = math.random()*math.pi
+        place.z = (frame/180)*math.pi
         Audio.PlaySound('BeginBattle2')
       end
     end
@@ -89,16 +89,16 @@ function Update()
   end
 
   if place.x[1] then
-    for j=0, 23 do
-      local x = place.x[math.floor(j/8)+1]
-      local y = place.y[math.floor(j/8)+1]
-      local theta = place.z + math.pi*2*j/8
+    for j=0, 26 do
+      local x = place.x[math.floor(j/9)+1]
+      local y = place.y[math.floor(j/9)+1]
+      local theta = place.z + math.pi*2*j/9
       local flame = SetDefault('attack/flame',math.cos(theta)+x,math.sin(theta)+y)
       flame.SetVar('theta',theta)
       flame.SetVar('loc',{x,y})
       table.insert(flames,flame)
     end
-    if frame % 53 == 9 then
+    if frame % 53 == 10 then
       place = {x={},y={},z=0}
     end
   end
