@@ -129,7 +129,12 @@ function EncounterStarting()
   InitChara()
   if ez then
     Player.maxhp = 150
-    Player.hp = 150
+    if Misc.FileExists('User/savedata') then
+      local save = Misc.OpenFile('User/savedata','r')
+      Player.hp = tonumber(save.ReadLine(2))
+    else
+      Player.hp = 150
+    end
   elseif extreme then
     Player.maxhp = 1
     Player.hp = 1

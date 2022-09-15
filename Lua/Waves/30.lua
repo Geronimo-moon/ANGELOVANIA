@@ -235,7 +235,6 @@ end
 function LongFall(frame)
   if frame == 1 then
     box.sprite.Scale(Arena.width/box.sprite.width, Arena.height/box.sprite.height)
-    Player.Heal(30)
   elseif frame < 30 then
     box.MoveTo(0,0)
   elseif frame >= 30 and frame <= 600 then
@@ -328,6 +327,7 @@ function Undyne(frame)
   if frame == 0 then
     undyne.alph = SetSprite('monsters/alph',-150,150)
     undyne.dyne = SetSprite('monsters/dyne',150,150)
+    Player.Heal(Player.maxhp/2)
   end
   if frame % 15 == 0 then
     local pos,x,y
@@ -464,7 +464,7 @@ function Blasters(frame)
   if frame == 0 then
     last.theta = math.random(0,359)*math.pi/180
     last.asri = SetSprite('monsters/asri',200,150)
-    Player.Heal(Player.maxhp/2)
+    Player.Heal(Player.maxhp*2/3)
   end
 
   if frame <= 660 then
@@ -480,7 +480,7 @@ function Blasters(frame)
       scale = 0.8
       speed = 52
     else
-      scale = 0.45
+      scale = 0.4
       speed = 30
     end
 
@@ -639,5 +639,6 @@ function OnHit(bullet)
     local list = KillForce(frame)
     screen999 = list[1]
     deathtime = list[2]
+    screen999.MoveToAbs(Misc.WindowWidth/2,Misc.WindowHeight/2+80)
   end
 end

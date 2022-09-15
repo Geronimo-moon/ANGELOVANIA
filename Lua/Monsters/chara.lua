@@ -66,7 +66,7 @@ function SetLang()
       c27 = {'[font:det_jp_mini]でも,すでにボクは\nたいりょうのLOVEを\nもっていた.','[font:det_jp_mini]かのじょもつよかった\nけど,それでも\nふじゅうぶんだった.','[font:det_jp_mini]まあ,あつめたLOVE\nっていみではきみの\nほうがおおいだろ?','[font:det_jp_mini]つまりだ,\nボクもほんきを\nみせないとな...'},
       c28 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]...','[font:det_jp_mini][func:CharaHead,chara/doubthead]まだ,いきてるのか?','[func:CharaHead,chara/downhead]LOVE[font:det_jp_mini]をよびもどし,\nケツイとあわせて\nころしたみんなの\nちからをもつかって...','...','[font:det_jp_mini][func:CharaHead,chara/serioushead]これいじょうやるなら,\nこころのそこから\nこうかいする\nことになる.'},
       c29 = {'[font:det_jp_mini]ブーギー...いや,\nナプスタもちゅうこく\nしていたはずだろう?','[font:det_jp_mini]こうきしんがすぎる.\nいいかげんきみは\n"やめどき"をしるべきだ.','[font:det_jp_mini][func:CharaHead,chara/serioushead]王はきがながい\nほうじゃない.\nいそがないと\nておくれになる.','[font:det_jp_mini]リセットしろ.\nじゃなきゃ\n[color:ffff00]スペシャルこうげき[color:000000]で\nけしとばすぞ?'},
-      c30 = {'[font:det_jp_mini][func:CharaHead,chara/downhead][func:Stop]はぁ,そうかよ.\nそんなにしにたいなら...','[font:det_jp][color:ff0000][func:CharaHead,chara/truemadhead][color:ffff00]\nし ね[w:20][func:Phase2LastTurn][finished]'},
+      c30 = {'[font:det_jp_mini][func:CharaHead,chara/downhead][func:Stop]はぁ,そうかよ.\nそんなにしにたいなら...','[font:det_jp][color:ffff00][func:CharaHead,chara/truemadhead][color:ffff00]\nし ね[w:20][func:Phase2LastTurn][finished]'},
     }
   else
     messages = {

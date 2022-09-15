@@ -31,17 +31,19 @@ function Update()
     bknife.SetVar('spawn',frame)
     bknife.SetVar('theta',math.pi*bindex/180)
     bknife.sprite.rotation = bindex
+    bknife.sprite.Scale(1,0.8)
     table.insert(bknives,bknife)
 
     local oknife = SetNotime('oknifel',Arena.width*3/4*math.cos(math.pi*oindex/180),Arena.width*3/4*math.sin(math.pi*oindex/180),"","orange")
     oknife.SetVar('spawn',frame)
     oknife.SetVar('theta',math.pi*oindex/180)
     oknife.sprite.rotation = oindex
+    oknife.sprite.Scale(1,0.9)
     table.insert(oknives,oknife)
 
-    start = start - switch*8.1
-    bindex = bindex - 8.1
-    oindex = oindex + 10
+    start = start - switch*8
+    bindex = bindex - 8
+    oindex = oindex + 12
   end
 
   for i=1,#knives do
