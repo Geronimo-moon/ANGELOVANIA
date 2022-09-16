@@ -1,66 +1,96 @@
 require 'Libraries/bulletType'
 
-Arena.Resize(170,150)
+Arena.Resize(230,230)
 
 local frame = 0
 
 local knives = {}
-local uknives = {}
-local dknives = {}
+local bknives = {}
+local oknives = {}
+
+local start = math.random(1,360)
+local bindex = start + 90
+local oindex = math.random(1,360)
 
 SetPPCollision(true)
 
-local box = SetSprite("empty", 0,0,"BelowBullet")
-box.sprite.Mask("box")
-box.sprite.Scale(Arena.width/box.sprite.width, Arena.height/box.sprite.height)
+local switch = -1
 
 function Update()
   frame = frame + 1
-  box.MoveTo(0,0)
 
-  if frame % 2 == 0 and frame <= 600 then
-    local uknife = SetNotime('knifed',Arena.width/2,Arena.height/2.2-22*math.sin(frame/10))
-    local dknife = SetNotime('knifeu',Arena.width/2,-Arena.height/2.2-22*math.sin(frame/10))
-    uknife.sprite.Scale(1,1.6)
-    dknife.sprite.Scale(1,1.6)
-    uknife.sprite.SetParent(box.sprite)
-    dknife.sprite.SetParent(box.sprite)
-    uknife.SetVar('spawn',frame)
-    dknife.SetVar('spawn',frame)
-    table.insert(knives,uknife)
-    table.insert(knives,dknife)
+  if frame % 3 == 0 then
+    Audio.PlaySound('fly')
+    local knife = SetBeam('rknifel',Arena.width*3/4*math.cos(math.pi*start/180),Arena.width*3/4*math.sin(math.pi*start/180))
+    knife.SetVar('spawn',frame)
+    knife.SetVar('theta',math.pi*start/180)
+    knife.sprite.rotation = start
+    knife.sprite.Scale(1,2)
+    table.insert(knives,knife)
+
+    local bknife = SetNotime('bknifel',Arena.width*3/4*math.cos(math.pi*bindex/180),Arena.width*3/4*math.sin(math.pi*bindex/180),"","blue")
+    bknife.SetVar('spawn',frame)
+    bknife.SetVar('theta',math.pi*bindex/180)
+    bknife.sprite.rotation = bindex
+    bknife.sprite.Scale(1,0.9)
+    table.insert(bknives,bknife)
+
+    local oknife = SetNotime('oknifel',Arena.width*3/4*math.cos(math.pi*oindex/180),Arena.width*3/4*math.sin(math.pi*oindex/180),"","orange")
+    oknife.SetVar('spawn',frame)
+    oknife.SetVar('theta',math.pi*oindex/180)
+    oknife.sprite.rotation = oindex
+    oknife.sprite.Scale(1,0.9)
+    table.insert(oknives,oknife)
+
+    start = start - switch*5
+    bindex = bindex - 5
+    oindex = oindex - 12
   end
 
-
-  for i = 1, #knives do
+  for i=1,#knives do
     if knives[i].isactive then
-      local spawn = knives[i].GetVar('spawn')
-      knives[i].Move(0.05*(frame-spawn-80),0)
-      if knives[i].x >= 200 then
+      local theta = knives[i].GetVar('theta')
+      if knives[i].GetVar('spawn') + 30 >= frame then
+        knives[i].MoveTo((Arena.width*3/4+30*math.sin(((frame-knives[i].GetVar('spawn'))*math.pi/30)))*math.cos(theta),(Arena.width*3/4+30*math.sin(((frame-knives[i].GetVar('spawn'))*math.pi/30)))*math.sin(theta))
+      else
+        knives[i].Move(-10*math.cos(theta),-10*math.sin(theta))
+      end
+
+      if knives[i].absx <= 0 or knives[i].absy <= 0 or knives[i].absx >= 640 or knives[i].absy >= 480 then
         knives[i].Remove()
       end
     end
   end
 
+  for i=1,#bknives do
+    if bknives[i].isactive then
+      local theta = bknives[i].GetVar('theta')
+      if bknives[i].GetVar('spawn') + 30 >= frame then
+        bknives[i].MoveTo((Arena.width*3/4+30*math.sin(((frame-bknives[i].GetVar('spawn'))*math.pi/30)))*math.cos(theta),(Arena.width*3/4+30*math.sin(((frame-bknives[i].GetVar('spawn'))*math.pi/30)))*math.sin(theta))
+      else
+        bknives[i].Move(-10*math.cos(theta),-10*math.sin(theta))
+      end
+      if bknives[i].absx <= 0 or bknives[i].absy <= 0 or bknives[i].absx >= 640 or bknives[i].absy >= 480 then
+        bknives[i].Remove()
+      end
+    end
+  end
+
+  for i=1,#oknives do
+    if oknives[i].isactive then
+      local theta = oknives[i].GetVar('theta')
+      if oknives[i].GetVar('spawn') + 30 >= frame then
+        oknives[i].MoveTo((Arena.width*3/4+30*math.sin(((frame-oknives[i].GetVar('spawn'))*math.pi/30)))*math.cos(theta),(Arena.width*3/4+30*math.sin(((frame-oknives[i].GetVar('spawn'))*math.pi/30)))*math.sin(theta))
+      else
+        oknives[i].Move(-10*math.cos(theta),-10*math.sin(theta))
+      end
+      if oknives[i].absx <= 0 or oknives[i].absy <= 0 or oknives[i].absx >= 640 or oknives[i].absy >= 480 then
+        oknives[i].Remove()
+      end
+    end
+  end
+
   if frame == 700 then
-    for i = 0, 4 do
-      local uknife = SetBeam('rknifed',-85+40*i,300)
-      table.insert(uknives,uknife)
-    end
-    for i = 0, 3 do
-      local dknife = SetBeam('rknifeu',-85+40*i+20,-300)
-      table.insert(dknives,dknife)
-    end
-  end
-
-  for i = 1, #uknives do
-    uknives[i].Move(0,-4)
-  end
-  for i = 1, #dknives do
-    dknives[i].Move(0,4)
-  end
-
-  if frame == 800 then
     EndWave()
   end
 end

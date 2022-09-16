@@ -17,28 +17,28 @@ function Update()
   tori.update(frame)
   frame = frame + 1
 
-  if frame % 5 == 0 then
+  if frame % 8 == 0 then
     for i=0,indexFlame-1 do
       local flame = SetDefault("attack/flame",-Arena.width/2+8+15*i,Arena.height/2+8)
       table.insert(flames,flame)
     end
 
-    for i=0,9-indexFlame do
+    for i=0,10-indexFlame do
       local flame = SetDefault("attack/flame",Arena.width/2-8-15*i,Arena.height/2+8)
       table.insert(flames,flame)
     end
 
     if increment == 0 then
-      if indexFlame == 8 then
+      if indexFlame == 9 then
         increment = -1
-      elseif indexFlame == 3 then
+      elseif indexFlame == 2 then
         increment = 1
       end
     end
 
-    if indexFlame == 8 and increment == 1 then
+    if indexFlame == 9 and increment == 1 then
       increment = 0
-    elseif indexFlame == 3 and increment == - 1 then
+    elseif indexFlame == 2 and increment == - 1 then
       increment = 0
     end
     indexFlame = indexFlame + increment
@@ -46,19 +46,19 @@ function Update()
 
   for i=1,#flames do
     if flames[i].isactive then
-      flames[i].Move(0,-3)
+      flames[i].Move(0,-6)
       if flames[i].y <= -Arena.height/2 then
         flames[i].Remove()
       end
     end
   end
 
-  if frame >= 100 and frame % 50 == 0 then
+  if frame >= 60 and frame % 20 == 0 then
     Audio.PlaySound('fly')
-    local knifel = SetNotime("knifel",320,Player.y)
+    local knifel = SetBeam("rknifel",320,Player.y)
     knifel.SetVar("dir",-1)
     knifel.SetVar('spawn',frame)
-    local knifer = SetNotime("knifer",-320,Player.y)
+    local knifer = SetBeam("rknifer",-320,Player.y)
     knifer.SetVar("dir",1)
     knifer.SetVar('spawn',frame)
     table.insert(knives,knifel)
