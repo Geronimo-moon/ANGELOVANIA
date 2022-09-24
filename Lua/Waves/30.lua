@@ -470,15 +470,15 @@ function Blasters(frame)
   if frame <= 660 then
     local scale,speed
 
-    if frame <= 120 then
-      scale = 0.4
-      speed = 35
-    elseif frame <= 300 then
-      scale = 1
+    if frame <= 160 then
+      scale = 0.3
+      speed = 30
+    elseif frame <= 400 then
+      scale = 0.9
       speed = 90
     else
-      scale = 0.55
-      speed = -65
+      scale = 0.5
+      speed = -70
     end
 
     local chaos = SetBlaster('chaos',220*math.cos(last.theta),220*math.sin(last.theta))
@@ -486,7 +486,7 @@ function Blasters(frame)
     chaos.sprite.rotation = last.theta/math.pi*180+180
     chaos.sprite.Scale(1,scale)
     table.insert(last.chaos,chaos)
-    if frame >= 150 then
+    if frame >= 200 then
       local chaos2 = SetBlaster('chaos',220*math.cos(last.theta+math.pi/2),220*math.sin(last.theta+math.pi/2))
       chaos2.SetVar('theta',last.theta+math.pi/2)
       chaos2.sprite.rotation = last.theta/math.pi*180+270

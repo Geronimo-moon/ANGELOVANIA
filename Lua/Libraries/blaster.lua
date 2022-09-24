@@ -67,6 +67,8 @@ function UpdateBlaster(blaster,frame,time)
         if blaster.sprite.alpha == 0 then
           blaster.Remove()
           blaster.GetVar('beam').Remove()
+        elseif blaster.sprite.alpha == 0.2 then
+          blaster.GetVar('beam').SetVar('type','sprite')
         end
       end
     end
@@ -110,6 +112,8 @@ function UpdateBlaster(blaster,frame,time)
           blaster.Remove()
           blaster.GetVar('beam').Remove()
           blaster.GetVar('center').Remove()
+        elseif blaster.sprite.alpha == 0.2 then
+          blaster.GetVar('beam').SetVar('type','sprite')
         end
       end
     end
