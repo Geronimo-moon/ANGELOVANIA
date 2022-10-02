@@ -541,6 +541,7 @@ function SlashRush(frame)
       if spawn + 30 - frame == 0 then
         local slash = SetDieForce('slash/slashb',warns[i].x,warns[i].y)
         slash.sprite.rotation = warns[i].sprite.rotation
+        slash.sprite.Scale(1,0.8)
         slash.ppcollision = true
         table.insert(slashs,slash)
         warns[i].Remove()
