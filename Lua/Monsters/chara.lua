@@ -67,6 +67,7 @@ function SetLang()
       c28 = {'[font:det_jp_mini][func:CharaHead,chara/closedhead]...','[font:det_jp_mini][func:CharaHead,chara/doubthead]まだ,いきてるのか?','[func:CharaHead,chara/downhead]LOVE[font:det_jp_mini]をよびもどし,\nケツイとあわせて\nころしたみんなの\nちからをもつかって...','...','[font:det_jp_mini][func:CharaHead,chara/serioushead]これいじょうやるなら,\nこころのそこから\nこうかいする\nことになる.'},
       c29 = {'[font:det_jp_mini]ブーギー...いや,\nナプスタもちゅうこく\nしていたはずだろう?','[font:det_jp_mini]こうきしんがすぎる.\nいいかげんきみは\n"やめどき"をしるべきだ.','[font:det_jp_mini][func:CharaHead,chara/serioushead]王はきがながい\nほうじゃない.\nいそがないと\nておくれになる.','[font:det_jp_mini]リセットしろ.\nじゃなきゃ\n[color:ffff00]スペシャルこうげき[color:000000]で\nけしとばすぞ?'},
       c30 = {'[font:det_jp_mini][func:CharaHead,chara/downhead][func:Stop]はぁ,そうかよ.\nそんなにしにたいなら...','[font:det_jp][color:ffff00][func:CharaHead,chara/truemadhead][color:ffff00]\nし ね[w:20][func:Phase2LastTurn][finished]'},
+      c31 = {'[func:Stop]...','You...','[font:det_jp_mini]くらった、だと?','ダメだ...\nそんなわけには...','[noskip]かれがくるまでに\nおわらせないと[next]'},
     }
   else
     messages = {
@@ -127,6 +128,7 @@ function SetLang()
       c28 = {'[func:CharaHead,chara/closedhead]...','[func:CharaHead,chara/doubthead]You, still alive?','[func:CharaHead,chara/downhead]Calling LOVE back,\nand with that power\nI used the skill\nwhose I killed...','...','[func:CharaHead,chara/serioushead]if you keep pushing\nme, you are REALLY \nnot going to like \nwhat happens next.'},
       c29 = {'Boogie...no,\nNapsta warned\nyou, didn\'t he?','Curiosity killed \nthe cat. You should \nknow when it\'s time \nto QUIT.','[func:CharaHead,chara/serioushead]The king is not\na tolerant man.\nDo something, \nor it\'ll be too late.','Just RESET.\nOr...I\'ll use\nmy [color:ffff00]special attack.[color:ff0000]'},
       c30 = {'[func:CharaHead,chara/downhead][func:Stop]Huh, I see. \nIf you wanna \ndie so badly...','[font:uidialog][func:CharaHead,chara/truemadhead][color:ffff00]\nD I E[w:20][func:Phase2LastTurn][finished]'},
+      c31 = {'[func:Stop]...','You...','You, hit me?','No...\nthat can\'t be...','[noskip]I gotta kill you\nbefore he got mad[next]'},
     }
   end
   comments = messages.comments --コメントのリスト
@@ -149,6 +151,7 @@ xp = 49999
 gold = 0
 
 turn = 0 --攻撃された回数でターンを管理
+-- turn = 30 --攻撃された回数でターンを管理
 prayed = 0 --回復回数の計測
 missed = 0
 
@@ -166,7 +169,7 @@ randomdialogue = {"[next]"}
 
 if not Misc.FileExists('User/savedata') then
   currentdialogue = messages.currentdialogue
-  -- currentdialogue = messages.c30
+  -- currentdialogue = messages.c31
 end
 
 function HandleAttack(damage)
@@ -293,7 +296,10 @@ function HandleAttack(damage)
       Encounter.SetVar("nextwaves",{"30"})
       currentdialogue = messages.c30
     elseif turn == 31 then
-      Encounter.SetVar("nextwaves",{"demo"})
+      CharaHead('chara/surprisedhead')
+      CharaBody('chara/woundbody')
+      currentdialogue = messages.c31
+      Encounter.SetVar("nextwaves",{"P3/anime"})
     end
   end
 end
@@ -304,7 +310,6 @@ function BeforeDamageCalculation()
     Dodging()
     SetDamage(0)
   else
-    CharaHead('chara/surprisedhead')
     SetDamage(999)
   end
 end
