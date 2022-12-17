@@ -1,8 +1,8 @@
 require 'Libraries/hsvToRgb'
 
-local mode1 = CreateSprite('null','Top')
-local mode2 = CreateSprite('null','Top')
-local mode3 = CreateSprite('null','Top')
+local mode1 = CreateSprite('null','BelowBullet')
+local mode2 = CreateSprite('null','BelowBullet')
+local mode3 = CreateSprite('null','BelowBullet')
 
 mode1.SetPivot(0,0)
 mode1.Scale(0.8,0.8)

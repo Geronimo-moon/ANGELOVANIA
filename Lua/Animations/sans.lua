@@ -1,10 +1,10 @@
 require 'Libraries/bulletType'
 
 function InitSans()
-  local scythe = SetDefault('sans/scythe',0,0,'Top')
-  local head = CreateSprite('sans/head','Top')
-  local body = CreateSprite('sans/body','Top')
-  local leg = CreateSprite('sans/leg','Top')
+  local scythe = SetDefault('sans/scythe',0,0,"BelowArena")
+  local head = CreateSprite('sans/head')
+  local body = CreateSprite('sans/body')
+  local leg = CreateSprite('sans/leg')
 
   head.SetParent(leg)
   body.SetParent(leg)
@@ -30,6 +30,7 @@ function InitSans()
   leg.y = 240
 
   scythe.MoveToAbs(body.absx,body.absy-50)
+  scythe.ppcollision = true
 
   SetGlobal('sanshead',head)
   SetGlobal('sansbody',body)
@@ -37,11 +38,21 @@ function InitSans()
   SetGlobal('scythe',scythe)
 end
 
+function SansHead(text)
+  local head = GetGlobal('sanshead')
+  head.Set(text)
+end
+
+function SansBody(text)
+  local body = GetGlobal('sansbody')
+  body.Set(text)
+end
+
 function SansAnime()
   local head = GetGlobal('sanshead')
   local body = GetGlobal('sansbody')
   local leg = GetGlobal('sansleg')
 
-  leg.yscale = 1.7 + 0.005*math.sin(math.pi*Time.time)
+  leg.yscale = 1.7 + 0.005*math.sin(math.pi*Time.time*math.sqrt(7))
   head.y = 63 + math.sin(math.pi*Time.time)
 end

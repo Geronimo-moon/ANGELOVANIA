@@ -1,4 +1,5 @@
 require 'Animations/chara'
+require 'Animations/sans'
 require 'Animations/mode'
 music = "mus_menu"
 
@@ -14,6 +15,24 @@ debugging = false
 noob = false
 ez = false
 extreme = false
+nextwaves = {"title"} --次の攻撃（カスタムも可）
+krInited = false
+
+wavetimer = math.huge --攻撃時間
+arenasize = {155, 130} --攻撃枠のサイズ
+
+enemies = { "chara" } --敵のファイル名
+enemypositions = { --画面上の敵の位置(x,y)
+  {-20, 10},
+}
+
+flee = false --Freeオプションを表示しない
+
+--Playerのステータス
+Player.lv = 19
+Player.name = 'Shifty'
+Player.maxhp = 92
+Player.hp = Player.maxhp
 
 function SetLang()
   if japanese then
@@ -94,24 +113,6 @@ function SetLang()
     end
   end
 end
-
-nextwaves = {"title"} --次の攻撃（カスタムも可）
-wavetimer = math.huge --攻撃時間
-arenasize = {155, 130} --攻撃枠のサイズ
-
-enemies = { "chara" } --敵のファイル名
-enemypositions = { --画面上の敵の位置(x,y)
-  {-20, 10},
-}
-
-flee = false --Freeオプションを表示しない
-krInited = false
-
---Playerのステータス
-Player.lv = 19
-Player.name = 'Shifty'
-Player.maxhp = 92
-Player.hp = Player.maxhp
 
 SetLang()
 
@@ -206,6 +207,10 @@ function Update()
   ModeAnime()
   if Karma ~= nil then
     Karma.Update()
+  end
+
+  if GetGlobal('sanshead') ~= nil then
+    SansAnime()
   end
 
   if GetGlobal("currentPlayer").x ~= Player.x or GetGlobal("currentPlayer").y ~= Player.y then
