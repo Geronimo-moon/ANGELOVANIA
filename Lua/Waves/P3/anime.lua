@@ -133,7 +133,7 @@ function Update()
     sansBubble.Remove()
     charaBubble.Remove()
     State("DIALOGRESULT")
-    BattleDialog("[color:ff0000]But you can't anything...")
+    BattleDialog("[color:ff0000]But you can't do anything...")
   end
 
   if not sansText.isactive then
