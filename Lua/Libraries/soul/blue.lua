@@ -8,6 +8,8 @@ function self.Init() -- 起動処理
   self.dir = "down" -- 重力の方向(up,down,right,left,ur,ul,dr,dl)
   self.gravity = 0.12 -- 重力加速度
   self.velocity = 0 -- 初速
+  self.airJump = false -- 空中ジャンプフラグ
+  self.timer = 0 -- 空中ジャンプのクールタイム
 end
 
 function self.SetDir(dir,immediate) -- 重力方向の選択(up,down,right,left,ur,ul,dr,dl)

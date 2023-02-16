@@ -91,13 +91,13 @@ function Update()
     sansText.NextLine()
     scythe.sprite.layer = "Top"
     Misc.ScreenShader.Set('cyfshaders','Invert')
-  elseif frame > 1350 and frame <= 1470 then
+  elseif frame > 1350 and frame <= 1469 then
     scythe.sprite.Scale(2*(frame/1350)^13,2*(frame/1350)^13)
     scythe.sprite.rotation = scythe.sprite.rotation + (frame/1350)
     scythe.Move(-0.5,-1)
   elseif frame > 1470 and frame <= 1479 then
     scythe.sprite.rotation = scythe.sprite.rotation - 30
-  elseif frame == 1480 then
+  elseif frame == 1470 then
     Misc.ScreenShader.Revert()
     scythe.sprite.layer = "BelowArena"
     scythe.sprite.Scale(2,2)
@@ -118,9 +118,9 @@ function Update()
     cut = CreateSprite("slash/slashb","Top")
     cut.MoveTo(0,45)
     cut.Scale(1,1.5)
-  elseif frame > 1480 and frame <= 1500 then
+  elseif frame > 1470 and frame <= 1490 then
     cut.alpha = cut.alpha - 0.05
-  elseif frame == 1540 then
+  elseif frame == 1530 then
     px.sprite.alpha = 0
     cut.Remove()
     sansText.NextLine()
@@ -129,6 +129,7 @@ function Update()
   elseif frame == 1730 then
     sansText.NextLine()
     Audio.Unpause()
+    Encounter.SetVar("nextwaves",{"P3/1"})
     EndWave()
     sansBubble.Remove()
     charaBubble.Remove()

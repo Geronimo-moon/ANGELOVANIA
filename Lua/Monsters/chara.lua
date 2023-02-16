@@ -257,6 +257,7 @@ function HandleAttack(damage)
       currentdialogue = messages.c20
     elseif turn == 21 then
       Encounter.SetVar("nextwaves",{"21"})
+      Audio.Pause()
       currentdialogue = messages.c21
       SetGlobal('charaSpare',true)
       SetGlobal('phase',1.5)
