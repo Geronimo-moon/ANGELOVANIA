@@ -69,35 +69,85 @@ function self.Control(key)
       self.gravity = 0.12
     end
   end
-
+  if self.timer ~= 0 then
+    self.timer = self.timer - 1
+  end
   return true
 end
 
 function self.calVertical(key)
-  if not self.isAir then
+  if not self.isAir or (self.airJump) then
     if self.dir == "up" then
-      if (Input.GetKey('DownArrow') > 0 or key.active) then
+      if (((not self.airJump and Input.GetKey('DownArrow') > 0)
+        or (self.airJump and Input.GetKey('DownArrow') == 1)
+        or key.active)
+        and self.timer == 0
+      )then
         self.velocity = 4.4
+        if self.airJump then
+          self.velocity = 1.3
+          self.timer = 10
+        end
       else
-        self.velocity = 0
+        if self.airJump then
+          self.velocity = self.velocity - (self.gravity/10)
+        else
+          self.velocity = 0
+        end
       end
     elseif self.dir == "down" then
-      if (Input.GetKey('UpArrow') > 0 or key.active) then
+      if (((not self.airJump and Input.GetKey('UpArrow') > 0)
+        or (self.airJump and Input.GetKey('UpArrow') == 1)
+        or key.active)
+        and self.timer == 0
+      )then
         self.velocity = 4.4
+        if self.airJump then
+          self.velocity = 1.3
+          self.timer = 10
+        end
       else
-        self.velocity = 0
+        if self.airJump then
+          self.velocity = self.velocity - (self.gravity/10)
+        else
+          self.velocity = 0
+        end
       end
     elseif self.dir == "right" then
-      if (Input.GetKey('LeftArrow') > 0 or key.active) then
+      if (((not self.airJump and Input.GetKey('LeftArrow') > 0)
+        or (self.airJump and Input.GetKey('LeftArrow') == 1)
+        or key.active)
+        and self.timer == 0
+      )then
         self.velocity = 4.4
+        if self.airJump then
+          self.velocity = 1.3
+          self.timer = 10
+        end
       else
-        self.velocity = 0
+        if self.airJump then
+          self.velocity = self.velocity - (self.gravity/10)
+        else
+          self.velocity = 0
+        end
       end
     elseif self.dir == "left" then
-      if (Input.GetKey('RightArrow') > 0 or key.active) then
+      if (((not self.airJump and Input.GetKey('RightArrow') > 0)
+        or (self.airJump and Input.GetKey('RightArrow') == 1)
+        or key.active)
+        and self.timer == 0
+      )then
         self.velocity = 4.4
+        if self.airJump then
+          self.velocity = 1.3
+          self.timer = 10
+        end
       else
-        self.velocity = 0
+        if self.airJump then
+          self.velocity = self.velocity - (self.gravity/10)
+        else
+          self.velocity = 0
+        end
       end
     end
   else
