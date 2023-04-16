@@ -19,6 +19,16 @@ local texts = {
   sans3 = {"[func:sansHead,sans/madhead][func:CharaHead,chara/surprisedhead][font:monster][novoice]SHUT UP.","[func:sansHead,sans/closedhead][func:CharaHead,chara/downhead][font:sans][voice:v_sans]i waited for long time.\nit was stupid to expect ya...","i should've kill 'em\nwhen entered my kingdom.","[font:monster][novoice][func:sansHead,sans/madhead][noskip]LIKE THIS.","heh, now you can do nothing.","welp, let's begin."}
 }
 
+if japanese then
+  texts = {
+    sans1 = {"[font:det_jp][color:ff0000]じかんぎれだ."},
+    chara1 = {'[font:det_jp_mini]サンズ...\nなぜここに...?'},
+    sans2 = {"[font:det_jp_mini]なぜ? もちろんオマエが\nしくじったからさ.","[font:det_jp_mini]じゅうぶんじかんは\nあたえた. そのけっかが\nこれだ.","[font:det_jp_mini]なぜヤツはいきている?"},
+    chara2 = {"[font:det_jp_mini][func:CharaHead,chara/damnhead]で,でもボクはまだ\nたたかえる!\nけがはしているけど...","アイツをころせる..."},
+    sans3 = {"[func:sansHead,sans/madhead][func:CharaHead,chara/surprisedhead][novoice][font:det_jp][color:000000]だまれ.","[font:det_jp_mini][func:sansHead,sans/closedhead][func:CharaHead,chara/downhead][voice:v_sans]すでにかなりまった.オマエにきたいしたのはまちがいだった...","[font:det_jp_mini]わがおうこくにきた\nときに,このてで\nころしておくべきだった.","[font:det_jp][novoice][func:sansHead,sans/madhead][color:000000][noskip]このように.","[font:det_jp_mini]さて,\nオマエはもうなにも\nできない.","[font:det_jp_mini]はじめよう."}
+  }
+end
+
 local firstText = CreateText(texts.sans1,{Misc.WindowWidth/3,Misc.WindowHeight/2},2000,"Top")
 firstText.SetFont('uidialog')
 firstText.HideBubble()
@@ -129,12 +139,17 @@ function Update()
   elseif frame == 1730 then
     sansText.NextLine()
     Audio.Unpause()
-    Encounter.SetVar("nextwaves",{"P3/1"})
+    Encounter.SetVar("nextwaves",{"demo"})
+    Encounter.GetVar("enemies")[1].SetVar("currentdialogue",{"[next]"})
     EndWave()
     sansBubble.Remove()
     charaBubble.Remove()
     State("DIALOGRESULT")
-    BattleDialog("[color:ff0000]But you can't do anything...")
+    if not japanese then
+      BattleDialog("[color:ff0000]But you can't do anything...")
+    else
+      BattleDialog("[font:det_jp][color:ff0000]しかし なにもできない...")
+    end
   end
 
   if not sansText.isactive then
